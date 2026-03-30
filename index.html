@@ -28,12 +28,10 @@
             display: flex; justify-content: space-between; align-items: center;
             z-index: 1000; transition: all 0.4s ease; background: transparent; color: var(--white); 
         }
-
         header.scrolled {
             background: rgba(26, 32, 38, 0.95); backdrop-filter: blur(10px);
             padding: 15px 50px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
-
         .logo img { max-height: 40px; width: auto; transition: transform 0.3s; }
         .logo:hover img { transform: scale(1.05); }
 
@@ -61,13 +59,11 @@
             background: linear-gradient(rgba(26, 32, 38, 0.7), rgba(26, 32, 38, 0.8)), url('https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=2000&auto=format&fit=crop') center/cover;
             color: var(--white); position: relative; align-items: center; justify-content: center; flex-direction: column; text-align: center; padding: 0 20px;
         }
-        
         .hero-intro { max-width: 700px; margin-bottom: 40px; }
         .hero-intro h1 { font-size: 3rem; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 2px; }
         .hero-intro p { font-size: 1.2rem; font-weight: 300; opacity: 0.9; }
 
         .split-container { display: flex; gap: 30px; z-index: 10; flex-wrap: wrap; justify-content: center; }
-        
         .portal-btn {
             background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.4);
             padding: 20px 50px; border-radius: 50px; text-align: center; cursor: pointer; transition: all 0.3s ease; 
@@ -82,9 +78,8 @@
         .section-title { text-align: center; font-size: 2.5rem; color: var(--primary-dark); margin-bottom: 50px; font-weight: 700; }
         .section-title span { color: var(--accent-teal); }
 
-        /* --- ABOUT US (Redesigned) --- */
+        /* --- ABOUT US --- */
         .about-mission { text-align: center; max-width: 900px; margin: 0 auto 50px auto; font-size: 1.25rem; color: var(--text-dark); font-weight: 500; }
-        
         .about-features { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
         .feature-box { text-align: center; background: var(--white); padding: 40px 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); transition: transform 0.3s; }
         .feature-box:hover { transform: translateY(-10px); }
@@ -92,31 +87,31 @@
         .feature-box h4 { font-size: 1.3rem; color: var(--primary-dark); margin-bottom: 15px; }
         .feature-box p { color: var(--text-muted); font-size: 0.95rem; }
 
-        /* --- SERVICES (Redesigned with Icons) --- */
+        /* --- SERVICES (Briefs) --- */
         .services-bg { background-color: #E9F0F2; }
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         .service-card {
             background: var(--white); padding: 40px 30px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            transition: all 0.3s ease; border-top: 4px solid transparent; text-align: center;
+            transition: all 0.3s ease; border-top: 4px solid transparent; text-align: center; display: flex; flex-direction: column;
         }
         .service-card:hover { transform: translateY(-8px); border-top: 4px solid var(--accent-teal); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
         .service-card i { font-size: 2.5rem; color: var(--primary-dark); margin-bottom: 20px; transition: color 0.3s; }
         .service-card:hover i { color: var(--accent-teal); }
         .service-card h3 { color: var(--primary-dark); margin-bottom: 15px; font-size: 1.4rem; }
-        .service-card p { font-size: 0.95rem; color: var(--text-muted); }
-
-        /* --- CONTACTS SECTION --- */
-        .contact-wrapper { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 50px; background: var(--white); padding: 50px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); }
+        .service-card p { font-size: 0.95rem; color: var(--text-muted); flex-grow: 1; margin-bottom: 20px; }
         
+        .learn-more { display: inline-block; font-weight: bold; color: var(--accent-teal); font-size: 0.9rem; text-transform: uppercase; transition: transform 0.3s; margin-top: auto; }
+        .learn-more:hover { transform: translateX(5px); color: var(--primary-dark); }
+
+        /* --- CONTACTS --- */
+        .contact-wrapper { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 50px; background: var(--white); padding: 50px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); }
         .contact-info h3 { font-size: 1.8rem; margin-bottom: 30px; color: var(--primary-dark); }
         .info-item { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 25px; }
         .info-item i { font-size: 1.5rem; color: var(--accent-teal); margin-top: 5px; }
         .info-item div p { color: var(--text-muted); }
         .info-item div h5 { font-size: 1.1rem; color: var(--primary-dark); margin-bottom: 5px; }
-        
         .map-container { width: 100%; height: 250px; border-radius: 10px; overflow: hidden; margin-top: 30px; }
         .map-container iframe { width: 100%; height: 100%; border: none; }
-
         .contact-form { display: flex; flex-direction: column; gap: 20px; }
         .contact-form h3 { font-size: 1.8rem; margin-bottom: 10px; color: var(--primary-dark); }
         .form-group input, .form-group textarea { width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; transition: border-color 0.3s; background: var(--bg-light); }
@@ -132,7 +127,6 @@
         /* --- FADE EFFECTS --- */
         .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
-        
         @media(max-width: 768px){ .contact-wrapper { padding: 30px; grid-template-columns: 1fr; } }
     </style>
 </head>
@@ -145,8 +139,9 @@
             </a>
         </div>
         <nav class="nav-links">
+            <a href="index.html">Начална Страница</a>
             <a href="#gallery">Галерия</a>
-            <a href="#services">Услуги</a>
+            <a href="services.html">Услуги</a>
             <a href="#contacts">Контакти</a>
             <div class="dropdown">
                 <button class="menu-btn"><i class="fas fa-bars"></i></button>
@@ -183,30 +178,30 @@
     <section id="about" class="section-container">
         <h2 class="section-title fade-in">За <span>Нас</span></h2>
         
-        <p class="about-mission fade-in">В „Радулов и син Дентал“ се стремим постоянно да поддържаме най-висок стандарт в денталната изработка, защото вашето доверие и удовлетворението на вашите пациенти са водещи за нас.</p>
+        <p class="about-mission fade-in">В „Радулов и Син Дентал" се стремим постоянно да поддържаме най-висок стандарт в денталната изработка, защото вашето доверие и удовлетворението на вашите пациенти са водещи за нас.<sup>[cite: 5]</sup></p>
         
         <div class="about-features">
             <div class="feature-box fade-in" style="transition-delay: 0.1s;">
                 <i class="fas fa-microchip"></i>
                 <h4>Модерни Технологии</h4>
-                <p>Работим с CAD/CAM технологии – лазерно сканиране, дигитално проектиране, високопрецизно фрезоване и лазерно синтероване, като непрекъснато внедряваме иновации.</p>
+                <p>Екипът ни работи с модерни CAD/CAM технологии лазерно сканиране, дигитално проектиране, високопрецизно фрезоване и лазерно синтероване, като непрекъснато следим развитието на индустрията и внедряваме иновации.<sup>[cite: 6]</sup></p>
             </div>
             
             <div class="feature-box fade-in" style="transition-delay: 0.2s;">
                 <i class="fas fa-gem"></i>
                 <h4>Премиум Материали</h4>
-                <p>Използваме внимателно подбрани материали като цирконий, керамика, пластмаса, титан и хром-кобалт, за да гарантираме надеждност и отличен естетичен резултат.</p>
+                <p>Използваме внимателно подбрани материали като цирконий, керамика, пластмаса, титан и хром-кобалт, за да гарантираме надеждност и отличен естетичен резултат.<sup>[cite: 7]</sup></p>
             </div>
             
             <div class="feature-box fade-in" style="transition-delay: 0.3s;">
                 <i class="fas fa-handshake"></i>
                 <h4>Партньорство</h4>
-                <p>Отворени сме за сътрудничество с колеги зъботехници: поемаме както целия процес, така и само изработката по ваши готови CAD файлове с гарантирана точност.</p>
+                <p>Отворени сме за партньорство с колеги зъботехници: поемаме както целия процес от моделиране до финално производство, така и само изработката по ваши готови CAD файлове.<sup>[cite: 9]</sup></p>
             </div>
         </div>
     </section>
 
-    <section id="services" class="services-bg">
+    <section class="services-bg">
         <div class="section-container">
             <h2 class="section-title fade-in">Нашите <span>Услуги</span></h2>
             <div class="services-grid">
@@ -215,48 +210,56 @@
                     <i class="fas fa-tooth"></i>
                     <h3>Зъбни импланти</h3>
                     <p>Конструкции върху импланти с изключителна прецизност, осигуряващи стабилност, дълготрайност и отлична естетика чрез дигитално планиране.</p>
+                    <a href="services.html#implants" class="learn-more">Научи повече &rarr;</a>
                 </div>
                 
                 <div class="service-card fade-in">
                     <i class="fas fa-magic"></i>
                     <h3>Керамика</h3>
                     <p>Металокерамични конструкции, съчетаващи здравината на металната основа с естествената красота и прозрачност на зъбната керамика.</p>
+                    <a href="services.html#ceramics" class="learn-more">Научи повече &rarr;</a>
                 </div>
                 
                 <div class="service-card fade-in">
                     <i class="fas fa-cube"></i>
                     <h3>Цирконий</h3>
                     <p>Здрави и съвършено естетични циркониеви конструкции с изключителна устойчивост и автентичен естествен вид.</p>
+                    <a href="services.html#zirconia" class="learn-more">Научи повече &rarr;</a>
                 </div>
                 
                 <div class="service-card fade-in">
                     <i class="fas fa-vial"></i>
                     <h3>Пластмаса</h3>
                     <p>Биосъвместими пластмасови конструкции за временно възстановяване, надеждни за единични корони и мостове.</p>
+                    <a href="services.html#plastics" class="learn-more">Научи повече &rarr;</a>
                 </div>
                 
                 <div class="service-card fade-in">
                     <i class="fas fa-bars"></i>
                     <h3>Титаниев бар</h3>
                     <p>Сигурно и ефективно решение за стабилизиране на протезни конструкции върху импланти, съчетаващо здравина и лекота.</p>
+                    <a href="services.html#titanium" class="learn-more">Научи повече &rarr;</a>
                 </div>
                 
                 <div class="service-card fade-in">
                     <i class="fas fa-teeth-open"></i>
                     <h3>Протези</h3>
                     <p>Висококачествени цели и частични протези – класически и термопластични, за оптимално прилягане и комфорт.</p>
+                    <a href="services.html#dentures" class="learn-more">Научи повече &rarr;</a>
                 </div>
                 
                 <div class="service-card fade-in">
                     <i class="fas fa-smile"></i>
                     <h3>Ортодонтия</h3>
                     <p>Прецизни ортодонтски решения и конструкции за ефективно, комфортно и успешно коригиране на захапката.</p>
+                    <a href="services.html#ortho" class="learn-more">Научи повече &rarr;</a>
                 </div>
                 
                 <div class="service-card fade-in">
                     <i class="fas fa-laptop-medical"></i>
                     <h3>Дигитална Комуникация</h3>
                     <p>Приемаме възстановителни случаи в дигитален формат от интраорални скенери за изцяло дигитален работен процес.</p>
+                    <a href="services.html#digital" class="learn-more">Научи повече &rarr;</a>
                 </div>
 
             </div>
@@ -299,7 +302,7 @@
                 </div>
 
                 <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2958.8266497334757!2d24.743126715691657!3d42.13247077920194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14acd1a3a39e7c3b%3A0x6b8bc5b4bb4c0b48!2sul.%20%22Belasitsa%22%2059%2C%204004%20g.k.%20Hristo%20Botev%20-%20Yug%2C%20Plovdiv%2C%20Bulgaria!5e0!3m2!1sen!2sus!4v1698240000000!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2958.423985116934!2d24.7432168!3d42.1408899!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14acd1a1e053f3e7%3A0x6b4f74ab7b8b2b7a!2sul.%20%22Belasitsa%22%2059%2C%204000%20Plovdiv%2C%20Bulgaria!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
 
