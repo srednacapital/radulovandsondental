@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>За Зъботехници | Radulov & Son Dental</title>
+    <style>
+        /* Sharing the same base styles */
+        :root {
+            --primary-dark: #1A2026;
+            --accent-teal: #3A9CB0;
+            --accent-teal-hover: #2F7A8A;
+            --bg-light: #F4F7F6;
+            --text-dark: #333333;
+            --white: #FFFFFF;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', 'Segoe UI', sans-serif; }
+        body { background-color: var(--bg-light); color: var(--text-dark); overflow-x: hidden; line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+
+        /* Header for subpage - always dark */
+        header {
+            width: 100%; padding: 15px 50px; display: flex; justify-content: space-between; align-items: center;
+            background: var(--primary-dark); color: var(--white); box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo img { max-height: 40px; width: auto; transition: transform 0.3s; }
+        .logo:hover img { transform: scale(1.05); }
+
+        .nav-links { display: flex; gap: 30px; align-items: center; }
+        .nav-links a { font-weight: 500; transition: color 0.3s; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px;}
+        .nav-links a:hover { color: var(--accent-teal); }
+
+        .dropdown { position: relative; display: inline-block; }
+        .menu-btn {
+            background: var(--accent-teal); padding: 10px 15px; border-radius: 5px;
+            color: var(--white); font-size: 1.2rem; border: none; cursor: pointer; transition: background 0.3s;
+        }
+        .menu-btn:hover { background: var(--accent-teal-hover); }
+        .dropdown-content {
+            display: none; position: absolute; right: 0; top: 100%; background-color: var(--white);
+            min-width: 200px; box-shadow: 0px 8px 16px rgba(0,0,0,0.15); border-radius: 5px; overflow: hidden; z-index: 1000;
+        }
+        .dropdown-content a {
+            color: var(--text-dark); padding: 12px 20px; display: block; text-transform: none; font-weight: 500; border-bottom: 1px solid #eee;
+        }
+        .dropdown-content a:hover { background-color: var(--bg-light); color: var(--accent-teal); }
+        .dropdown:hover .dropdown-content { display: block; }
+
+        /* Subpage Content Layout */
+        .page-header {
+            background: linear-gradient(rgba(58, 156, 176, 0.9), rgba(26, 32, 38, 0.9)), url('https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?q=80&w=2000&auto=format&fit=crop') center/cover;
+            padding: 100px 10%; text-align: center; color: var(--white);
+        }
+        .page-header h1 { font-size: 3rem; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 2px; }
+
+        .content-container { padding: 80px 10%; max-width: 1000px; margin: 0 auto; background: var(--white); transform: translateY(-40px); border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        
+        .intro-text { font-size: 1.15rem; color: #555; text-align: center; margin-bottom: 40px; }
+        
+        .capabilities-list { list-style: none; margin-bottom: 40px; }
+        .capabilities-list li {
+            padding: 15px 20px; border-left: 4px solid var(--accent-teal); background: var(--bg-light); margin-bottom: 10px; font-weight: 500; font-size: 1.1rem;
+        }
+        .capabilities-list li strong { color: var(--primary-dark); }
+
+        .closing-text { font-size: 1.1rem; color: #555; line-height: 1.8; margin-bottom: 30px; text-align: justify;}
+
+        .cta-button {
+            display: inline-block; background: var(--accent-teal); color: var(--white); padding: 15px 30px;
+            font-size: 1.1rem; font-weight: bold; border-radius: 5px; transition: background 0.3s, transform 0.3s; text-align: center;
+        }
+        .cta-button:hover { background: var(--primary-dark); transform: translateY(-3px); }
+
+        footer { background: var(--primary-dark); color: var(--white); padding: 50px 10%; text-align: center; margin-top: 40px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="logo png.png" alt="Radulov & Son Logo">
+            </a>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html#gallery">Галерия</a>
+            <a href="index.html#services">Услуги</a>
+            <a href="index.html#contacts">Контакти</a>
+            <div class="dropdown">
+                <button class="menu-btn">☰</button>
+                <div class="dropdown-content">
+                    <a href="dentist.html">За Стоматолози</a>
+                    <a href="technician.html">За Зъботехници</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <h1>Зъботехници</h1>
+        <p>Партньорство чрез дигитални технологии</p>
+    </section>
+
+    <section class="content-container">
+        <p class="intro-text">Като лаборатория с опит и стремеж към високо качество, предлагаме партньорство в изработката на съвременни зъботехнически конструкции чрез дигитални технологии. Разполагаме с възможности за:</p>
+        
+        <ul class="capabilities-list">
+            <li><strong>Лазерно синтероване (SLM)</strong> – прецизни метални конструкции с отлична здравина</li>
+            <li><strong>Фрезоване на цирконий</strong> – висококачествени естетични възстановявания с отлична точност</li>
+            <li><strong>CAD/CAM</strong> обработка и дигитален дизайн</li>
+            <li><strong>Изрязване</strong> на титан</li>
+            <li><strong>Изпълнение на индивидуални поръчки</strong> според вашите изисквания</li>
+        </ul>
+
+        <p class="closing-text">Работим с внимание към детайла, кратки срокове и коректност във всяка стъпка от процеса. Нашата цел е да бъдем надежден партньор, на когото можете да разчитате за качествена и прецизна работа.</p>
+        
+        <p class="closing-text">Ако търсите сигурен изпълнител за вашите случаи – ще се радвам да работим заедно.</p>
+        
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="index.html#contacts" class="cta-button">Свържете се с нас</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Radulov & Son Dental. Всички права запазени.</p>
+    </footer>
+
+</body>
+</html>
