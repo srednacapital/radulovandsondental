@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Нашите Услуги | Radulov & Son Dental</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-dark: #1A2026;
+            --accent-teal: #3A9CB0;
+            --accent-teal-hover: #2F7A8A;
+            --bg-light: #F4F7F6;
+            --text-dark: #333333;
+            --text-muted: #666666;
+            --white: #FFFFFF;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', 'Segoe UI', sans-serif; }
+        html { scroll-behavior: smooth; }
+        body { background-color: var(--white); color: var(--text-dark); overflow-x: hidden; line-height: 1.7; }
+        a { text-decoration: none; color: inherit; }
+
+        /* Header - Always Dark on Subpages */
+        header {
+            width: 100%; padding: 15px 50px; display: flex; justify-content: space-between; align-items: center;
+            background: var(--primary-dark); color: var(--white); box-shadow: 0 4px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000;
+        }
+        .logo img { max-height: 40px; width: auto; transition: transform 0.3s; }
+        .logo:hover img { transform: scale(1.05); }
+
+        .nav-links { display: flex; gap: 30px; align-items: center; }
+        .nav-links a { font-weight: 500; transition: color 0.3s; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px;}
+        .nav-links a:hover { color: var(--accent-teal); }
+
+        .dropdown { position: relative; display: inline-block; }
+        .menu-btn { background: var(--accent-teal); padding: 10px 15px; border-radius: 5px; color: var(--white); font-size: 1.2rem; border: none; cursor: pointer; }
+        .dropdown-content { display: none; position: absolute; right: 0; top: 100%; background-color: var(--white); min-width: 200px; box-shadow: 0px 8px 16px rgba(0,0,0,0.15); border-radius: 5px; overflow: hidden; }
+        .dropdown-content a { color: var(--text-dark); padding: 12px 20px; display: block; text-transform: none; font-weight: 500; border-bottom: 1px solid #eee; }
+        .dropdown-content a:hover { background-color: var(--bg-light); color: var(--accent-teal); }
+        .dropdown:hover .dropdown-content { display: block; }
+
+        /* Page Header Title */
+        .page-title { text-align: center; padding: 80px 20px 40px; background: var(--bg-light); }
+        .page-title h1 { font-size: 3rem; color: var(--primary-dark); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+        .page-title span { color: var(--accent-teal); }
+
+        /* ZIG-ZAG LAYOUT STYLES */
+        .service-row { display: flex; align-items: center; gap: 60px; padding: 80px 10%; max-width: 1400px; margin: 0 auto; }
+        .service-row:nth-child(even) { flex-direction: row-reverse; background-color: var(--bg-light); } /* The Magic Zig-Zag Reversal */
+        
+        .service-text { flex: 1; }
+        .service-text h2 { font-size: 2.2rem; color: var(--primary-dark); margin-bottom: 20px; display: flex; align-items: center; gap: 15px; }
+        .service-text h2 i { color: var(--accent-teal); font-size: 2rem; }
+        .service-text p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 15px; text-align: justify; }
+        
+        .service-image { flex: 1; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.1); position: relative; }
+        .service-image img { width: 100%; height: 400px; object-fit: cover; display: block; transition: transform 0.5s ease; }
+        .service-image:hover img { transform: scale(1.05); }
+
+        /* FADE EFFECTS (Left and Right) */
+        .slide-left { opacity: 0; transform: translateX(-50px); transition: all 0.8s ease-out; }
+        .slide-right { opacity: 0; transform: translateX(50px); transition: all 0.8s ease-out; }
+        .slide-left.visible, .slide-right.visible { opacity: 1; transform: translateX(0); }
+
+        footer { background: var(--primary-dark); color: var(--white); padding: 40px 10%; text-align: center; margin-top: 50px; }
+
+        @media(max-width: 900px) {
+            .service-row, .service-row:nth-child(even) { flex-direction: column; text-align: center; gap: 30px; padding: 50px 5%; }
+            .service-text h2 { justify-content: center; }
+            .service-image img { height: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="logo png.png" alt="Radulov & Son Logo">
+            </a>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Начална Страница</a>
+            <a href="index.html#gallery">Галерия</a>
+            <a href="services.html" style="color: var(--accent-teal);">Услуги</a>
+            <a href="index.html#contacts">Контакти</a>
+            <div class="dropdown">
+                <button class="menu-btn"><i class="fas fa-bars"></i></button>
+                <div class="dropdown-content">
+                    <a href="dentist.html">За Стоматолози</a>
+                    <a href="technician.html">За Зъботехници</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="page-title">
+        <h1>Нашите <span>Услуги</span></h1>
+        <p style="font-size: 1.2rem; color: var(--text-muted); margin-top: 10px;">Детайлен преглед на нашата експертиза</p>
+    </div>
+
+    <section class="service-row" id="implants">
+        <div class="service-text slide-left">
+            <h2><i class="fas fa-tooth"></i> Зъбни импланти</h2>
+            <p>Ние сме добре запознати с всички аспекти в денталната имплантология.<sup>[cite: 14]</sup> Работата с имплантни системи изисква изключителна точност и внимание към детайла.<sup>[cite: 15]</sup> В нашата лаборатория изработваме конструкции върху импланти, които гарантират стабилност, функционалност и дълготрайност.<sup>[cite: 16]</sup> Чрез дигитални технологии и прецизно планиране се постига оптимално прилягане и комфорт за пациента както и отлична естетика на крайния резултат.<sup>[cite: 17]</sup></p>
+            <p><strong>Професионален стандарт:</strong> Като експерти в областта, ние прилагаме най-строгите протоколи за пасивно прилягане (passive fit), което минимизира стреса върху импланта и осигурява безупречна и дълготрайна остеоинтеграция.</p>
+        </div>
+        <div class="service-image slide-right">
+            <img src="https://images.unsplash.com/photo-1606265752439-1ebeb127b633?q=80&w=1000&auto=format&fit=crop" alt="Зъбни импланти">
+        </div>
+    </section>
+
+    <section class="service-row" id="ceramics">
+        <div class="service-text slide-right">
+            <h2><i class="fas fa-magic"></i> Керамика</h2>
+            <p>Нашата страст е възстановителната стоматология. Стремим се да пресъздаваме естествената красота на зъбите чрез прецизността и изкуството на зъбната керамика.<sup>[cite: 22]</sup> Металокерамичните конструкции осигуряват изключителна здравина и стабилност, благодарение на своята метална основа, докато керамичното покритие възпроизвежда естествения цвят и прозрачност.<sup>[cite: 23]</sup></p>
+            <p><strong>Професионален стандарт:</strong> Използваме високотехнологични маси с индивидуално наслояване (layering техника), за да постигнем перфектна транслуценция, опалесценция и флуоресценция, напълно неразличими от естествените зъби на пациента.</p>
+        </div>
+        <div class="service-image slide-left">
+            <img src="https://images.unsplash.com/photo-1598256989800-fea5ce5146f2?q=80&w=1000&auto=format&fit=crop" alt="Зъбна Керамика">
+        </div>
+    </section>
+
+    <section class="service-row" id="zirconia">
+        <div class="service-text slide-left">
+            <h2><i class="fas fa-cube"></i> Цирконий</h2>
+            <p>Създаваме циркониеви конструкции с акцент върху прецизността, здравината и съвършената естетика.<sup>[cite: 25]</sup> Използваният от нас цирконий се отличава с изключителна устойчивост и дълготрайност, като същевременно осигурява естествен вид.<sup>[cite: 26]</sup> Финалната глазура придава автентичен цвят и прозрачност, максимално близки до естествените зъби.<sup>[cite: 27]</sup></p>
+            <p><strong>Професионален стандарт:</strong> Работим с мултилайер (многослойни) циркониеви бланки от най-висок клас, които позволяват създаването на изцяло монолитни корони и мостове с перфектна естетика и без риск от отчупване (чипинг).</p>
+        </div>
+        <div class="service-image slide-right">
+            <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=1000&auto=format&fit=crop" alt="Цирконий">
+        </div>
+    </section>
+
+    <section class="service-row" id="plastics">
+        <div class="service-text slide-right">
+            <h2><i class="fas fa-vial"></i> Пластмаса</h2>
+            <p>Предлагаме пластмасови конструкции, предназначени за временно възстановяване. Материалът се характеризира с отлична биосъвместимост и добра устойчивост на натоварване, което го прави надежден избор както за единични корони, така и за мостови конструкции.<sup>[cite: 29]</sup></p>
+            <p><strong>Професионален стандарт:</strong> Нашите CAD/CAM фрезовани PMMA временни конструкции прецизно предпазват препарираните зъби и оформят венечния профил (emergence profile) безупречно, подготвяйки идеална среда за постоянната конструкция.</p>
+        </div>
+        <div class="service-image slide-left">
+            <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=1000&auto=format&fit=crop" alt="Пластмаса">
+        </div>
+    </section>
+
+    <section class="service-row" id="titanium">
+        <div class="service-text slide-left">
+            <h2><i class="fas fa-bars"></i> Титаниев бар</h2>
+            <p>Титаниевите греди са сигурно и ефективно решение за стабилизиране на протезни конструкции върху импланти.<sup>[cite: 31]</sup> Работим с висококачествен титан, който съчетава здравина, лекота и отлична биосъвместимост. Ние гарантираме дълготрайност и сигурност в ежедневието на пациента.<sup>[cite: 32]</sup></p>
+            <p><strong>Професионален стандарт:</strong> Всяка греда се проектира дигитално и се фрезова с микро-прецизност от масивен титаниев блок, което елиминира вътрешното напрежение в метала и осигурява перфектна ретенция за снемаемите протези.</p>
+        </div>
+        <div class="service-image slide-right">
+            <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=1000&auto=format&fit=crop" alt="Титаниев бар">
+        </div>
+    </section>
+
+    <section class="service-row" id="dentures">
+        <div class="service-text slide-right">
+            <h2><i class="fas fa-teeth-open"></i> Протези</h2>
+            <p>Изработваме висококачествени цели и частични протези както класически, така и термопластични.<sup>[cite: 34]</sup> Всяка конструкция се изработва с прецизност и внимание към детайла, за да осигурим оптимално прилягане, комфорт и естествена естетика.<sup>[cite: 35]</sup></p>
+            <p><strong>Професионален стандарт:</strong> Предлагаме съвременни термопластични решения (гъвкави протези), които са изключително леки и практически невидими в устата, предоставяйки несравним комфорт за пациента без необходимост от метални куки.</p>
+        </div>
+        <div class="service-image slide-left">
+            <img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?q=80&w=1000&auto=format&fit=crop" alt="Зъбни протези">
+        </div>
+    </section>
+
+    <section class="service-row" id="ortho">
+        <div class="service-text slide-left">
+            <h2><i class="fas fa-smile"></i> Ортодонтия</h2>
+            <p>Създаваме прецизни ортодонтски решения и конструкции, насочени към удобството и адаптацията на пациента, които гарантират надеждност и подпомагат ефективното, комфортно и успешно коригиране на захапката във всеки случай.<sup>[cite: 37]</sup></p>
+            <p><strong>Професионален стандарт:</strong> От класически ретайнери и апарати до съвременни 3D-принтирани модели за прозрачни алайнери, ние използваме биосъвместими материали, които улесняват клиничната работа на ортодонта.</p>
+        </div>
+        <div class="service-image slide-right">
+            <img src="https://images.unsplash.com/photo-1598256989679-661f2fdeabde?q=80&w=1000&auto=format&fit=crop" alt="Ортодонтия">
+        </div>
+    </section>
+
+    <section class="service-row" id="digital">
+        <div class="service-text slide-right">
+            <h2><i class="fas fa-laptop-medical"></i> Дигитална Комуникация</h2>
+            <p>Ако разполагате с интраорален скенер, ние сме добре подготвени да приемем вашите възстановителни случаи в дигитален формат и да ги завършим, използвайки дигиталният работен процес.<sup>[cite: 39]</sup></p>
+            <p><strong>Професионален стандарт:</strong> Нашата лаборатория е напълно интегрирана с водещите платформи за дигитален отпечатък. Това не само съкращава времето за изработка, но и елиминира деформациите, характерни за традиционните отпечатъчни маси.</p>
+        </div>
+        <div class="service-image slide-left">
+            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=1000&auto=format&fit=crop" alt="Дигитална Комуникация">
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Radulov & Son Dental. Всички права запазени.</p>
+    </footer>
+
+    <script>
+        const observerOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" };
+        const observer = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.slide-left, .slide-right').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
