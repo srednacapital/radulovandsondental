@@ -3,248 +3,211 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Radulov and Son | Plovdiv</title>
+    <title>Radulov & Son Dental | Пловдив</title>
     <style>
-        /* --- BASE STYLES --- */
+        /* --- BASE STYLES & COLOR PALETTE --- */
         :root {
-            --primary-navy: #1B2A47;
-            --accent-cyan: #00A8CC;
-            --bg-light: #F8F9FA;
+            --primary-dark: #1A2026; /* Inspired by the dark background of the business card */
+            --accent-teal: #3A9CB0; /* Extracted from the teal section of the business card */
+            --accent-teal-hover: #2F7A8A;
+            --bg-light: #F4F7F6;
             --text-dark: #333333;
             --white: #FFFFFF;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', 'Segoe UI', sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-            overflow-x: hidden;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', 'Segoe UI', sans-serif; }
+        html { scroll-behavior: smooth; } /* Enables the smooth scroll for anchor links */
+        body { background-color: var(--bg-light); color: var(--text-dark); overflow-x: hidden; line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
 
         /* --- HEADER & NAVIGATION --- */
         header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 20px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            transition: all 0.4s ease;
-            /* Transparent by default */
-            background: transparent;
-            color: var(--white); 
+            position: fixed; top: 0; width: 100%; padding: 20px 50px;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000; transition: all 0.4s ease; background: transparent; color: var(--white); 
         }
 
-        /* Class added via JavaScript when scrolled */
         header.scrolled {
-            background: rgba(27, 42, 71, 0.95); /* Navy background */
-            backdrop-filter: blur(10px); /* Blur effect */
-            padding: 15px 50px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            color: var(--white);
+            background: rgba(26, 32, 38, 0.95); backdrop-filter: blur(10px);
+            padding: 15px 50px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
+        .logo img { max-height: 40px; width: auto; transition: transform 0.3s; }
+        .logo:hover img { transform: scale(1.05); }
 
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            align-items: center;
-        }
+        .nav-links { display: flex; gap: 30px; align-items: center; }
+        .nav-links a { font-weight: 500; transition: color 0.3s; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px;}
+        .nav-links a:hover { color: var(--accent-teal); }
 
-        .nav-links a {
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-cyan);
-        }
-
+        /* Dropdown Menu */
+        .dropdown { position: relative; display: inline-block; }
         .menu-btn {
-            background: var(--accent-cyan);
-            padding: 10px 20px;
-            border-radius: 5px;
-            color: var(--white);
-            font-weight: bold;
-            border: none;
-            cursor: pointer;
-            transition: background 0.3s;
+            background: var(--accent-teal); padding: 10px 15px; border-radius: 5px;
+            color: var(--white); font-size: 1.2rem; border: none; cursor: pointer; transition: background 0.3s;
         }
-
-        .menu-btn:hover {
-            background: #008ba8;
+        .menu-btn:hover { background: var(--accent-teal-hover); }
+        .dropdown-content {
+            display: none; position: absolute; right: 0; top: 100%; background-color: var(--white);
+            min-width: 200px; box-shadow: 0px 8px 16px rgba(0,0,0,0.15); border-radius: 5px; overflow: hidden;
         }
+        .dropdown-content a {
+            color: var(--text-dark); padding: 12px 20px; display: block; text-transform: none; font-weight: 500; border-bottom: 1px solid #eee;
+        }
+        .dropdown-content a:hover { background-color: var(--bg-light); color: var(--accent-teal); }
+        .dropdown:hover .dropdown-content { display: block; }
 
-        /* --- HERO SECTION (The Split Funnel) --- */
+        /* --- HERO SECTION --- */
         .hero {
-            height: 100vh;
-            display: flex;
-            background: linear-gradient(rgba(27, 42, 71, 0.8), rgba(27, 42, 71, 0.8)), url('https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=2000&auto=format&fit=crop') center/cover;
-            color: var(--white);
-            position: relative;
+            height: 100vh; display: flex;
+            background: linear-gradient(rgba(26, 32, 38, 0.7), rgba(26, 32, 38, 0.8)), url('https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=2000&auto=format&fit=crop') center/cover;
+            color: var(--white); position: relative; align-items: center; justify-content: center; flex-direction: column;
         }
 
-        .hero-content {
-            position: absolute;
-            top: 30%;
-            width: 100%;
-            text-align: center;
-            z-index: 10;
-        }
-
-        .hero-content h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-        }
-
-        .hero-content p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-
-        .split-container {
-            position: absolute;
-            bottom: 15%;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            z-index: 10;
-        }
-
+        .split-container { display: flex; gap: 40px; margin-top: 50px; z-index: 10; }
         .portal-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            padding: 40px 60px;
-            border-radius: 10px;
-            text-align: center;
-            cursor: pointer;
-            transition: transform 0.3s ease, background 0.3s ease;
-            width: 300px;
+            background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(5px); border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 30px 60px; border-radius: 8px; text-align: center; cursor: pointer; transition: all 0.3s ease; width: 280px;
         }
+        .portal-card:hover { transform: translateY(-10px); background: rgba(58, 156, 176, 0.8); border-color: var(--accent-teal); }
+        .portal-card h2 { font-size: 1.8rem; letter-spacing: 1px; text-transform: uppercase; }
 
-        .portal-card:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.2);
-            border-color: var(--accent-cyan);
-        }
+        /* --- CONTENT SECTIONS --- */
+        .section-container { padding: 100px 10%; max-width: 1400px; margin: 0 auto; }
+        .section-title { text-align: center; font-size: 2.5rem; color: var(--primary-dark); margin-bottom: 40px; }
+        .section-title span { color: var(--accent-teal); }
 
-        .portal-card h2 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-        }
+        .about-text { font-size: 1.1rem; color: #555; text-align: justify; margin-bottom: 20px; }
 
-        /* --- CONTENT SECTION (For scroll testing) --- */
-        .content-section {
-            padding: 100px 50px;
-            text-align: center;
-            max-width: 1000px;
-            margin: 0 auto;
+        /* --- SERVICES GRID (Summarized) --- */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
+        .service-card {
+            background: var(--white); padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s; border-top: 4px solid var(--accent-teal);
         }
+        .service-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .service-card h3 { color: var(--primary-dark); margin-bottom: 15px; font-size: 1.3rem; }
+        .service-card p { font-size: 0.95rem; color: #666; }
 
-        /* --- FADE EFFECTS (JavaScript Triggered) --- */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
+        /* --- FOOTER / CONTACTS --- */
+        footer { background: var(--primary-dark); color: var(--white); padding: 80px 10%; text-align: center; }
+        footer h2 { margin-bottom: 20px; color: var(--accent-teal); }
+        footer p { opacity: 0.8; margin-bottom: 10px; }
 
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        /* --- FADE EFFECTS --- */
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
     </style>
 </head>
 <body>
 
     <header id="main-header">
-        <div class="logo">Radulov & Son</div> <nav class="nav-links">
-            <a href="#about">За Нас</a>
+        <div class="logo">
+            <a href="index.html">
+                <img src="logo png.png" alt="Radulov & Son Logo">
+            </a>
+        </div>
+        <nav class="nav-links">
+            <a href="#gallery">Галерия</a>
             <a href="#services">Услуги</a>
-            <button class="menu-btn">Контакти ☰</button>
+            <a href="#contacts">Контакти</a>
+            <div class="dropdown">
+                <button class="menu-btn">☰</button>
+                <div class="dropdown-content">
+                    <a href="dentist.html">За Стоматолози</a>
+                    <a href="technician.html">За Зъботехници</a>
+                </div>
+            </div>
         </nav>
     </header>
 
     <section class="hero">
-        <div class="hero-content fade-in">
-            <h1>Традиция и Прецизност в Пловдив</h1>
-            <p>Изберете вашия профил, за да продължите.</p>
-        </div>
-        
         <div class="split-container">
-            <div class="portal-card fade-in" style="transition-delay: 0.2s;">
-                <h2>Зъболекари</h2>
-                <p>Клинични решения и материали</p>
+            <a href="dentist.html">
+                <div class="portal-card fade-in" style="transition-delay: 0.2s;">
+                    <h2>Стоматолог</h2>
+                </div>
+            </a>
+            <a href="technician.html">
+                <div class="portal-card fade-in" style="transition-delay: 0.4s;">
+                    <h2>Зъботехник</h2>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section id="about" class="section-container">
+        <h2 class="section-title fade-in">За <span>Нас</span></h2>
+        <p class="about-text fade-in">В „Радулов и син Дентал“ се стремим постоянно да поддържаме най-висок стандарт в денталната изработка, защото вашето доверие и удовлетворението на вашите пациенти са водещи за нас.</p>
+        <p class="about-text fade-in">Екипът ни работи с модерни CAD/CAM технологии – лазерно сканиране, дигитално проектиране, високопрецизно фрезоване и лазерно синтероване, като непрекъснато следим развитието на индустрията и внедряваме иновации. Използваме внимателно подбрани материали като цирконий, керамика, пластмаса, титан и хром-кобалт, за да гарантираме надеждност и отличен естетичен резултат.</p>
+        <p class="about-text fade-in">Независимо дали работим с дигитални данни или с традиционни отпечатъци, подхождаме с еднаква прецизност и внимание към всеки детайл.</p>
+        <p class="about-text fade-in">Отворени сме за партньорство с колеги зъботехници: поемаме както целия процес – от моделиране до финално производство, така и само изработката по ваши готови CAD файлове. Винаги гарантираме високо качество, точност и успешни резултати.</p>
+    </section>
+
+    <section id="services" class="section-container" style="background-color: #E9F0F2; border-radius: 20px;">
+        <h2 class="section-title fade-in">Нашите <span>Услуги</span></h2>
+        <div class="services-grid">
+            <div class="service-card fade-in">
+                <h3>Зъбни импланти</h3>
+                <p>Конструкции върху импланти с изключителна прецизност, осигуряващи стабилност, дълготрайност и отлична естетика чрез дигитално планиране.</p>
             </div>
-            <div class="portal-card fade-in" style="transition-delay: 0.4s;">
-                <h2>Зъботехници</h2>
-                <p>Лабораторно оборудване и инструменти</p>
+            <div class="service-card fade-in">
+                <h3>Керамика</h3>
+                <p>Металокерамични конструкции, съчетаващи здравината на металната основа с естествената красота и прозрачност на зъбната керамика.</p>
+            </div>
+            <div class="service-card fade-in">
+                <h3>Цирконий</h3>
+                <p>Здрави и съвършено естетични циркониеви конструкции с изключителна устойчивост и автентичен естествен вид.</p>
+            </div>
+            <div class="service-card fade-in">
+                <h3>Пластмаса</h3>
+                <p>Биосъвместими пластмасови конструкции за временно възстановяване, надеждни за единични корони и мостове.</p>
+            </div>
+            <div class="service-card fade-in">
+                <h3>Титаниев бар</h3>
+                <p>Сигурно и ефективно решение за стабилизиране на протезни конструкции върху импланти, съчетаващо здравина и лекота.</p>
+            </div>
+            <div class="service-card fade-in">
+                <h3>Протези</h3>
+                <p>Висококачествени цели и частични протези – класически и термопластични, за оптимално прилягане и комфорт.</p>
+            </div>
+            <div class="service-card fade-in">
+                <h3>Ортодонтия</h3>
+                <p>Прецизни ортодонтски решения и конструкции за ефективно, комфортно и успешно коригиране на захапката.</p>
+            </div>
+            <div class="service-card fade-in">
+                <h3>Дигитална Комуникация</h3>
+                <p>Приемаме възстановителни случаи в дигитален формат от интраорални скенери за изцяло дигитален работен процес.</p>
             </div>
         </div>
     </section>
 
-    <section id="about" class="content-section">
-        <h2 class="fade-in">Добре дошли при Radulov and Son</h2>
-        <br>
-        <p class="fade-in">Ние сме семеен бизнес, посветен на това да предоставяме най-висококачествени материали за денталната медицина и зъботехниката. С дългогодишен опит в сърцето на Пловдив...</p>
-        <br><br><br><br><br><br><br><br><br><br><br> <h3 class="fade-in">Нашите Услуги</h3>
-        <p class="fade-in">Продължете надолу, за да видите как елементите се появяват плавно.</p>
-    </section>
+    <section id="gallery" class="section-container">
+        </section>
+
+    <footer id="contacts">
+        <h2 class="fade-in">Свържете се с нас</h2>
+        <p class="fade-in">Готови сме да обсъдим вашето следващо партньорство с Радулов и син Дентал.</p>
+        <p class="fade-in">Пловдив, България</p>
+        </footer>
 
     <script>
-        // 1. Sticky Header Effect
         const header = document.getElementById('main-header');
-        
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
+            if (window.scrollY > 50) { header.classList.add('scrolled'); } 
+            else { header.classList.remove('scrolled'); }
         });
 
-        // 2. Scroll Fade-in Observer Effect
         const fadeElements = document.querySelectorAll('.fade-in');
-
-        const appearOptions = {
-            threshold: 0.15, // Triggers when 15% of the element is visible
-            rootMargin: "0px 0px -50px 0px" // Triggers slightly before the element fully hits the bottom of viewport
-        };
-
+        const appearOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
         const appearOnScroll = new IntersectionObserver(function(entries, observer) {
             entries.forEach(entry => {
-                if (!entry.isIntersecting) {
-                    return;
-                } else {
-                    entry.target.classList.add('visible');
-                    // Stop observing once it has faded in
-                    observer.unobserve(entry.target);
-                }
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
             });
         }, appearOptions);
 
-        fadeElements.forEach(element => {
-            appearOnScroll.observe(element);
-        });
+        fadeElements.forEach(element => appearOnScroll.observe(element));
     </script>
 </body>
 </html>
