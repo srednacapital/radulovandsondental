@@ -64,12 +64,12 @@
         .feature-box:hover { transform: translateY(-10px); }
         .feature-box i { font-size: 3rem; color: var(--accent-teal); margin-bottom: 20px; }
         .feature-box h4 { font-size: 1.3rem; color: var(--primary-dark); margin-bottom: 15px; }
-        .feature-box p { color: var(--text-muted); font-size: 0.95rem; text-align: left;}
+        .feature-box p { color: var(--text-muted); font-size: 0.95rem; text-align: justify; hyphens: auto; } /* Justified text here */
 
         /* --- SERVICES --- */
         .services-bg { background-color: #E9F0F2; }
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .service-card { background: var(--white); padding: 40px 30px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); transition: all 0.3s ease; border-top: 4px solid transparent; text-align: center; display: flex; flex-direction: column; }
+        .services-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; } /* Flexbox for centering */
+        .service-card { flex: 1 1 calc(33.333% - 20px); min-width: 300px; max-width: 400px; background: var(--white); padding: 40px 30px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); transition: all 0.3s ease; border-top: 4px solid transparent; text-align: center; display: flex; flex-direction: column; }
         .service-card:hover { transform: translateY(-8px); border-top: 4px solid var(--accent-teal); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
         .service-card i { font-size: 2.5rem; color: var(--primary-dark); margin-bottom: 20px; transition: color 0.3s; }
         .service-card:hover i { color: var(--accent-teal); }
@@ -115,8 +115,8 @@
         </div>
         <nav class="nav-links">
             <a href="index.html">Начало</a>
-            <a href="#gallery">Галерия</a>
             <a href="services.html">Услуги</a>
+            <a href="#gallery">Галерия</a>
             <a href="#contacts">Контакти</a>
             <div class="dropdown">
                 <button class="menu-btn"><i class="fas fa-bars"></i></button>
