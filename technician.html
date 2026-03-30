@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>За Зъботехници | Radulov & Son Dental</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Sharing the same base styles */
         :root {
             --primary-dark: #1A2026;
             --accent-teal: #3A9CB0;
             --accent-teal-hover: #2F7A8A;
             --bg-light: #F4F7F6;
             --text-dark: #333333;
+            --text-muted: #666666;
             --white: #FFFFFF;
         }
 
@@ -19,61 +20,54 @@
         body { background-color: var(--bg-light); color: var(--text-dark); overflow-x: hidden; line-height: 1.6; }
         a { text-decoration: none; color: inherit; }
 
-        /* Header for subpage - always dark */
-        header {
-            width: 100%; padding: 15px 50px; display: flex; justify-content: space-between; align-items: center;
-            background: var(--primary-dark); color: var(--white); box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-
+        header { width: 100%; padding: 15px 50px; display: flex; justify-content: space-between; align-items: center; background: var(--primary-dark); color: var(--white); box-shadow: 0 4px 10px rgba(0,0,0,0.1); position: sticky; top:0; z-index:1000; }
         .logo img { max-height: 40px; width: auto; transition: transform 0.3s; }
         .logo:hover img { transform: scale(1.05); }
-
         .nav-links { display: flex; gap: 30px; align-items: center; }
         .nav-links a { font-weight: 500; transition: color 0.3s; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px;}
         .nav-links a:hover { color: var(--accent-teal); }
-
         .dropdown { position: relative; display: inline-block; }
-        .menu-btn {
-            background: var(--accent-teal); padding: 10px 15px; border-radius: 5px;
-            color: var(--white); font-size: 1.2rem; border: none; cursor: pointer; transition: background 0.3s;
-        }
-        .menu-btn:hover { background: var(--accent-teal-hover); }
-        .dropdown-content {
-            display: none; position: absolute; right: 0; top: 100%; background-color: var(--white);
-            min-width: 200px; box-shadow: 0px 8px 16px rgba(0,0,0,0.15); border-radius: 5px; overflow: hidden; z-index: 1000;
-        }
-        .dropdown-content a {
-            color: var(--text-dark); padding: 12px 20px; display: block; text-transform: none; font-weight: 500; border-bottom: 1px solid #eee;
-        }
+        .menu-btn { background: var(--accent-teal); padding: 10px 15px; border-radius: 5px; color: var(--white); font-size: 1.2rem; border: none; cursor: pointer; }
+        .dropdown-content { display: none; position: absolute; right: 0; top: 100%; background-color: var(--white); min-width: 200px; box-shadow: 0px 8px 16px rgba(0,0,0,0.15); border-radius: 5px; overflow: hidden; z-index: 1000; }
+        .dropdown-content a { color: var(--text-dark); padding: 12px 20px; display: block; text-transform: none; font-weight: 500; border-bottom: 1px solid #eee; }
         .dropdown-content a:hover { background-color: var(--bg-light); color: var(--accent-teal); }
         .dropdown:hover .dropdown-content { display: block; }
 
-        /* Subpage Content Layout */
-        .page-header {
-            background: linear-gradient(rgba(58, 156, 176, 0.9), rgba(26, 32, 38, 0.9)), url('https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?q=80&w=2000&auto=format&fit=crop') center/cover;
-            padding: 100px 10%; text-align: center; color: var(--white);
-        }
+        .page-header { background: linear-gradient(rgba(58, 156, 176, 0.9), rgba(26, 32, 38, 0.9)), url('https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?q=80&w=2000&auto=format&fit=crop') center/cover; padding: 100px 10%; text-align: center; color: var(--white); }
         .page-header h1 { font-size: 3rem; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 2px; }
 
-        .content-container { padding: 80px 10%; max-width: 1000px; margin: 0 auto; background: var(--white); transform: translateY(-40px); border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        
+        .content-container { padding: 80px 10%; max-width: 1000px; margin: 0 auto; background: var(--white); transform: translateY(-40px); border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); position: relative; z-index: 10; }
         .intro-text { font-size: 1.15rem; color: #555; text-align: center; margin-bottom: 40px; }
-        
         .capabilities-list { list-style: none; margin-bottom: 40px; }
-        .capabilities-list li {
-            padding: 15px 20px; border-left: 4px solid var(--accent-teal); background: var(--bg-light); margin-bottom: 10px; font-weight: 500; font-size: 1.1rem;
-        }
+        .capabilities-list li { padding: 15px 20px; border-left: 4px solid var(--accent-teal); background: var(--bg-light); margin-bottom: 10px; font-weight: 500; font-size: 1.1rem; }
         .capabilities-list li strong { color: var(--primary-dark); }
-
         .closing-text { font-size: 1.1rem; color: #555; line-height: 1.8; margin-bottom: 30px; text-align: justify;}
 
-        .cta-button {
-            display: inline-block; background: var(--accent-teal); color: var(--white); padding: 15px 30px;
-            font-size: 1.1rem; font-weight: bold; border-radius: 5px; transition: background 0.3s, transform 0.3s; text-align: center;
-        }
-        .cta-button:hover { background: var(--primary-dark); transform: translateY(-3px); }
+        /* CONTACTS CSS FOR SUBPAGES */
+        .section-container { padding: 50px 10% 100px; max-width: 1400px; margin: 0 auto; }
+        .section-title { text-align: center; font-size: 2.5rem; color: var(--primary-dark); margin-bottom: 50px; font-weight: 700; }
+        .section-title span { color: var(--accent-teal); }
+        .contact-wrapper { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 50px; background: var(--white); padding: 50px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); }
+        .contact-info h3 { font-size: 1.8rem; margin-bottom: 30px; color: var(--primary-dark); }
+        .info-item { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 25px; }
+        .info-item i { font-size: 1.5rem; color: var(--accent-teal); margin-top: 5px; }
+        .info-item div p { color: var(--text-muted); }
+        .info-item div h5 { font-size: 1.1rem; color: var(--primary-dark); margin-bottom: 5px; }
+        .map-container { width: 100%; height: 250px; border-radius: 10px; overflow: hidden; margin-top: 30px; }
+        .map-container iframe { width: 100%; height: 100%; border: none; }
+        .contact-form { display: flex; flex-direction: column; gap: 20px; }
+        .contact-form h3 { font-size: 1.8rem; margin-bottom: 10px; color: var(--primary-dark); }
+        .form-group input, .form-group textarea { width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; transition: border-color 0.3s; background: var(--bg-light); }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--accent-teal); background: var(--white); }
+        .form-group textarea { resize: vertical; height: 150px; }
+        .submit-btn { background: var(--accent-teal); color: var(--white); border: none; padding: 15px; font-size: 1.1rem; font-weight: bold; border-radius: 8px; cursor: pointer; transition: background 0.3s; text-transform: uppercase; letter-spacing: 1px; }
+        .submit-btn:hover { background: var(--primary-dark); }
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-        footer { background: var(--primary-dark); color: var(--white); padding: 50px 10%; text-align: center; margin-top: 40px; }
+        footer { background: var(--primary-dark); color: var(--white); padding: 50px 10%; text-align: center; }
+        
+        @media(max-width: 900px) { .contact-wrapper { padding: 30px; grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -85,11 +79,12 @@
             </a>
         </div>
         <nav class="nav-links">
+            <a href="index.html">Начало</a>
             <a href="index.html#gallery">Галерия</a>
-            <a href="index.html#services">Услуги</a>
-            <a href="index.html#contacts">Контакти</a>
+            <a href="services.html">Услуги</a>
+            <a href="#contacts">Контакти</a>
             <div class="dropdown">
-                <button class="menu-btn">☰</button>
+                <button class="menu-btn"><i class="fas fa-bars"></i></button>
                 <div class="dropdown-content">
                     <a href="dentist.html">За Стоматолози</a>
                     <a href="technician.html">За Зъботехници</a>
@@ -117,15 +112,46 @@
         <p class="closing-text">Работим с внимание към детайла, кратки срокове и коректност във всяка стъпка от процеса. Нашата цел е да бъдем надежден партньор, на когото можете да разчитате за качествена и прецизна работа.</p>
         
         <p class="closing-text">Ако търсите сигурен изпълнител за вашите случаи – ще се радвам да работим заедно.</p>
-        
-        <div style="text-align: center; margin-top: 40px;">
-            <a href="index.html#contacts" class="cta-button">Свържете се с нас</a>
+    </section>
+
+    <section id="contacts" class="section-container">
+        <h2 class="section-title fade-in">Свържете се с <span>Нас</span></h2>
+        <div class="contact-wrapper fade-in">
+            <div class="contact-info">
+                <h3>Информация за контакт</h3>
+                <div class="info-item"><i class="fas fa-map-marker-alt"></i><div><h5>Адрес</h5><p>ул. Беласица 59, Пловдив, България</p></div></div>
+                <div class="info-item"><i class="fas fa-phone-alt"></i><div><h5>Телефон</h5><p>+359 88 4180064</p></div></div>
+                <div class="info-item"><i class="fas fa-envelope"></i><div><h5>Имейли</h5><p><strong>За Стоматолози:</strong><br> modelradulov@gmail.com</p><p style="margin-top: 5px;"><strong>За Зъботехници:</strong><br> laser.print12@gmail.com</p></div></div>
+                <div class="map-container"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2958.423982855219!2d24.743282276532454!3d42.14099514900762!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14acd1a1e3c88691%3A0xc5cd8247f07e594b!2z0YPQuy4g4oCe0JHQtdC70LDRgdC40YbQsOKAneKAnCA1OSwgNDAwMiBQbG92ZGl2!5e0!3m2!1sen!2sbg!4v1700000000000!5m2!1sen!2sbg" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+            </div>
+            <div class="contact-form">
+                <h3>Изпратете запитване</h3>
+                <div class="form-group"><input type="text" placeholder="Вашето Име" required></div>
+                <div class="form-group"><input type="email" placeholder="Вашият Имейл" required></div>
+                <div class="form-group"><input type="text" placeholder="Относно (Стоматология или Зъботехника)"></div>
+                <div class="form-group"><textarea placeholder="Вашето Съобщение" required></textarea></div>
+                <button type="submit" class="submit-btn">Изпрати</button>
+            </div>
         </div>
     </section>
 
     <footer>
-        <p>© 2024 Radulov & Son Dental. Всички права запазени.</p>
+        <p>© 2026 Radulov & Son Dental. Всички права запазени.</p>
     </footer>
 
+    <script>
+        const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+        const observer = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
