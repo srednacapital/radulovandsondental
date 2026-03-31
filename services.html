@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Нашите Услуги | Radulov & Son Dental</title>
+    <link rel="icon" type="image/png" href="logo_tab.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -48,12 +49,12 @@
         .service-text h2 i { color: var(--accent-teal); font-size: 2rem; }
         .service-text p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 15px; text-align: left; line-height: 1.8; } 
         
-        /* FIX FOR IMAGES: Contain + Black Background */
-        .service-image { flex: 1; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.15); position: relative; background-color: #050505; }
-        .service-image img { width: 100%; height: 400px; object-fit: contain; display: block; transition: transform 0.5s ease; padding: 10px; }
-        .service-image:hover img { transform: scale(1.03); }
+        /* IMAGE STYLES (Reverted to Normal) */
+        .service-image { flex: 1; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.1); position: relative; }
+        .service-image img { width: 100%; height: 400px; object-fit: cover; display: block; transition: transform 0.5s ease; }
+        .service-image:hover img { transform: scale(1.05); }
 
-        /* CONTACTS CSS FOR SUBPAGES */
+        /* CONTACTS CSS */
         .section-container { padding: 100px 10%; max-width: 1400px; margin: 0 auto; }
         .section-title { text-align: center; font-size: 2.5rem; color: var(--primary-dark); margin-bottom: 50px; font-weight: 700; }
         .section-title span { color: var(--accent-teal); }
@@ -94,9 +95,7 @@
 
     <header>
         <div class="logo">
-            <a href="index.html">
-                <img src="logo png.png" alt="Radulov & Son Logo">
-            </a>
+            <a href="index.html"><img src="logo png.png" alt="Radulov & Son Logo"></a>
         </div>
         <nav class="nav-links">
             <a href="index.html">Начало</a>
@@ -125,7 +124,7 @@
             <p>За да гарантираме този успех, ние прилагаме най-строгите протоколи за пасивно прилягане (passive fit), което минимизира стреса върху импланта и осигурява безупречна и дълготрайна остеоинтеграция.</p>
         </div>
         <div class="service-image slide-right">
-            <img src="implanti.png" alt="Зъбни импланти">
+            <img src="implanti.png" alt="Зъбни импланти" style="object-position: center 75%; transform: scale(1.15);">
         </div>
     </section>
 
@@ -169,7 +168,7 @@
             <p>Тази сигурност е резултат от прецизно дигитално проектиране. Всяка греда се фрезова с микро-прецизност от масивен титаниев блок, което елиминира вътрешното напрежение в метала и осигурява перфектна ретенция за снемаемите протези.</p>
         </div>
         <div class="service-image slide-right">
-            <img src="titaniev.png" alt="Титаниев бар">
+            <img src="titaniev.png" alt="Титаниев бар" style="object-position: center 75%; transform: scale(1.15);">
         </div>
     </section>
 
@@ -229,9 +228,7 @@
         </div>
     </section>
 
-    <footer>
-        <p>© 2026 Radulov & Son Dental. Всички права запазени.</p>
-    </footer>
+    <footer><p>© 2026 Radulov & Son Dental. Всички права запазени.</p></footer>
 
     <script>
         const observerOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" };
