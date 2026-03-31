@@ -43,20 +43,21 @@
 
         /* --- HERO SECTION --- */
         .hero { height: 100vh; display: flex; background: linear-gradient(rgba(26, 32, 38, 0.7), rgba(26, 32, 38, 0.8)), url('https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=2000&auto=format&fit=crop') center/cover; color: var(--white); position: relative; align-items: center; justify-content: center; flex-direction: column; text-align: center; padding: 0 20px; }
-        .hero-intro { max-width: 700px; margin-bottom: 40px; transform: translateY(-30px); } /* Lifted slightly to make room for banner */
+        .hero-intro { max-width: 700px; margin-bottom: 40px; transform: translateY(-40px); } 
         .hero-intro h1 { font-size: 3rem; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 2px; }
         .hero-intro p { font-size: 1.2rem; font-weight: 300; opacity: 0.9; }
 
-        .split-container { display: flex; gap: 30px; z-index: 10; flex-wrap: wrap; justify-content: center; transform: translateY(-30px); }
+        .split-container { display: flex; gap: 30px; z-index: 10; flex-wrap: wrap; justify-content: center; transform: translateY(-40px); }
         .portal-btn { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.4); padding: 20px 50px; border-radius: 50px; text-align: center; cursor: pointer; transition: all 0.3s ease; min-width: 260px; box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2); display: flex; align-items: center; justify-content: center; gap: 10px; }
         .portal-btn h2 { font-size: 1.3rem; letter-spacing: 1px; text-transform: uppercase; margin: 0; }
         .portal-btn i { font-size: 1.5rem; }
         .portal-btn:hover { transform: translateY(-5px); background: var(--accent-teal); border-color: var(--accent-teal); box-shadow: 0 10px 40px rgba(58, 156, 176, 0.4); }
 
-        /* FULL-WIDTH LOGISTICS BANNER */
-        .hero-logistics { position: absolute; bottom: 0; left: 0; width: 100%; background: rgba(26, 32, 38, 0.85); backdrop-filter: blur(10px); border-top: 1px solid rgba(255, 255, 255, 0.1); padding: 20px 30px; display: flex; justify-content: center; align-items: center; gap: 15px; z-index: 10; color: var(--white); box-shadow: 0 -4px 20px rgba(0,0,0,0.2); }
-        .hero-logistics i { font-size: 1.8rem; color: var(--accent-teal); }
-        .hero-logistics p { font-size: 1.15rem; margin: 0; font-weight: 400; text-align: center; letter-spacing: 0.5px; }
+        /* FLOATING PILL LOGISTICS BANNER */
+        .hero-logistics { position: absolute; bottom: 40px; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.4); padding: 15px 40px; border-radius: 50px; display: flex; align-items: center; gap: 15px; z-index: 10; color: var(--white); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2); max-width: 90%; transition: all 0.3s ease; }
+        .hero-logistics:hover { background: rgba(255, 255, 255, 0.15); transform: translateY(-3px); }
+        .hero-logistics i { font-size: 1.6rem; color: var(--accent-teal); }
+        .hero-logistics p { font-size: 1.1rem; margin: 0; font-weight: 400; text-align: center; }
 
         /* --- COMMON --- */
         .section-container { padding: 100px 10%; max-width: 1400px; margin: 0 auto; }
@@ -84,8 +85,8 @@
         
         /* ENLARGED SVG CSS MASK */
         .svg-icon { 
-            width: 85px; /* Increased from 65px */
-            height: 85px; 
+            width: 95px; /* Boosted base size */
+            height: 95px; 
             margin: 0 auto 20px auto; 
             background-color: var(--primary-dark); 
             -webkit-mask-size: contain; mask-size: contain;
@@ -98,14 +99,12 @@
             transform: scale(1.15) translateY(-3px); 
         }
 
-        /* SPECIAL BOOST FOR SVG ICONS WITH TOO MUCH INTERNAL PADDING */
-        .service-card:nth-child(7) .svg-icon,
+        /* MASSIVE BOOST FOR COMMUNICATION ICON (8th card) */
         .service-card:nth-child(8) .svg-icon {
-            transform: scale(1.2); /* Base visual boost to match others */
+            transform: scale(1.6); 
         }
-        .service-card:hover:nth-child(7) .svg-icon,
         .service-card:hover:nth-child(8) .svg-icon {
-            transform: scale(1.35) translateY(-3px); /* Hover visual boost */
+            transform: scale(1.75) translateY(-3px); 
         }
 
         /* --- CONTACTS --- */
@@ -135,7 +134,7 @@
 
         @media(max-width: 768px){ 
             .contact-wrapper { padding: 30px; grid-template-columns: 1fr; } 
-            .hero-logistics { flex-direction: column; padding: 15px; }
+            .hero-logistics { flex-direction: column; padding: 20px; border-radius: 25px; bottom: 20px; }
             .hero-logistics p { font-size: 1rem; }
         }
     </style>
@@ -169,18 +168,18 @@
         
         <div class="split-container">
             <a href="dentist.html">
-                <div class="portal-btn fade-in" style="transition-delay: 0.2s;">
+                <div class="portal-btn fade-in" style="transition-delay: 0.1s;">
                     <i class="fas fa-user-md"></i><h2>Стоматолог</h2>
                 </div>
             </a>
             <a href="technician.html">
-                <div class="portal-btn fade-in" style="transition-delay: 0.4s;">
+                <div class="portal-btn fade-in" style="transition-delay: 0.2s;">
                     <i class="fas fa-tools"></i><h2>Зъботехник</h2>
                 </div>
             </a>
         </div>
 
-        <div class="hero-logistics fade-in" style="transition-delay: 0.6s;">
+        <div class="hero-logistics fade-in">
             <i class="fas fa-truck"></i>
             <p>Работим с клиники и лаборатории в цяла България. <strong>За град Пловдив осигуряваме персонален транспорт на вашите поръчки.</strong></p>
         </div>
