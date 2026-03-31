@@ -36,17 +36,36 @@
 
         .page-header { background: linear-gradient(rgba(58, 156, 176, 0.9), rgba(26, 32, 38, 0.9)), url('https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?q=80&w=2000&auto=format&fit=crop') center/cover; padding: 100px 10%; text-align: center; color: var(--white); }
         .page-header h1 { font-size: 3rem; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 2px; }
+        .page-header p { font-size: 1.2rem; font-weight: 300; opacity: 0.9; }
 
-        .content-container { padding: 80px 10%; max-width: 1000px; margin: 0 auto; background: var(--white); transform: translateY(-40px); border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); position: relative; z-index: 10; }
-        .intro-text { font-size: 1.15rem; color: #555; text-align: center; margin-bottom: 40px; }
-        .capabilities-list { list-style: none; margin-bottom: 40px; }
-        .capabilities-list li { padding: 15px 20px; border-left: 4px solid var(--accent-teal); background: var(--bg-light); margin-bottom: 10px; font-weight: 500; font-size: 1.1rem; }
-        .capabilities-list li strong { color: var(--primary-dark); }
-        .closing-text { font-size: 1.1rem; color: #555; line-height: 1.8; margin-bottom: 30px; text-align: justify;}
-
-        .section-container { padding: 50px 10% 100px; max-width: 1400px; margin: 0 auto; }
+        .section-container { padding: 80px 10%; max-width: 1400px; margin: 0 auto; }
         .section-title { text-align: center; font-size: 2.5rem; color: var(--primary-dark); margin-bottom: 50px; font-weight: 700; }
         .section-title span { color: var(--accent-teal); }
+
+        .intro-text { font-size: 1.25rem; color: var(--text-dark); text-align: center; max-width: 900px; margin: 0 auto 60px auto; font-weight: 500; }
+
+        /* B2B CAPABILITIES GRID */
+        .capabilities-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-bottom: 80px; }
+        .capability-card { background: var(--white); padding: 40px 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); transition: transform 0.3s; flex: 1 1 calc(33.333% - 20px); min-width: 300px; max-width: 400px; text-align: center; border-top: 4px solid var(--accent-teal); }
+        .capability-card:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0,0,0,0.08); }
+        .capability-card i { font-size: 3rem; color: var(--primary-dark); margin-bottom: 20px; }
+        .capability-card h4 { font-size: 1.3rem; color: var(--primary-dark); margin-bottom: 15px; }
+        .capability-card p { color: var(--text-muted); font-size: 0.95rem; }
+
+        /* WHY CHOOSE US SECTION */
+        .why-us-container { background-color: var(--primary-dark); color: var(--white); padding: 80px 10%; border-radius: 20px; margin-bottom: 60px; box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
+        .why-us-title { text-align: center; font-size: 2.2rem; margin-bottom: 50px; color: var(--white); }
+        .why-us-title span { color: var(--accent-teal); }
+        .why-us-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; }
+        .why-us-card { text-align: center; }
+        .why-us-card i { font-size: 2.5rem; color: var(--accent-teal); margin-bottom: 20px; }
+        .why-us-card h4 { font-size: 1.3rem; margin-bottom: 15px; }
+        .why-us-card p { font-size: 1rem; opacity: 0.8; }
+
+        .call-to-action { text-align: center; margin-bottom: 60px; }
+        .call-to-action p { font-size: 1.15rem; color: var(--text-dark); margin-bottom: 20px; font-weight: 500; }
+
+        /* CONTACTS CSS */
         .contact-wrapper { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 50px; background: var(--white); padding: 50px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); }
         .contact-info h3 { font-size: 1.8rem; margin-bottom: 30px; color: var(--primary-dark); }
         .info-item { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 25px; }
@@ -62,6 +81,7 @@
         .form-group textarea { resize: vertical; height: 150px; }
         .submit-btn { background: var(--accent-teal); color: var(--white); border: none; padding: 15px; font-size: 1.1rem; font-weight: bold; border-radius: 8px; cursor: pointer; transition: background 0.3s; text-transform: uppercase; letter-spacing: 1px; }
         .submit-btn:hover { background: var(--primary-dark); }
+
         .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
 
@@ -85,7 +105,7 @@
                 <button class="menu-btn"><i class="fas fa-bars"></i></button>
                 <div class="dropdown-content">
                     <a href="dentist.html">За Стоматолози</a>
-                    <a href="technician.html">За Зъботехници</a>
+                    <a href="technician.html" style="color: var(--accent-teal);">За Зъботехници</a>
                 </div>
             </div>
         </nav>
@@ -93,25 +113,75 @@
 
     <section class="page-header">
         <h1>Зъботехници</h1>
-        <p>Партньорство чрез дигитални технологии</p>
+        <p>Надеждно аутсорсинг партньорство чрез дигитални технологии</p>
     </section>
 
-    <section class="content-container">
-        <p class="intro-text">Като лаборатория с опит и стремеж към високо качество, предлагаме партньорство в изработката на съвременни зъботехнически конструкции чрез дигитални технологии. Разполагаме с възможности за:</p>
+    <section class="section-container">
         
-        <ul class="capabilities-list">
-            <li><strong>Лазерно синтероване (SLM)</strong> – прецизни метални конструкции с отлична здравина</li>
-            <li><strong>Фрезоване на цирконий</strong> – висококачествени естетични възстановявания с отлична точност</li>
-            <li><strong>CAD/CAM</strong> обработка и дигитален дизайн</li>
-            <li><strong>Изрязване</strong> на титан</li>
-            <li><strong>Изпълнение на индивидуални поръчки</strong> според вашите изисквания</li>
-        </ul>
+        <p class="intro-text fade-in">Като лаборатория с дългогодишен опит и безкомпромисен стремеж към високо качество, предлагаме професионално партньорство в изработката на съвременни зъботехнически конструкции.</p>
+        
+        <h2 class="section-title fade-in">Възможности за <span>Партньорство</span></h2>
+        
+        <div class="capabilities-grid">
+            <div class="capability-card fade-in">
+                <i class="fas fa-layer-group"></i>
+                <h4>Лазерно синтероване (SLM)</h4>
+                <p>Изработка на прецизни метални конструкции с отлична здравина, хомогенност и биосъвместимост.</p>
+            </div>
+            
+            <div class="capability-card fade-in">
+                <i class="fas fa-cube"></i>
+                <h4>Фрезоване на цирконий</h4>
+                <p>Висококачествени естетични възстановявания с отлична точност на маргиналния ръб от монолитен и мултилайер цирконий.</p>
+            </div>
+            
+            <div class="capability-card fade-in">
+                <i class="fas fa-laptop-code"></i>
+                <h4>CAD/CAM Обработка</h4>
+                <p>Пълен дигитален работен процес – от сканиране до прецизен дигитален дизайн и финално фрезоване.</p>
+            </div>
 
-        <p class="closing-text">Работим с внимание към детайла, кратки срокове и коректност във всяка стъпка от процеса. Нашата цел е да бъдем надежден партньор, на когото можете да разчитате за качествена и прецизна работа.</p>
-        <p class="closing-text">Ако търсите сигурен изпълнител за вашите случаи – ще се радвам да работим заедно.</p>
+            <div class="capability-card fade-in">
+                <i class="fas fa-cut"></i>
+                <h4>Изрязване на титан</h4>
+                <p>Обработка на висококачествен титан за създаване на сигурни и леки греди и специализирани конструкции.</p>
+            </div>
+
+            <div class="capability-card fade-in">
+                <i class="fas fa-cogs"></i>
+                <h4>Индивидуални поръчки</h4>
+                <p>Гъвкаво изпълнение на специфични поръчки и конструкции, изцяло съобразени с вашите изисквания и CAD файлове.</p>
+            </div>
+        </div>
+
+        <div class="why-us-container fade-in">
+            <h2 class="why-us-title">Защо да изберете <span>нас?</span></h2>
+            <div class="why-us-grid">
+                <div class="why-us-card">
+                    <i class="fas fa-search"></i>
+                    <h4>Внимание към детайла</h4>
+                    <p>Подхождаме с еднаква прецизност към всеки етап от производството, гарантирайки безупречен финален резултат.</p>
+                </div>
+                <div class="why-us-card">
+                    <i class="fas fa-stopwatch"></i>
+                    <h4>Кратки срокове</h4>
+                    <p>Оптимизирахме нашите дигитални процеси, за да ви осигурим бързо и навременно изпълнение на поръчките.</p>
+                </div>
+                <div class="why-us-card">
+                    <i class="fas fa-handshake"></i>
+                    <h4>Коректност</h4>
+                    <p>Ние сме надежден партньор. Комуникираме прозрачно и спазваме стриктно поетите ангажименти към вас.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="call-to-action fade-in">
+            <p>Ако търсите сигурен изпълнител за вашите случаи – ще се радваме да работим заедно.</p>
+        </div>
+
     </section>
 
-    <section id="contacts" class="section-container">
+    <section id="contacts" class="section-container" style="padding-top: 0;">
         <h2 class="section-title fade-in">Свържете се с <span>Нас</span></h2>
         <div class="contact-wrapper fade-in">
             <div class="contact-info">
@@ -135,7 +205,7 @@
     <footer><p>© 2026 Radulov & Son Dental. Всички права запазени.</p></footer>
 
     <script>
-        const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+        const observerOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
         const observer = new IntersectionObserver(function(entries, observer) {
             entries.forEach(entry => {
                 if (!entry.isIntersecting) return;
