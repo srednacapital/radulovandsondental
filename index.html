@@ -64,19 +64,21 @@
         .feature-box:hover { transform: translateY(-10px); }
         .feature-box i { font-size: 3rem; color: var(--accent-teal); margin-bottom: 20px; }
         .feature-box h4 { font-size: 1.3rem; color: var(--primary-dark); margin-bottom: 15px; }
-        .feature-box p { color: var(--text-muted); font-size: 0.95rem; text-align: justify; hyphens: auto; } /* Justified text here */
+        .feature-box p { color: var(--text-muted); font-size: 0.95rem; text-align: justify; hyphens: auto; }
 
-        /* --- SERVICES --- */
+        /* --- SERVICES GRID WITH NEW SVGs --- */
         .services-bg { background-color: #E9F0F2; }
-        .services-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; } /* Flexbox for centering */
+        .services-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
         .service-card { flex: 1 1 calc(33.333% - 20px); min-width: 300px; max-width: 400px; background: var(--white); padding: 40px 30px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); transition: all 0.3s ease; border-top: 4px solid transparent; text-align: center; display: flex; flex-direction: column; }
         .service-card:hover { transform: translateY(-8px); border-top: 4px solid var(--accent-teal); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
-        .service-card i { font-size: 2.5rem; color: var(--primary-dark); margin-bottom: 20px; transition: color 0.3s; }
-        .service-card:hover i { color: var(--accent-teal); }
         .service-card h3 { color: var(--primary-dark); margin-bottom: 15px; font-size: 1.4rem; }
         .service-card p { font-size: 0.95rem; color: var(--text-muted); flex-grow: 1; margin-bottom: 20px; }
         .learn-more { display: inline-block; font-weight: bold; color: var(--accent-teal); font-size: 0.9rem; text-transform: uppercase; transition: transform 0.3s; margin-top: auto; }
         .learn-more:hover { transform: translateX(5px); color: var(--primary-dark); }
+        
+        /* Specific CSS for SVG Icons */
+        .svg-icon { width: 60px; height: 60px; margin: 0 auto 20px auto; transition: transform 0.4s ease; display: block; }
+        .service-card:hover .svg-icon { transform: scale(1.15) translateY(-5px); }
 
         /* --- CONTACTS --- */
         .contact-wrapper { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 50px; background: var(--white); padding: 50px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); }
@@ -182,56 +184,56 @@
             <div class="services-grid">
                 
                 <div class="service-card fade-in">
-                    <i class="fas fa-tooth"></i>
+                    <img src="implant_icon.svg" alt="Импланти Икона" class="svg-icon">
                     <h3>Зъбни импланти</h3>
                     <p>Конструкции върху импланти с изключителна прецизност, осигуряващи стабилност, дълготрайност и отлична естетика чрез дигитално планиране.</p>
                     <a href="services.html#implants" class="learn-more">Научи повече →</a>
                 </div>
                 
                 <div class="service-card fade-in">
-                    <i class="fas fa-magic"></i>
+                    <img src="keramika_icon.svg" alt="Керамика Икона" class="svg-icon">
                     <h3>Керамика</h3>
                     <p>Металокерамични конструкции, съчетаващи здравината на металната основа с естествената красота и прозрачност на зъбната керамика.</p>
                     <a href="services.html#ceramics" class="learn-more">Научи повече →</a>
                 </div>
                 
                 <div class="service-card fade-in">
-                    <i class="fas fa-cube"></i>
+                    <img src="cirkonii_icon.svg" alt="Цирконий Икона" class="svg-icon">
                     <h3>Цирконий</h3>
                     <p>Здрави и съвършено естетични циркониеви конструкции с изключителна устойчивост и автентичен естествен вид.</p>
                     <a href="services.html#zirconia" class="learn-more">Научи повече →</a>
                 </div>
                 
                 <div class="service-card fade-in">
-                    <i class="fas fa-vial"></i>
+                    <img src="plastmasa_icon.svg" alt="Пластмаса Икона" class="svg-icon">
                     <h3>Пластмаса</h3>
                     <p>Биосъвместими пластмасови конструкции за временно възстановяване, надеждни за единични корони и мостове.</p>
                     <a href="services.html#plastics" class="learn-more">Научи повече →</a>
                 </div>
                 
                 <div class="service-card fade-in">
-                    <i class="fas fa-bars"></i>
+                    <img src="bar_icon.svg" alt="Титаниев бар Икона" class="svg-icon">
                     <h3>Титаниев бар</h3>
                     <p>Сигурно и ефективно решение за стабилизиране на протезни конструкции върху импланти, съчетаващо здравина и лекота.</p>
                     <a href="services.html#titanium" class="learn-more">Научи повече →</a>
                 </div>
                 
                 <div class="service-card fade-in">
-                    <i class="fas fa-teeth-open"></i>
+                    <img src="protezi_icon.svg" alt="Протези Икона" class="svg-icon">
                     <h3>Протези</h3>
                     <p>Висококачествени цели и частични протези – класически и термопластични, за оптимално прилягане и комфорт.</p>
                     <a href="services.html#dentures" class="learn-more">Научи повече →</a>
                 </div>
                 
                 <div class="service-card fade-in">
-                    <i class="fas fa-smile"></i>
+                    <img src="ortodontiq_icon.svg" alt="Ортодонтия Икона" class="svg-icon">
                     <h3>Ортодонтия</h3>
                     <p>Прецизни ортодонтски решения и конструкции за ефективно, комфортно и успешно коригиране на захапката.</p>
                     <a href="services.html#ortho" class="learn-more">Научи повече →</a>
                 </div>
                 
                 <div class="service-card fade-in">
-                    <i class="fas fa-laptop-medical"></i>
+                    <img src="komunikaciq_icon.svg" alt="Комуникация Икона" class="svg-icon">
                     <h3>Дигитална Комуникация</h3>
                     <p>Приемаме възстановителни случаи в дигитален формат от интраорални скенери за изцяло дигитален работен процес.</p>
                     <a href="services.html#digital" class="learn-more">Научи повече →</a>
