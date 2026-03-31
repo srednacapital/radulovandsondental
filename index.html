@@ -43,21 +43,21 @@
 
         /* --- HERO SECTION --- */
         .hero { height: 100vh; display: flex; background: linear-gradient(rgba(26, 32, 38, 0.7), rgba(26, 32, 38, 0.8)), url('https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=2000&auto=format&fit=crop') center/cover; color: var(--white); position: relative; align-items: center; justify-content: center; flex-direction: column; text-align: center; padding: 0 20px; }
-        .hero-intro { max-width: 700px; margin-bottom: 40px; transform: translateY(-40px); } 
+        .hero-intro { max-width: 700px; margin-bottom: 40px; transform: translateY(-20px); } 
         .hero-intro h1 { font-size: 3rem; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 2px; }
         .hero-intro p { font-size: 1.2rem; font-weight: 300; opacity: 0.9; }
 
-        .split-container { display: flex; gap: 30px; z-index: 10; flex-wrap: wrap; justify-content: center; transform: translateY(-40px); }
+        .split-container { display: flex; gap: 30px; z-index: 10; flex-wrap: wrap; justify-content: center; transform: translateY(-20px); }
         .portal-btn { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.4); padding: 20px 50px; border-radius: 50px; text-align: center; cursor: pointer; transition: all 0.3s ease; min-width: 260px; box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2); display: flex; align-items: center; justify-content: center; gap: 10px; }
         .portal-btn h2 { font-size: 1.3rem; letter-spacing: 1px; text-transform: uppercase; margin: 0; }
         .portal-btn i { font-size: 1.5rem; }
         .portal-btn:hover { transform: translateY(-5px); background: var(--accent-teal); border-color: var(--accent-teal); box-shadow: 0 10px 40px rgba(58, 156, 176, 0.4); }
 
-        /* FLOATING PILL LOGISTICS BANNER */
-        .hero-logistics { position: absolute; bottom: 40px; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.4); padding: 15px 40px; border-radius: 50px; display: flex; align-items: center; gap: 15px; z-index: 10; color: var(--white); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2); max-width: 90%; transition: all 0.3s ease; }
-        .hero-logistics:hover { background: rgba(255, 255, 255, 0.15); transform: translateY(-3px); }
-        .hero-logistics i { font-size: 1.6rem; color: var(--accent-teal); }
-        .hero-logistics p { font-size: 1.1rem; margin: 0; font-weight: 400; text-align: center; }
+        /* REDESIGNED LOGISTICS BANNER (Text Only, Bottom Aligned) */
+        .hero-logistics { position: absolute; bottom: 30px; left: 0; width: 100%; display: flex; justify-content: center; align-items: center; gap: 12px; z-index: 10; color: var(--white); padding: 0 20px; }
+        .hero-logistics i { font-size: 1.6rem; color: var(--accent-teal); text-shadow: 0 2px 5px rgba(0,0,0,0.5); }
+        .hero-logistics p { font-size: 1.15rem; margin: 0; font-weight: 400; text-align: center; text-shadow: 0 2px 5px rgba(0,0,0,0.5); letter-spacing: 0.5px; }
+        .hero-logistics strong { color: var(--accent-teal); font-weight: 600; }
 
         /* --- COMMON --- */
         .section-container { padding: 100px 10%; max-width: 1400px; margin: 0 auto; }
@@ -85,7 +85,7 @@
         
         /* ENLARGED SVG CSS MASK */
         .svg-icon { 
-            width: 95px; /* Boosted base size */
+            width: 95px; 
             height: 95px; 
             margin: 0 auto 20px auto; 
             background-color: var(--primary-dark); 
@@ -98,14 +98,8 @@
             background-color: var(--accent-teal); 
             transform: scale(1.15) translateY(-3px); 
         }
-
-        /* MASSIVE BOOST FOR COMMUNICATION ICON (8th card) */
-        .service-card:nth-child(8) .svg-icon {
-            transform: scale(1.6); 
-        }
-        .service-card:hover:nth-child(8) .svg-icon {
-            transform: scale(1.75) translateY(-3px); 
-        }
+        .service-card:nth-child(8) .svg-icon { transform: scale(1.6); }
+        .service-card:hover:nth-child(8) .svg-icon { transform: scale(1.75) translateY(-3px); }
 
         /* --- CONTACTS --- */
         .contact-wrapper { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 50px; background: var(--white); padding: 50px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); }
@@ -134,8 +128,7 @@
 
         @media(max-width: 768px){ 
             .contact-wrapper { padding: 30px; grid-template-columns: 1fr; } 
-            .hero-logistics { flex-direction: column; padding: 20px; border-radius: 25px; bottom: 20px; }
-            .hero-logistics p { font-size: 1rem; }
+            .hero-logistics { flex-direction: column; gap: 5px; bottom: 20px; }
         }
     </style>
 </head>
