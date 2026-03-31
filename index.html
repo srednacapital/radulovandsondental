@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Radulov & Son Dental | Пловдив</title>
+    <link rel="icon" type="image/png" href="logo_tab.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* --- BASE STYLES --- */
@@ -66,7 +67,7 @@
         .feature-box h4 { font-size: 1.3rem; color: var(--primary-dark); margin-bottom: 15px; }
         .feature-box p { color: var(--text-muted); font-size: 0.95rem; text-align: justify; hyphens: auto; }
 
-        /* --- SERVICES GRID WITH NEW SVGs --- */
+        /* --- SERVICES GRID --- */
         .services-bg { background-color: #E9F0F2; }
         .services-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
         .service-card { flex: 1 1 calc(33.333% - 20px); min-width: 300px; max-width: 400px; background: var(--white); padding: 40px 30px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); transition: all 0.3s ease; border-top: 4px solid transparent; text-align: center; display: flex; flex-direction: column; }
@@ -76,9 +77,21 @@
         .learn-more { display: inline-block; font-weight: bold; color: var(--accent-teal); font-size: 0.9rem; text-transform: uppercase; transition: transform 0.3s; margin-top: auto; }
         .learn-more:hover { transform: translateX(5px); color: var(--primary-dark); }
         
-        /* Specific CSS for SVG Icons */
-        .svg-icon { width: 60px; height: 60px; margin: 0 auto 20px auto; transition: transform 0.4s ease; display: block; }
-        .service-card:hover .svg-icon { transform: scale(1.15) translateY(-5px); }
+        /* MAGIC SVG CSS MASK (Enables Color Changing) */
+        .svg-icon { 
+            width: 45px; 
+            height: 45px; 
+            margin: 0 auto 20px auto; 
+            background-color: var(--primary-dark); /* Default Color */
+            -webkit-mask-size: contain; mask-size: contain;
+            -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+            -webkit-mask-position: center; mask-position: center;
+            transition: all 0.3s ease; 
+        }
+        .service-card:hover .svg-icon { 
+            background-color: var(--accent-teal); /* Hover Color */
+            transform: scale(1.15) translateY(-3px); 
+        }
 
         /* --- CONTACTS --- */
         .contact-wrapper { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 50px; background: var(--white); padding: 50px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); }
@@ -111,9 +124,7 @@
 
     <header id="main-header">
         <div class="logo">
-            <a href="index.html">
-                <img src="logo png.png" alt="Radulov & Son Logo">
-            </a>
+            <a href="index.html"><img src="logo png.png" alt="Radulov & Son Logo"></a>
         </div>
         <nav class="nav-links">
             <a href="index.html">Начало</a>
@@ -135,18 +146,15 @@
             <h1>Радулов и Син Дентал</h1>
             <p>Прецизност, иновации и доверие в денталната медицина. Изберете вашия профил, за да открием най-доброто решение за вас.</p>
         </div>
-        
         <div class="split-container">
             <a href="dentist.html">
                 <div class="portal-btn fade-in" style="transition-delay: 0.2s;">
-                    <i class="fas fa-user-md"></i>
-                    <h2>Стоматолог</h2>
+                    <i class="fas fa-user-md"></i><h2>Стоматолог</h2>
                 </div>
             </a>
             <a href="technician.html">
                 <div class="portal-btn fade-in" style="transition-delay: 0.4s;">
-                    <i class="fas fa-tools"></i>
-                    <h2>Зъботехник</h2>
+                    <i class="fas fa-tools"></i><h2>Зъботехник</h2>
                 </div>
             </a>
         </div>
@@ -154,22 +162,18 @@
 
     <section id="about" class="section-container">
         <h2 class="section-title fade-in">За <span>Нас</span></h2>
-        
         <p class="about-mission fade-in">В „Радулов и Син Дентал" се стремим постоянно да поддържаме най-висок стандарт в денталната изработка, защото вашето доверие и удовлетворението на вашите пациенти са водещи за нас.</p>
-        
         <div class="about-features">
             <div class="feature-box fade-in" style="transition-delay: 0.1s;">
                 <i class="fas fa-microchip"></i>
                 <h4>Модерни Технологии</h4>
                 <p>Екипът ни работи с модерни CAD/CAM технологии лазерно сканиране, дигитално проектиране, високопрецизно фрезоване и лазерно синтероване, като непрекъснато следим развитието на индустрията и внедряваме иновации.</p>
             </div>
-            
             <div class="feature-box fade-in" style="transition-delay: 0.2s;">
                 <i class="fas fa-gem"></i>
                 <h4>Премиум Материали</h4>
                 <p>Използваме внимателно подбрани материали като цирконий, керамика, пластмаса, титан и хром-кобалт, за да гарантираме надеждност и отличен естетичен резултат.</p>
             </div>
-            
             <div class="feature-box fade-in" style="transition-delay: 0.3s;">
                 <i class="fas fa-handshake"></i>
                 <h4>Партньорство</h4>
@@ -184,56 +188,56 @@
             <div class="services-grid">
                 
                 <div class="service-card fade-in">
-                    <img src="implant_icon.svg" alt="Импланти Икона" class="svg-icon">
+                    <div class="svg-icon" style="-webkit-mask-image: url('implant_icon.svg'); mask-image: url('implant_icon.svg');"></div>
                     <h3>Зъбни импланти</h3>
                     <p>Конструкции върху импланти с изключителна прецизност, осигуряващи стабилност, дълготрайност и отлична естетика чрез дигитално планиране.</p>
                     <a href="services.html#implants" class="learn-more">Научи повече →</a>
                 </div>
                 
                 <div class="service-card fade-in">
-                    <img src="keramika_icon.svg" alt="Керамика Икона" class="svg-icon">
+                    <div class="svg-icon" style="-webkit-mask-image: url('keramika_icon.svg'); mask-image: url('keramika_icon.svg');"></div>
                     <h3>Керамика</h3>
                     <p>Металокерамични конструкции, съчетаващи здравината на металната основа с естествената красота и прозрачност на зъбната керамика.</p>
                     <a href="services.html#ceramics" class="learn-more">Научи повече →</a>
                 </div>
                 
                 <div class="service-card fade-in">
-                    <img src="cirkonii_icon.svg" alt="Цирконий Икона" class="svg-icon">
+                    <div class="svg-icon" style="-webkit-mask-image: url('cirkonii_icon.svg'); mask-image: url('cirkonii_icon.svg');"></div>
                     <h3>Цирконий</h3>
                     <p>Здрави и съвършено естетични циркониеви конструкции с изключителна устойчивост и автентичен естествен вид.</p>
                     <a href="services.html#zirconia" class="learn-more">Научи повече →</a>
                 </div>
                 
                 <div class="service-card fade-in">
-                    <img src="plastmasa_icon.svg" alt="Пластмаса Икона" class="svg-icon">
+                    <div class="svg-icon" style="-webkit-mask-image: url('plastmasa_icon.svg'); mask-image: url('plastmasa_icon.svg');"></div>
                     <h3>Пластмаса</h3>
                     <p>Биосъвместими пластмасови конструкции за временно възстановяване, надеждни за единични корони и мостове.</p>
                     <a href="services.html#plastics" class="learn-more">Научи повече →</a>
                 </div>
                 
                 <div class="service-card fade-in">
-                    <img src="bar_icon.svg" alt="Титаниев бар Икона" class="svg-icon">
+                    <div class="svg-icon" style="-webkit-mask-image: url('bar_icon.svg'); mask-image: url('bar_icon.svg');"></div>
                     <h3>Титаниев бар</h3>
                     <p>Сигурно и ефективно решение за стабилизиране на протезни конструкции върху импланти, съчетаващо здравина и лекота.</p>
                     <a href="services.html#titanium" class="learn-more">Научи повече →</a>
                 </div>
                 
                 <div class="service-card fade-in">
-                    <img src="protezi_icon.svg" alt="Протези Икона" class="svg-icon">
+                    <div class="svg-icon" style="-webkit-mask-image: url('protezi_icon.svg'); mask-image: url('protezi_icon.svg');"></div>
                     <h3>Протези</h3>
                     <p>Висококачествени цели и частични протези – класически и термопластични, за оптимално прилягане и комфорт.</p>
                     <a href="services.html#dentures" class="learn-more">Научи повече →</a>
                 </div>
                 
                 <div class="service-card fade-in">
-                    <img src="ortodontiq_icon.svg" alt="Ортодонтия Икона" class="svg-icon">
+                    <div class="svg-icon" style="-webkit-mask-image: url('ortodontiq_icon.svg'); mask-image: url('ortodontiq_icon.svg');"></div>
                     <h3>Ортодонтия</h3>
                     <p>Прецизни ортодонтски решения и конструкции за ефективно, комфортно и успешно коригиране на захапката.</p>
                     <a href="services.html#ortho" class="learn-more">Научи повече →</a>
                 </div>
                 
                 <div class="service-card fade-in">
-                    <img src="komunikaciq_icon.svg" alt="Комуникация Икона" class="svg-icon">
+                    <div class="svg-icon" style="-webkit-mask-image: url('komunikaciq_icon.svg'); mask-image: url('komunikaciq_icon.svg');"></div>
                     <h3>Дигитална Комуникация</h3>
                     <p>Приемаме възстановителни случаи в дигитален формат от интраорални скенери за изцяло дигитален работен процес.</p>
                     <a href="services.html#digital" class="learn-more">Научи повече →</a>
@@ -243,68 +247,30 @@
         </div>
     </section>
 
-    <section id="gallery" class="section-container" style="padding: 50px 10%;">
-        </section>
+    <section id="gallery" class="section-container" style="padding: 50px 10%;"></section>
 
     <section id="contacts" class="section-container">
         <h2 class="section-title fade-in">Свържете се с <span>Нас</span></h2>
-        
         <div class="contact-wrapper fade-in">
             <div class="contact-info">
                 <h3>Информация за контакт</h3>
-                
-                <div class="info-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div>
-                        <h5>Адрес</h5>
-                        <p>ул. Беласица 59, Пловдив, България</p>
-                    </div>
-                </div>
-                
-                <div class="info-item">
-                    <i class="fas fa-phone-alt"></i>
-                    <div>
-                        <h5>Телефон</h5>
-                        <p>+359 88 4180064</p>
-                    </div>
-                </div>
-                
-                <div class="info-item">
-                    <i class="fas fa-envelope"></i>
-                    <div>
-                        <h5>Имейли</h5>
-                        <p><strong>За Стоматолози:</strong><br> modelradulov@gmail.com</p>
-                        <p style="margin-top: 5px;"><strong>За Зъботехници:</strong><br> laser.print12@gmail.com</p>
-                    </div>
-                </div>
-
-                <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2958.423982855219!2d24.743282276532454!3d42.14099514900762!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14acd1a1e3c88691%3A0xc5cd8247f07e594b!2z0YPQuy4g4oCe0JHQtdC70LDRgdC40YbQsOKAneKAnCA1OSwgNDAwMiBQbG92ZGl2!5e0!3m2!1sen!2sbg!4v1700000000000!5m2!1sen!2sbg" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
+                <div class="info-item"><i class="fas fa-map-marker-alt"></i><div><h5>Адрес</h5><p>ул. Беласица 59, Пловдив, България</p></div></div>
+                <div class="info-item"><i class="fas fa-phone-alt"></i><div><h5>Телефон</h5><p>+359 88 4180064</p></div></div>
+                <div class="info-item"><i class="fas fa-envelope"></i><div><h5>Имейли</h5><p><strong>За Стоматолози:</strong><br> modelradulov@gmail.com</p><p style="margin-top: 5px;"><strong>За Зъботехници:</strong><br> laser.print12@gmail.com</p></div></div>
+                <div class="map-container"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2958.423982855219!2d24.743282276532454!3d42.14099514900762!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14acd1a1e3c88691%3A0xc5cd8247f07e594b!2z0YPQuy4g4oCe0JHQtdC70LDRgdC40YbQsOKAneKAnCA1OSwgNDAwMiBQbG92ZGl2!5e0!3m2!1sen!2sbg!4v1700000000000!5m2!1sen!2sbg" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
             </div>
-
             <div class="contact-form">
                 <h3>Изпратете запитване</h3>
-                <div class="form-group">
-                    <input type="text" placeholder="Вашето Име" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" placeholder="Вашият Имейл" required>
-                </div>
-                <div class="form-group">
-                    <input type="text" placeholder="Относно (Стоматология или Зъботехника)">
-                </div>
-                <div class="form-group">
-                    <textarea placeholder="Вашето Съобщение" required></textarea>
-                </div>
+                <div class="form-group"><input type="text" placeholder="Вашето Име" required></div>
+                <div class="form-group"><input type="email" placeholder="Вашият Имейл" required></div>
+                <div class="form-group"><input type="text" placeholder="Относно (Стоматология или Зъботехника)"></div>
+                <div class="form-group"><textarea placeholder="Вашето Съобщение" required></textarea></div>
                 <button type="submit" class="submit-btn">Изпрати</button>
             </div>
         </div>
     </section>
 
-    <footer>
-        <p>© 2026 Radulov & Son Dental. Всички права запазени.</p>
-    </footer>
+    <footer><p>© 2026 Radulov & Son Dental. Всички права запазени.</p></footer>
 
     <script>
         const header = document.getElementById('main-header');
