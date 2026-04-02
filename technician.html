@@ -7,10 +7,10 @@
     <link rel="icon" type="image/png" href="logo_tab.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* NEW EXPERIMENTAL DARK THEME FOR TECHNICIANS */
+        /* EXPERIMENTAL DARK THEME 2.0 - WIDE CARDS */
         :root {
-            --primary-dark: #0D1117; /* Even darker, almost black */
-            --secondary-dark: #161B22; /* Card backgrounds */
+            --primary-dark: #0D1117; 
+            --secondary-dark: #161B22; 
             --accent-teal: #3A9CB0;
             --accent-teal-hover: #2F7A8A;
             --text-light: #E6EDF3;
@@ -42,19 +42,18 @@
         .page-header h1 span { color: var(--accent-teal); }
         .page-header p { font-size: 1.2rem; font-weight: 300; color: var(--text-muted); max-width: 700px; margin: 0 auto; }
 
-        /* SPLIT SECTION */
-        .tech-split { display: flex; gap: 50px; padding: 50px 10%; max-width: 1400px; margin: 0 auto; align-items: center; }
-        .tech-split-text { flex: 1; }
-        .tech-split-text h2 { font-size: 2.5rem; color: #fff; margin-bottom: 20px; }
-        .tech-split-text p { font-size: 1.15rem; color: var(--text-muted); margin-bottom: 30px; text-align: justify; }
-        .tech-split-text .highlight { border-left: 4px solid var(--accent-teal); padding-left: 20px; margin-top: 30px; }
-        
-        .tech-split-grid { flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .tech-card { background: var(--secondary-dark); border: 1px solid var(--border-color); padding: 30px; border-radius: 12px; transition: all 0.3s ease; }
-        .tech-card:hover { border-color: var(--accent-teal); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(58, 156, 176, 0.1); }
-        .tech-card i { font-size: 2rem; color: var(--accent-teal); margin-bottom: 15px; }
-        .tech-card h4 { font-size: 1.2rem; color: #fff; margin-bottom: 10px; }
-        .tech-card p { font-size: 0.9rem; color: var(--text-muted); }
+        /* NEW WIDE LAYOUT */
+        .tech-intro-section { text-align: center; max-width: 900px; margin: 0 auto 60px auto; padding: 0 20px; }
+        .tech-intro-section p { font-size: 1.25rem; color: var(--text-muted); margin-bottom: 40px; line-height: 1.8; }
+        .tech-quote { font-size: 1.4rem; font-style: italic; color: #fff; border-left: 4px solid var(--accent-teal); padding-left: 20px; text-align: left; background: rgba(255,255,255,0.02); padding: 30px; border-radius: 0 15px 15px 0; box-shadow: inset 5px 0 0 0 var(--accent-teal); }
+
+        .tech-horizontal-list { display: flex; flex-direction: column; gap: 20px; max-width: 1000px; margin: 0 auto 80px auto; padding: 0 20px;}
+        .tech-row-card { display: flex; align-items: center; gap: 30px; background: var(--secondary-dark); border: 1px solid var(--border-color); padding: 30px 40px; border-radius: 12px; transition: transform 0.3s, border-color 0.3s; }
+        .tech-row-card:hover { border-color: var(--accent-teal); transform: translateX(10px); }
+        .tech-row-icon { width: 80px; height: 80px; background: rgba(58, 156, 176, 0.1); border-radius: 50%; display: flex; justify-content: center; align-items: center; flex-shrink: 0; }
+        .tech-row-icon i { font-size: 2.2rem; color: var(--accent-teal); }
+        .tech-row-text h4 { font-size: 1.4rem; color: #fff; margin-bottom: 10px; }
+        .tech-row-text p { font-size: 1rem; color: var(--text-muted); margin: 0; }
 
         /* PROCESS STEPS */
         .process-section { padding: 80px 10%; background: var(--secondary-dark); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
@@ -91,9 +90,8 @@
 
         footer { background: var(--primary-dark); color: var(--text-muted); padding: 50px 10%; text-align: center; border-top: 1px solid var(--border-color); }
         
-        @media(max-width: 900px) { 
-            .tech-split { flex-direction: column; }
-            .tech-split-grid { grid-template-columns: 1fr; }
+        @media(max-width: 768px) { 
+            .tech-row-card { flex-direction: column; text-align: center; }
             .contact-wrapper { padding: 30px; grid-template-columns: 1fr; } 
         }
     </style>
@@ -120,39 +118,55 @@
     </header>
 
     <section class="page-header fade-in">
-        <h1>B2B <span>Партньорство</span></h1>
-        <p>Дигитална прецизност и аутсорсинг решения за зъботехнически лаборатории</p>
+        <h1>Технологично <span>Партньорство</span></h1>
+        <p>Надеждни аутсорсинг решения чрез дигитални иновации</p>
     </section>
 
-    <section class="tech-split">
-        <div class="tech-split-text fade-in">
-            <h2>Лаборатория от Ново Поколение</h2>
-            <p>Като лаборатория с дългогодишен опит и безкомпромисен стремеж към високо качество, ние предлагаме професионално партньорство в изработката на съвременни зъботехнически конструкции. Работим изцяло в дигитална среда, което ни позволява да поемаме сложни процеси, изискващи скъпа апаратура и специфична експертиза.</p>
-            <div class="highlight">
-                <p style="margin:0; font-style: italic; color: #fff;">"Нашата цел е да бъдем надеждното индустриално звено на вашата лаборатория, на което можете да разчитате за кратки срокове и микро-прецизност."</p>
+    <section class="tech-intro-section fade-in">
+        <p>Като лаборатория с дългогодишен опит и безкомпромисен стремеж към високо качество, ние предлагаме професионално партньорство в изработката на съвременни зъботехнически конструкции. Работим изцяло в дигитална среда, което ни позволява да поемаме сложни процеси, изискващи скъпа апаратура и специфична експертиза.</p>
+        <div class="tech-quote">
+            "Нашата цел е да бъдем надеждното индустриално звено на вашата лаборатория, на което можете да разчитате за кратки срокове и микро-прецизност."
+        </div>
+    </section>
+
+    <section class="tech-horizontal-list">
+        <div class="tech-row-card fade-in">
+            <div class="tech-row-icon"><i class="fas fa-layer-group"></i></div>
+            <div class="tech-row-text">
+                <h4>Лазерно Синтероване (SLM)</h4>
+                <p>Изработка на прецизни метални конструкции с отлична здравина, хомогенност и биосъвместимост.</p>
             </div>
         </div>
 
-        <div class="tech-split-grid">
-            <div class="tech-card fade-in">
-                <i class="fas fa-layer-group"></i>
-                <h4>Лазерно Синтероване (SLM)</h4>
-                <p>Изработка на прецизни метални конструкции с отлична здравина и плътност.</p>
-            </div>
-            <div class="tech-card fade-in" style="transition-delay: 0.1s;">
-                <i class="fas fa-cube"></i>
+        <div class="tech-row-card fade-in" style="transition-delay: 0.1s;">
+            <div class="tech-row-icon"><i class="fas fa-cube"></i></div>
+            <div class="tech-row-text">
                 <h4>Фрезоване на Цирконий</h4>
-                <p>Естетични възстановявания от монолитен и мултилайер цирконий с идеална маргинална точност.</p>
+                <p>Висококачествени естетични възстановявания с отлична точност на маргиналния ръб от монолитен и мултилайер цирконий.</p>
             </div>
-            <div class="tech-card fade-in" style="transition-delay: 0.2s;">
-                <i class="fas fa-cut"></i>
+        </div>
+
+        <div class="tech-row-card fade-in" style="transition-delay: 0.2s;">
+            <div class="tech-row-icon"><i class="fas fa-cut"></i></div>
+            <div class="tech-row-text">
                 <h4>Изрязване на Титан</h4>
-                <p>Обработка на висококачествен титан за леки и биосъвместими греди и конструкции.</p>
+                <p>Обработка на висококачествен титан за създаване на сигурни и леки греди и специализирани конструкции.</p>
             </div>
-            <div class="tech-card fade-in" style="transition-delay: 0.3s;">
-                <i class="fas fa-laptop-code"></i>
-                <h4>CAD Дизайн</h4>
-                <p>Пълно дигитално проектиране по ваши изисквания или изпълнение на готови CAD файлове.</p>
+        </div>
+
+        <div class="tech-row-card fade-in" style="transition-delay: 0.3s;">
+            <div class="tech-row-icon"><i class="fas fa-laptop-code"></i></div>
+            <div class="tech-row-text">
+                <h4>CAD/CAM Обработка</h4>
+                <p>Пълен дигитален работен процес – от сканиране до прецизен дигитален дизайн или директно изпълнение на ваши CAD файлове.</p>
+            </div>
+        </div>
+
+        <div class="tech-row-card fade-in" style="transition-delay: 0.4s;">
+            <div class="tech-row-icon"><i class="fas fa-cogs"></i></div>
+            <div class="tech-row-text">
+                <h4>Индивидуални Поръчки</h4>
+                <p>Гъвкаво изпълнение на специфични поръчки и конструкции, изцяло съобразени с вашите изисквания и срокове.</p>
             </div>
         </div>
     </section>
