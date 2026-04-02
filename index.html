@@ -53,7 +53,7 @@
         .portal-btn i { font-size: 1.5rem; }
         .portal-btn:hover { transform: translateY(-5px); background: var(--accent-teal); border-color: var(--accent-teal); box-shadow: 0 10px 40px rgba(58, 156, 176, 0.4); }
 
-        /* REDESIGNED LOGISTICS BANNER (Text Only, Bottom Aligned) */
+        /* LOGISTICS BANNER */
         .hero-logistics { position: absolute; bottom: 30px; left: 0; width: 100%; display: flex; justify-content: center; align-items: center; gap: 12px; z-index: 10; color: var(--white); padding: 0 20px; }
         .hero-logistics i { font-size: 1.6rem; color: var(--accent-teal); text-shadow: 0 2px 5px rgba(0,0,0,0.5); }
         .hero-logistics p { font-size: 1.15rem; margin: 0; font-weight: 400; text-align: center; text-shadow: 0 2px 5px rgba(0,0,0,0.5); letter-spacing: 0.5px; }
@@ -122,9 +122,19 @@
         footer { background: var(--primary-dark); color: var(--white); padding: 30px 10%; text-align: center; }
         footer p { opacity: 0.8; font-size: 0.9rem; }
 
-        /* --- FADE EFFECTS --- */
+        /* --- FADE EFFECTS (Scroll) --- */
         .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        /* --- HERO ANIMATIONS (On Load) --- */
+        .hero-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
 
         @media(max-width: 768px){ 
             .contact-wrapper { padding: 30px; grid-template-columns: 1fr; } 
@@ -140,8 +150,8 @@
         </div>
         <nav class="nav-links">
             <a href="index.html">Начало</a>
-            <a href="services.html">Услуги</a>
             <a href="#gallery">Галерия</a>
+            <a href="services.html">Услуги</a>
             <a href="#contacts">Контакти</a>
             <div class="dropdown">
                 <button class="menu-btn"><i class="fas fa-bars"></i></button>
@@ -154,25 +164,25 @@
     </header>
 
     <section class="hero">
-        <div class="hero-intro fade-in">
+        <div class="hero-intro hero-animate" style="animation-delay: 0.1s;">
             <h1>Радулов и Син Дентал</h1>
             <p>Прецизност, иновации и доверие в денталната медицина. Изберете вашия профил, за да открием най-доброто решение за вас.</p>
         </div>
         
         <div class="split-container">
             <a href="dentist.html">
-                <div class="portal-btn fade-in" style="transition-delay: 0.1s;">
+                <div class="portal-btn hero-animate" style="animation-delay: 0.3s;">
                     <i class="fas fa-user-md"></i><h2>Стоматолог</h2>
                 </div>
             </a>
             <a href="technician.html">
-                <div class="portal-btn fade-in" style="transition-delay: 0.2s;">
+                <div class="portal-btn hero-animate" style="animation-delay: 0.5s;">
                     <i class="fas fa-tools"></i><h2>Зъботехник</h2>
                 </div>
             </a>
         </div>
 
-        <div class="hero-logistics fade-in">
+        <div class="hero-logistics hero-animate" style="animation-delay: 0.7s;">
             <i class="fas fa-truck"></i>
             <p>Работим с клиники и лаборатории в цяла България. <strong>За град Пловдив осигуряваме персонален транспорт на вашите поръчки.</strong></p>
         </div>
@@ -297,6 +307,7 @@
             else { header.classList.remove('scrolled'); }
         });
 
+        // Intersection Observer only applies to elements with .fade-in (not hero-animate)
         const fadeElements = document.querySelectorAll('.fade-in');
         const appearOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
         const appearOnScroll = new IntersectionObserver(function(entries, observer) {
