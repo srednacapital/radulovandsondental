@@ -361,6 +361,19 @@
         }, appearOptions);
 
         fadeElements.forEach(element => appearOnScroll.observe(element));
+        const menuBtn = document.querySelector('.menu-btn');
+        const dropdownContent = document.querySelector('.dropdown-content');
+        
+        if(menuBtn) {
+            menuBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (dropdownContent.style.display === "block") {
+                    dropdownContent.style.display = "none";
+                } else {
+                    dropdownContent.style.display = "block";
+                }
+            });
+        }
     </script>
 </body>
 </html>
