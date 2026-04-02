@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>За Стоматолози | Radulov & Son Dental</title>
+    <link rel="icon" type="image/png" href="logo_tab.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* MATCHING DARK THEME B2B LAYOUT */
+        :root {
+            --primary-dark: #0D1117; 
+            --secondary-dark: #161B22; 
+            --accent-teal: #3A9CB0;
+            --accent-teal-hover: #2F7A8A;
+            --text-light: #E6EDF3;
+            --text-muted: #8B949E;
+            --border-color: #30363D;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', 'Segoe UI', sans-serif; }
+        body { background-color: var(--primary-dark); color: var(--text-light); overflow-x: hidden; line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+
+        header { width: 100%; padding: 15px 50px; display: flex; justify-content: space-between; align-items: center; background: rgba(13, 17, 23, 0.95); backdrop-filter: blur(10px); color: var(--text-light); border-bottom: 1px solid var(--border-color); position: sticky; top:0; z-index:1000; }
+        .logo img { max-height: 40px; width: auto; transition: transform 0.3s; }
+        .logo:hover img { transform: scale(1.05); }
+        .nav-links { display: flex; gap: 30px; align-items: center; }
+        .nav-links a { font-weight: 500; transition: color 0.3s; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px;}
+        .nav-links a:hover { color: var(--accent-teal); }
+        
+        .dropdown { position: relative; display: inline-block; }
+        .menu-btn { background: var(--accent-teal); padding: 10px 15px; border-radius: 5px; color: #fff; font-size: 1.2rem; border: none; cursor: pointer; }
+        .dropdown-content { display: none; position: absolute; right: 0; top: 100%; background-color: var(--secondary-dark); min-width: 200px; box-shadow: 0px 8px 16px rgba(0,0,0,0.5); border: 1px solid var(--border-color); border-radius: 5px; overflow: hidden; z-index: 1000; }
+        .dropdown-content a { color: var(--text-light); padding: 12px 20px; display: block; text-transform: none; font-weight: 500; border-bottom: 1px solid var(--border-color); }
+        .dropdown-content a:hover { background-color: rgba(58, 156, 176, 0.1); color: var(--accent-teal); }
+        .dropdown:hover .dropdown-content { display: block; }
+
+        /* HEADER */
+        .page-header { padding: 120px 10% 60px; text-align: center; }
+        .page-header h1 { font-size: 3.5rem; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 2px; color: #fff; }
+        .page-header h1 span { color: var(--accent-teal); }
+
+        .tech-intro-section { text-align: center; max-width: 900px; margin: 0 auto 60px auto; padding: 0 20px; }
+        .tech-intro-section p { font-size: 1.25rem; color: var(--text-muted); margin-bottom: 40px; line-height: 1.8; }
+        .tech-quote { font-size: 1.4rem; font-style: italic; color: #fff; border-left: 4px solid var(--accent-teal); padding-left: 20px; text-align: left; background: rgba(255,255,255,0.02); padding: 30px; border-radius: 0 15px 15px 0; box-shadow: inset 5px 0 0 0 var(--accent-teal); }
+
+        .tech-horizontal-list { display: flex; flex-direction: column; gap: 20px; max-width: 1000px; margin: 0 auto 80px auto; padding: 0 20px;}
+        .tech-row-card { display: flex; align-items: center; gap: 30px; background: var(--secondary-dark); border: 1px solid var(--border-color); padding: 30px 40px; border-radius: 12px; transition: transform 0.3s, border-color 0.3s; }
+        .tech-row-card:hover { border-color: var(--accent-teal); transform: translateX(10px); }
+        .tech-row-icon { width: 80px; height: 80px; background: rgba(58, 156, 176, 0.1); border-radius: 50%; display: flex; justify-content: center; align-items: center; flex-shrink: 0; }
+        .tech-row-icon i { font-size: 2.2rem; color: var(--accent-teal); }
+        .tech-row-text h4 { font-size: 1.4rem; color: #fff; margin-bottom: 10px; }
+        .tech-row-text p { font-size: 1rem; color: var(--text-muted); margin: 0; line-height: 1.6; }
+
+        .process-section { padding: 80px 10%; background: var(--secondary-dark); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
+        .process-title { text-align: center; font-size: 2.2rem; color: #fff; margin-bottom: 60px; }
+        .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; max-width: 1400px; margin: 0 auto; }
+        .process-step { position: relative; padding-top: 30px; }
+        .process-step::before { content: ''; position: absolute; top: 0; left: 0; width: 40px; height: 4px; background: var(--accent-teal); }
+        .process-number { font-size: 4rem; font-weight: 800; color: rgba(255,255,255,0.05); position: absolute; top: -20px; right: 0; line-height: 1; }
+        .process-step h4 { font-size: 1.3rem; color: #fff; margin-bottom: 15px; position: relative; z-index: 2; }
+        .process-step p { color: var(--text-muted); position: relative; z-index: 2; line-height: 1.6; }
+
+        .section-container { padding: 100px 10%; max-width: 1400px; margin: 0 auto; }
+        .section-title { text-align: center; font-size: 2.5rem; color: #fff; margin-bottom: 50px; font-weight: 700; }
+        .section-title span { color: var(--accent-teal); }
+        .contact-wrapper { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 50px; background: var(--secondary-dark); padding: 50px; border-radius: 20px; border: 1px solid var(--border-color); }
+        .contact-info h3 { font-size: 1.8rem; margin-bottom: 30px; color: #fff; }
+        .info-item { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 25px; }
+        .info-item i { font-size: 1.5rem; color: var(--accent-teal); margin-top: 5px; }
+        .info-item div p { color: var(--text-muted); }
+        .info-item div h5 { font-size: 1.1rem; color: #fff; margin-bottom: 5px; }
+        .map-container { width: 100%; height: 250px; border-radius: 10px; overflow: hidden; margin-top: 30px; border: 1px solid var(--border-color); }
+        .map-container iframe { width: 100%; height: 100%; border: none; }
+        .contact-form { display: flex; flex-direction: column; gap: 20px; }
+        .contact-form h3 { font-size: 1.8rem; margin-bottom: 10px; color: #fff; }
+        .form-group input, .form-group textarea { width: 100%; padding: 15px; border: 1px solid var(--border-color); border-radius: 8px; font-size: 1rem; transition: border-color 0.3s; background: var(--primary-dark); color: #fff; }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--accent-teal); }
+        .form-group textarea { resize: vertical; height: 150px; }
+        .submit-btn { background: var(--accent-teal); color: #fff; border: none; padding: 15px; font-size: 1.1rem; font-weight: bold; border-radius: 8px; cursor: pointer; transition: background 0.3s; text-transform: uppercase; letter-spacing: 1px; }
+        .submit-btn:hover { background: #fff; color: var(--primary-dark); }
+
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        footer { background: var(--primary-dark); color: var(--text-muted); padding: 50px 10%; text-align: center; border-top: 1px solid var(--border-color); }
+        
+        @media(max-width: 768px) { 
+            .tech-row-card { flex-direction: column; text-align: center; }
+            .contact-wrapper { padding: 30px; grid-template-columns: 1fr; } 
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="logo png.png" alt="Radulov & Son Logo"></a>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Начало</a>
+            <a href="index.html#gallery">Галерия</a>
+            <a href="services.html">Услуги</a>
+            <a href="#contacts">Контакти</a>
+            <div class="dropdown">
+                <button class="menu-btn"><i class="fas fa-bars"></i></button>
+                <div class="dropdown-content">
+                    <a href="dentist.html" style="color: var(--accent-teal);">За Стоматолози</a>
+                    <a href="technician.html">За Зъботехници</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="page-header fade-in">
+        <h1>Клинично <span>Партньорство</span></h1>
+        <p>Предвидими резултати и безкомпромисна прецизност за вашата практика</p>
+    </section>
+
+    <section class="tech-intro-section fade-in">
+        <p>Успехът на вашата практика зависи от удовлетвореността на пациентите ви и ефективното управление на времето. Ние от Радулов и Син Дентал разбираме, че всяка минута на стола е ценна. Затова създаваме конструкции, които изискват нулево или минимално ажустиране в кабинета. </p>
+        <div class="tech-quote">
+            "Нашата мисия е да ви осигурим спокойствието, че всяка конструкция ще пасне перфектно от първия път, гарантирайки отлична функция и естетика."
+        </div>
+    </section>
+
+    <section class="tech-horizontal-list">
+        <div class="tech-row-card fade-in">
+            <div class="tech-row-icon"><i class="fas fa-laptop-medical"></i></div>
+            <div class="tech-row-text">
+                <h4>Изцяло Дигитален Протокол</h4>
+                <p>Работим с всички водещи системи за интраорално сканиране (3Shape, Medit, iTero, Dentsply Sirona). Дигиталният отпечатък елиминира грешките и деформациите, съкращавайки времето за изработка. </p>
+            </div>
+        </div>
+
+        <div class="tech-row-card fade-in" style="transition-delay: 0.1s;">
+            <div class="tech-row-icon"><i class="fas fa-smile-beam"></i></div>
+            <div class="tech-row-text">
+                <h4>Естетично Планиране и Wax-up</h4>
+                <p>Предлагаме прецизно предварително планиране и диагностичен Wax-up. Това ви дава възможност лесно да визуализирате крайния резултат пред пациента и да повишите успеваемостта на лечението.</p>
+            </div>
+        </div>
+
+        <div class="tech-row-card fade-in" style="transition-delay: 0.2s;">
+            <div class="tech-row-icon"><i class="fas fa-bullseye"></i></div>
+            <div class="tech-row-text">
+                <h4>Сложни Имплантологични Случаи</h4>
+                <p>Разполагаме с дългогодишна експертиза в планирането на комплексни възстановявания върху импланти. Изработваме конструкции с пасивно прилягане, което предпазва имплантите от излишен стрес. </p>
+            </div>
+        </div>
+
+        <div class="tech-row-card fade-in" style="transition-delay: 0.3s;">
+            <div class="tech-row-icon"><i class="fas fa-comments"></i></div>
+            <div class="tech-row-text">
+                <h4>Персонална Комуникация</h4>
+                <p>Вярваме, че отличните резултати се раждат в диалога. Консултираме се с вас за избора на най-подходящия материал (цирконий, прескерамика, титан) според спецификите на всеки индивидуален случай. </p>
+            </div>
+        </div>
+
+        <div class="tech-row-card fade-in" style="transition-delay: 0.4s;">
+            <div class="tech-row-icon"><i class="fas fa-truck-fast"></i></div>
+            <div class="tech-row-text">
+                <h4>Експресна Логистика</h4>
+                <p>Осигуряваме надежден личен транспорт за град Пловдив, за да сме сигурни, че вашите конструкции ще пристигнат безопасно и навреме за насрочения час на пациента.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="process-section">
+        <h2 class="process-title fade-in">Етапи на съвместна работа</h2>
+        <div class="process-grid">
+            <div class="process-step fade-in">
+                <div class="process-number">01</div>
+                <h4>Вземане на Отпечатък</h4>
+                <p>Изпратете ни дигитален скан чрез интегрираните платформи или стандартен физически отпечатък. Подхождаме с еднаква прецизност и към двата метода. </p>
+            </div>
+            <div class="process-step fade-in" style="transition-delay: 0.1s;">
+                <div class="process-number">02</div>
+                <h4>Анализ и Обсъждане</h4>
+                <p>Разглеждаме границите на препарация, оклузията и фотоснимките за определяне на цвят. При нужда, обсъждаме с вас плана на лечение.</p>
+            </div>
+            <div class="process-step fade-in" style="transition-delay: 0.2s;">
+                <div class="process-number">03</div>
+                <h4>CAD/CAM Изработка</h4>
+                <p>Използваме високопрецизно фрезоване и премиум материали за постигане на безупречен маргинален ръб и морфология. </p>
+            </div>
+            <div class="process-step fade-in" style="transition-delay: 0.3s;">
+                <div class="process-number">04</div>
+                <h4>Финално Предаване</h4>
+                <p>Получавате напълно завършена, естетически съвършена конструкция, готова за бързо и безпроблемно циментиране в устата на пациента.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacts" class="section-container">
+        <h2 class="section-title fade-in">Свържете се с <span>Нас</span></h2>
+        <div class="contact-wrapper fade-in">
+            <div class="contact-info">
+                <h3>Информация за контакт</h3>
+                <div class="info-item"><i class="fas fa-map-marker-alt"></i><div><h5>Адрес</h5><p>ул. Беласица 59, Пловдив, България</p></div></div>
+                <div class="info-item"><i class="fas fa-phone-alt"></i><div><h5>Телефон</h5><p>+359 88 4180064</p></div></div>
+                <div class="info-item"><i class="fas fa-envelope"></i><div><h5>Имейли</h5><p><strong>За Стоматолози:</strong><br> modelradulov@gmail.com</p><p style="margin-top: 5px;"><strong>За Зъботехници:</strong><br> laser.print12@gmail.com</p></div></div>
+            </div>
+            <div class="contact-form">
+                <h3>Изпратете запитване</h3>
+                <div class="form-group"><input type="text" placeholder="Вашето Име / Клиника" required></div>
+                <div class="form-group"><input type="email" placeholder="Вашият Имейл" required></div>
+                <div class="form-group"><textarea placeholder="Вашето Съобщение" required></textarea></div>
+                <button type="submit" class="submit-btn">Изпрати</button>
+            </div>
+        </div>
+    </section>
+
+    <footer><p>© 2026 Radulov & Son Dental. Всички права запазени.</p></footer>
+
+    <script>
+        const observerOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
+        const observer = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
