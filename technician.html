@@ -36,22 +36,45 @@
         .dropdown:hover .dropdown-content { display: block; }
 
         /* HEADER */
-        .page-header { padding: 120px 10% 60px; text-align: center; }
-        .page-header h1 { font-size: 3.5rem; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 2px; color: #fff; }
+        .page-header { padding: 120px 10% 40px; text-align: center; }
+        .page-header h1 { font-size: 3.5rem; margin: 0; text-transform: uppercase; letter-spacing: 2px; color: #fff; }
         .page-header h1 span { color: var(--accent-teal); }
 
         .tech-intro-section { text-align: center; max-width: 900px; margin: 0 auto 60px auto; padding: 0 20px; }
-        .tech-intro-section p { font-size: 1.25rem; color: var(--text-muted); margin-bottom: 40px; line-height: 1.8; }
-        .tech-quote { font-size: 1.4rem; font-style: italic; color: #fff; border-left: 4px solid var(--accent-teal); padding-left: 20px; text-align: left; background: rgba(255,255,255,0.02); padding: 30px; border-radius: 0 15px 15px 0; box-shadow: inset 5px 0 0 0 var(--accent-teal); }
+        .tech-intro-section p { font-size: 1.25rem; color: var(--text-muted); line-height: 1.8; }
 
-        .tech-horizontal-list { display: flex; flex-direction: column; gap: 20px; max-width: 1000px; margin: 0 auto 80px auto; padding: 0 20px;}
-        .tech-row-card { display: flex; align-items: center; gap: 30px; background: var(--secondary-dark); border: 1px solid var(--border-color); padding: 30px 40px; border-radius: 12px; transition: transform 0.3s, border-color 0.3s; }
-        .tech-row-card:hover { border-color: var(--accent-teal); transform: translateX(10px); }
-        .tech-row-icon { width: 80px; height: 80px; background: rgba(58, 156, 176, 0.1); border-radius: 50%; display: flex; justify-content: center; align-items: center; flex-shrink: 0; }
-        .tech-row-icon i { font-size: 2.2rem; color: var(--accent-teal); }
-        .tech-row-text h4 { font-size: 1.4rem; color: #fff; margin-bottom: 10px; }
-        .tech-row-text p { font-size: 1rem; color: var(--text-muted); margin: 0; }
+        /* WIDE GRADIENT SLIDESHOW */
+        .slideshow-container { position: relative; max-width: 1200px; margin: 0 auto 80px; height: 450px; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.3); border: 1px solid var(--border-color); }
+        .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 0.8s ease-in-out; background-size: cover; background-position: center; }
+        .slide.active { opacity: 1; z-index: 1; }
+        
+        .slide-gradient { position: absolute; top: 0; right: 0; width: 55%; height: 100%; background: linear-gradient(to left, rgba(13,17,23,1) 30%, rgba(13,17,23,0) 100%); display: flex; flex-direction: column; justify-content: center; padding: 40px 60px; }
+        .slide-content { max-width: 400px; margin-left: auto; text-align: left; }
+        .slide-content h3 { font-size: 2.2rem; color: #fff; margin-bottom: 15px; }
+        .slide-content p { font-size: 1.1rem; color: var(--text-light); line-height: 1.6; }
 
+        .slider-nav { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 10; display: flex; gap: 10px; }
+        .slider-dot { width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,0.2); cursor: pointer; transition: 0.3s; }
+        .slider-dot.active { background: var(--accent-teal); }
+
+        /* PERKS GRID (2 CARDS) */
+        .perks-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-bottom: 80px; max-width: 1000px; margin-left: auto; margin-right: auto; padding: 0 20px; }
+        .perk-card { flex: 1 1 calc(50% - 30px); min-width: 300px; background: var(--secondary-dark); padding: 40px 30px; border-radius: 12px; border: 1px solid var(--border-color); border-top: 4px solid var(--accent-teal); text-align: center; display: flex; flex-direction: column; transition: transform 0.3s; }
+        .perk-card:hover { transform: translateY(-8px); box-shadow: 0 10px 30px rgba(58,156,176,0.1); }
+        .perk-card i { font-size: 2.5rem; color: var(--accent-teal); margin-bottom: 20px; }
+        .perk-card h3 { color: #fff; margin-bottom: 15px; font-size: 1.4rem; }
+        .perk-card p { font-size: 1rem; color: var(--text-muted); flex-grow: 1; margin: 0; line-height: 1.6; }
+
+        /* CEO QUOTE SECTION */
+        .quote-section { max-width: 1000px; margin: 80px auto; background: var(--secondary-dark); border: 1px solid var(--border-color); border-radius: 20px; padding: 50px; display: flex; align-items: center; gap: 40px; box-shadow: 0 15px 40px rgba(0,0,0,0.2); }
+        .quote-image { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; border: 4px solid var(--accent-teal); flex-shrink: 0; }
+        .quote-text-container { flex: 1; }
+        .quote-icon { font-size: 2.5rem; color: var(--accent-teal); opacity: 0.3; margin-bottom: 15px; }
+        .quote-text { font-size: 1.35rem; font-style: italic; color: #fff; line-height: 1.6; margin-bottom: 20px; }
+        .quote-author { font-size: 1.15rem; color: var(--accent-teal); font-weight: bold; margin-bottom: 5px; }
+        .quote-role { font-size: 0.95rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+
+        /* PROCESS STEPS */
         .process-section { padding: 80px 10%; background: var(--secondary-dark); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
         .process-title { text-align: center; font-size: 2.2rem; color: #fff; margin-bottom: 60px; }
         .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; max-width: 1400px; margin: 0 auto; }
@@ -61,6 +84,7 @@
         .process-step h4 { font-size: 1.3rem; color: #fff; margin-bottom: 15px; position: relative; z-index: 2; }
         .process-step p { color: var(--text-muted); position: relative; z-index: 2; }
 
+        /* CONTACTS CSS */
         .section-container { padding: 100px 10%; max-width: 1400px; margin: 0 auto; }
         .section-title { text-align: center; font-size: 2.5rem; color: #fff; margin-bottom: 50px; font-weight: 700; }
         .section-title span { color: var(--accent-teal); }
@@ -86,7 +110,9 @@
         footer { background: var(--primary-dark); color: var(--text-muted); padding: 50px 10%; text-align: center; border-top: 1px solid var(--border-color); }
         
         @media(max-width: 768px) { 
-            .tech-row-card { flex-direction: column; text-align: center; }
+            .slide-gradient { width: 100%; background: rgba(13,17,23,0.85); align-items: center; text-align: center; padding: 30px; }
+            .slide-content { margin-left: 0; text-align: center; }
+            .quote-section { flex-direction: column; text-align: center; padding: 30px; }
             .contact-wrapper { padding: 30px; grid-template-columns: 1fr; } 
         }
     </style>
@@ -117,51 +143,61 @@
     </section>
 
     <section class="tech-intro-section fade-in">
-        <p>Като лаборатория с дългогодишен опит и безкомпромисен стремеж към високо качество, ние предлагаме професионално партньорство в изработката на съвременни зъботехнически конструкции. Работим изцяло в дигитална среда, което ни позволява да поемаме сложни процеси, изискващи скъпа апаратура и специфична експертиза.</p>
-        <div class="tech-quote">
-            "Нашата цел е да бъдем надеждното индустриално звено на вашата лаборатория, на което можете да разчитате за кратки срокове и микро-прецизност."
+        <p>Като лаборатория с дългогодишен опит и безкомпромисен стремеж към високо качество, ние предлагаме професионално партньорство в изработката на съвременни зъботехнически конструкции. </p>
+    </section>
+
+    <section class="slideshow-container fade-in">
+        <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?q=80&w=1400&auto=format&fit=crop');">
+            <div class="slide-gradient">
+                <div class="slide-content">
+                    <h3>Лазерно Синтероване (SLM)</h3>
+                    <p>Изработка на прецизни метални конструкции с отлична здравина, хомогенност и биосъвместимост. </p>
+                </div>
+            </div>
+        </div>
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=1400&auto=format&fit=crop');">
+            <div class="slide-gradient">
+                <div class="slide-content">
+                    <h3>Фрезоване на Цирконий</h3>
+                    <p>Висококачествени естетични възстановявания с отлична точност на маргиналния ръб от монолитен и мултилайер цирконий. </p>
+                </div>
+            </div>
+        </div>
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=1400&auto=format&fit=crop');">
+            <div class="slide-gradient">
+                <div class="slide-content">
+                    <h3>Изрязване на Титан</h3>
+                    <p>Прецизна обработка на висококачествен титан за създаване на сигурни, леки греди и специализирани конструкции. </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slider-nav">
+            <div class="slider-dot active" onclick="currentSlide(0)"></div>
+            <div class="slider-dot" onclick="currentSlide(1)"></div>
+            <div class="slider-dot" onclick="currentSlide(2)"></div>
         </div>
     </section>
 
-    <section class="tech-horizontal-list">
-        <div class="tech-row-card fade-in">
-            <div class="tech-row-icon"><i class="fas fa-layer-group"></i></div>
-            <div class="tech-row-text">
-                <h4>Лазерно Синтероване (SLM)</h4>
-                <p>Изработка на прецизни метални конструкции с отлична здравина, хомогенност и биосъвместимост.</p>
-            </div>
+    <section class="perks-grid">
+        <div class="perk-card fade-in">
+            <i class="fas fa-laptop-code"></i>
+            <h3>CAD/CAM Обработка</h3>
+            <p>Пълен дигитален работен процес – от сканиране до прецизен дигитален дизайн или директно изпълнение на ваши CAD файлове. </p>
         </div>
-
-        <div class="tech-row-card fade-in" style="transition-delay: 0.1s;">
-            <div class="tech-row-icon"><i class="fas fa-cube"></i></div>
-            <div class="tech-row-text">
-                <h4>Фрезоване на Цирконий</h4>
-                <p>Висококачествени естетични възстановявания с отлична точност на маргиналния ръб от монолитен и мултилайер цирконий.</p>
-            </div>
+        <div class="perk-card fade-in" style="transition-delay: 0.1s;">
+            <i class="fas fa-cogs"></i>
+            <h3>Индивидуални Поръчки</h3>
+            <p>Гъвкаво изпълнение на специфични поръчки и конструкции, изцяло съобразени с вашите изисквания и срокове. </p>
         </div>
+    </section>
 
-        <div class="tech-row-card fade-in" style="transition-delay: 0.2s;">
-            <div class="tech-row-icon"><i class="fas fa-cut"></i></div>
-            <div class="tech-row-text">
-                <h4>Изрязване на Титан</h4>
-                <p>Обработка на висококачествен титан за създаване на сигурни и леки греди и специализирани конструкции.</p>
-            </div>
-        </div>
-
-        <div class="tech-row-card fade-in" style="transition-delay: 0.3s;">
-            <div class="tech-row-icon"><i class="fas fa-laptop-code"></i></div>
-            <div class="tech-row-text">
-                <h4>CAD/CAM Обработка</h4>
-                <p>Пълен дигитален работен процес – от сканиране до прецизен дигитален дизайн или директно изпълнение на ваши CAD файлове.</p>
-            </div>
-        </div>
-
-        <div class="tech-row-card fade-in" style="transition-delay: 0.4s;">
-            <div class="tech-row-icon"><i class="fas fa-cogs"></i></div>
-            <div class="tech-row-text">
-                <h4>Индивидуални Поръчки</h4>
-                <p>Гъвкаво изпълнение на специфични поръчки и конструкции, изцяло съобразени с вашите изисквания и срокове.</p>
-            </div>
+    <section class="quote-section fade-in">
+        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=400&auto=format&fit=crop" alt="CEO Portrait" class="quote-image"> <div class="quote-text-container">
+            <i class="fas fa-quote-left quote-icon"></i>
+            <p class="quote-text">"Нашата цел е да бъдем надеждното индустриално звено на вашата лаборатория, на което можете да разчитате за кратки срокове, коректност и микро-прецизност." </p>
+            <div class="quote-author">Име на Управител</div>
+            <div class="quote-role">Управител, Радулов и Син Дентал</div>
         </div>
     </section>
 
@@ -213,6 +249,7 @@
     <footer><p>© 2026 Radulov & Son Dental. Всички права запазени.</p></footer>
 
     <script>
+        // Scroll Fade Observer
         const observerOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
         const observer = new IntersectionObserver(function(entries, observer) {
             entries.forEach(entry => {
@@ -221,10 +258,35 @@
                 observer.unobserve(entry.target);
             });
         }, observerOptions);
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
+        // Slideshow Logic
+        let slideIndex = 0;
+        let timer;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.slider-dot');
+
+        function showSlides(n) {
+            slides.forEach(s => s.classList.remove('active'));
+            dots.forEach(d => d.classList.remove('active'));
+            slideIndex = n;
+            if (slideIndex >= slides.length) slideIndex = 0;
+            if (slideIndex < 0) slideIndex = slides.length - 1;
+            slides[slideIndex].classList.add('active');
+            dots[slideIndex].classList.add('active');
+        }
+        
+        function currentSlide(n) {
+            clearInterval(timer);
+            showSlides(n);
+            startTimer();
+        }
+
+        function startTimer() {
+            timer = setInterval(() => showSlides(slideIndex + 1), 5000); // 5 seconds
+        }
+        
+        startTimer(); // Initialize
     </script>
 </body>
 </html>
