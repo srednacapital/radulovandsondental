@@ -43,19 +43,24 @@
         .tech-intro-section { text-align: center; max-width: 900px; margin: 0 auto 60px auto; padding: 0 20px; }
         .tech-intro-section p { font-size: 1.25rem; color: var(--text-muted); line-height: 1.8; }
 
-        /* FULL-WIDTH SLIDESHOW WITH GRADIENT OVERLAY */
+        /* FULL-WIDTH SLIDESHOW WITH GRADIENT OVERLAY & ARROWS */
         .slideshow-container { position: relative; width: 100%; max-width: 100%; margin: 0 0 80px 0; height: 550px; overflow: hidden; background: #000; }
         .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 0.8s ease-in-out; }
         .slide.active { opacity: 1; z-index: 1; }
         
         .slide-image { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; }
         
-        /* The Gradient sits ON TOP of the image, fading from dark right to transparent left */
         .slide-gradient { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to left, rgba(13,17,23,0.95) 0%, rgba(13,17,23,0.7) 40%, rgba(13,17,23,0) 80%); display: flex; flex-direction: column; justify-content: center; align-items: flex-end; padding: 40px 10%; }
         
         .slide-content { max-width: 500px; text-align: left; }
         .slide-content h3 { font-size: 2.2rem; color: #fff; margin-bottom: 15px; }
         .slide-content p { font-size: 1.15rem; color: var(--text-light); line-height: 1.6; }
+
+        /* ARROWS FOR SLIDESHOW */
+        .prev, .next { cursor: pointer; position: absolute; top: 50%; width: auto; padding: 16px; margin-top: -22px; color: white; font-weight: bold; font-size: 24px; transition: 0.6s ease; border-radius: 0 3px 3px 0; user-select: none; z-index: 10; background-color: rgba(13, 17, 23, 0.5); }
+        .next { right: 0; border-radius: 3px 0 0 3px; }
+        .prev { left: 0; }
+        .prev:hover, .next:hover { background-color: var(--accent-teal); }
 
         .slider-nav { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 10; display: flex; gap: 12px; }
         .slider-dot { width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,0.3); cursor: pointer; transition: 0.3s; }
@@ -69,15 +74,6 @@
         .perk-card h3 { color: #fff; margin-bottom: 15px; font-size: 1.4rem; }
         .perk-card p { font-size: 1rem; color: var(--text-muted); flex-grow: 1; margin: 0; line-height: 1.6; }
 
-        /* CEO QUOTE SECTION */
-        .quote-section { max-width: 1000px; margin: 80px auto; background: var(--secondary-dark); border: 1px solid var(--border-color); border-radius: 20px; padding: 50px; display: flex; align-items: center; gap: 40px; box-shadow: 0 15px 40px rgba(0,0,0,0.2); }
-        .quote-image { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; border: 4px solid var(--accent-teal); flex-shrink: 0; }
-        .quote-text-container { flex: 1; }
-        .quote-icon { font-size: 2.5rem; color: var(--accent-teal); opacity: 0.3; margin-bottom: 15px; }
-        .quote-text { font-size: 1.35rem; font-style: italic; color: #fff; line-height: 1.6; margin-bottom: 20px; }
-        .quote-author { font-size: 1.15rem; color: var(--accent-teal); font-weight: bold; margin-bottom: 5px; }
-        .quote-role { font-size: 0.95rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
-
         /* PROCESS STEPS */
         .process-section { padding: 80px 10%; background: var(--secondary-dark); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
         .process-title { text-align: center; font-size: 2.2rem; color: #fff; margin-bottom: 60px; }
@@ -87,6 +83,15 @@
         .process-number { font-size: 4rem; font-weight: 800; color: rgba(255,255,255,0.05); position: absolute; top: -20px; right: 0; line-height: 1; }
         .process-step h4 { font-size: 1.3rem; color: #fff; margin-bottom: 15px; position: relative; z-index: 2; }
         .process-step p { color: var(--text-muted); position: relative; z-index: 2; }
+
+        /* CEO QUOTE SECTION */
+        .quote-section { max-width: 1000px; margin: 80px auto; background: var(--secondary-dark); border: 1px solid var(--border-color); border-radius: 20px; padding: 50px; display: flex; align-items: center; gap: 40px; box-shadow: 0 15px 40px rgba(0,0,0,0.2); }
+        .quote-image { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; border: 4px solid var(--accent-teal); flex-shrink: 0; }
+        .quote-text-container { flex: 1; }
+        .quote-icon { font-size: 2.5rem; color: var(--accent-teal); opacity: 0.3; margin-bottom: 15px; }
+        .quote-text { font-size: 1.35rem; font-style: italic; color: #fff; line-height: 1.6; margin-bottom: 20px; }
+        .quote-author { font-size: 1.15rem; color: var(--accent-teal); font-weight: bold; margin-bottom: 5px; }
+        .quote-role { font-size: 0.95rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
 
         /* CONTACTS CSS */
         .section-container { padding: 100px 10%; max-width: 1400px; margin: 0 auto; }
@@ -152,6 +157,9 @@
 
     <section class="slideshow-container fade-in">
         
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
         <div class="slide active">
             <div class="slide-image" style="background-image: url('https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?q=80&w=1400&auto=format&fit=crop');"></div>
             <div class="slide-gradient">
@@ -197,7 +205,7 @@
             <div class="slide-gradient">
                 <div class="slide-content">
                     <h3>Литиево-дисиликатни възстановявания</h3>
-                    <p>Висок клас керамика, съчетаваща изключителна естетика и прецизност. Естествената прозрачност прави възстановяванията неразличими от естествените зъби. </p>
+                    <p>Висок клас керамика, съчетаваща изключителна естетика и прецизност. Естествената прозрачност прави възстановяванията неразличими от естествените зъби.</p>
                 </div>
             </div>
         </div>
@@ -224,15 +232,6 @@
         </div>
     </section>
 
-    <section class="quote-section fade-in">
-        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=400&auto=format&fit=crop" alt="CEO Portrait" class="quote-image"> <div class="quote-text-container">
-            <i class="fas fa-quote-left quote-icon"></i>
-            <p class="quote-text">"Нашата цел е да бъдем надеждното индустриално звено на вашата лаборатория, на което можете да разчитате за кратки срокове, коректност и микро-прецизност." </p>
-            <div class="quote-author">Име на Управител</div>
-            <div class="quote-role">Управител, Радулов и Син Дентал</div>
-        </div>
-    </section>
-
     <section class="process-section">
         <h2 class="process-title fade-in">Как работим с вас</h2>
         <div class="process-grid">
@@ -244,18 +243,28 @@
             <div class="process-step fade-in" style="transition-delay: 0.1s;">
                 <div class="process-number">02</div>
                 <h4>Технически Анализ</h4>
-                <p>Нашият екип проверява файла за маргинална точност, дебелина и структурна цялост преди производство.</p>
+                <p>Нашият екип проверява файла за маргинална точност, дебелина и структурна цялост преди производство. </p>
             </div>
             <div class="process-step fade-in" style="transition-delay: 0.2s;">
                 <div class="process-number">03</div>
                 <h4>CAM Производство</h4>
-                <p>Въвеждане в машинния парк за фрезоване или лазерно синтероване с индустриална прецизност.</p>
+                <p>Въвеждане в машинния парк за фрезоване или лазерно синтероване с индустриална прецизност. </p>
             </div>
             <div class="process-step fade-in" style="transition-delay: 0.3s;">
                 <div class="process-number">04</div>
                 <h4>Финализиране и Доставка</h4>
-                <p>Детайлна проверка под микроскоп и експресна доставка до вашата лаборатория.</p>
+                <p>Детайлна проверка под микроскоп и експресна доставка до вашата лаборатория. </p>
             </div>
+        </div>
+    </section>
+
+    <section class="quote-section fade-in">
+        <img src="georgi_radulov.jpg" alt="Георги Радулов" class="quote-image"> 
+        <div class="quote-text-container">
+            <i class="fas fa-quote-left quote-icon"></i>
+            <p class="quote-text">"Нашата цел е да бъдем надеждното индустриално звено на вашата лаборатория, на което можете да разчитате за кратки срокове, коректност и микро-прецизност." </p>
+            <div class="quote-author">Георги Радулов</div>
+            <div class="quote-role">Зъботехник</div>
         </div>
     </section>
 
@@ -281,7 +290,6 @@
     <footer><p>© 2026 Radulov & Son Dental. Всички права запазени.</p></footer>
 
     <script>
-        // Scroll Fade Observer
         const observerOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
         const observer = new IntersectionObserver(function(entries, observer) {
             entries.forEach(entry => {
@@ -292,7 +300,6 @@
         }, observerOptions);
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-        // Slideshow Logic
         let slideIndex = 0;
         let timer;
         const slides = document.querySelectorAll('.slide');
@@ -301,13 +308,21 @@
         function showSlides(n) {
             slides.forEach(s => s.classList.remove('active'));
             dots.forEach(d => d.classList.remove('active'));
-            slideIndex = n;
-            if (slideIndex >= slides.length) slideIndex = 0;
-            if (slideIndex < 0) slideIndex = slides.length - 1;
+            
+            if (n >= slides.length) { slideIndex = 0; }
+            else if (n < 0) { slideIndex = slides.length - 1; }
+            else { slideIndex = n; }
+            
             slides[slideIndex].classList.add('active');
             dots[slideIndex].classList.add('active');
         }
         
+        function plusSlides(n) {
+            clearInterval(timer);
+            showSlides(slideIndex + n);
+            startTimer();
+        }
+
         function currentSlide(n) {
             clearInterval(timer);
             showSlides(n);
@@ -315,10 +330,10 @@
         }
 
         function startTimer() {
-            timer = setInterval(() => showSlides(slideIndex + 1), 5000); // 5 seconds
+            timer = setInterval(() => { showSlides(slideIndex + 1); }, 5000); 
         }
         
-        startTimer(); // Initialize
+        startTimer(); 
     </script>
 </body>
 </html>
