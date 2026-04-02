@@ -43,18 +43,22 @@
         .tech-intro-section { text-align: center; max-width: 900px; margin: 0 auto 60px auto; padding: 0 20px; }
         .tech-intro-section p { font-size: 1.25rem; color: var(--text-muted); line-height: 1.8; }
 
-        /* WIDE GRADIENT SLIDESHOW */
-        .slideshow-container { position: relative; max-width: 1200px; margin: 0 auto 80px; height: 450px; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.3); border: 1px solid var(--border-color); }
-        .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 0.8s ease-in-out; background-size: cover; background-position: center; }
+        /* FULL-WIDTH SLIDESHOW WITH GRADIENT OVERLAY */
+        .slideshow-container { position: relative; width: 100%; max-width: 100%; margin: 0 0 80px 0; height: 550px; overflow: hidden; background: #000; }
+        .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 0.8s ease-in-out; }
         .slide.active { opacity: 1; z-index: 1; }
         
-        .slide-gradient { position: absolute; top: 0; right: 0; width: 55%; height: 100%; background: linear-gradient(to left, rgba(13,17,23,1) 30%, rgba(13,17,23,0) 100%); display: flex; flex-direction: column; justify-content: center; padding: 40px 60px; }
-        .slide-content { max-width: 400px; margin-left: auto; text-align: left; }
+        .slide-image { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; }
+        
+        /* The Gradient sits ON TOP of the image, fading from dark right to transparent left */
+        .slide-gradient { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to left, rgba(13,17,23,0.95) 0%, rgba(13,17,23,0.7) 40%, rgba(13,17,23,0) 80%); display: flex; flex-direction: column; justify-content: center; align-items: flex-end; padding: 40px 10%; }
+        
+        .slide-content { max-width: 500px; text-align: left; }
         .slide-content h3 { font-size: 2.2rem; color: #fff; margin-bottom: 15px; }
-        .slide-content p { font-size: 1.1rem; color: var(--text-light); line-height: 1.6; }
+        .slide-content p { font-size: 1.15rem; color: var(--text-light); line-height: 1.6; }
 
-        .slider-nav { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 10; display: flex; gap: 10px; }
-        .slider-dot { width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,0.2); cursor: pointer; transition: 0.3s; }
+        .slider-nav { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 10; display: flex; gap: 12px; }
+        .slider-dot { width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,0.3); cursor: pointer; transition: 0.3s; }
         .slider-dot.active { background: var(--accent-teal); }
 
         /* PERKS GRID (2 CARDS) */
@@ -110,8 +114,8 @@
         footer { background: var(--primary-dark); color: var(--text-muted); padding: 50px 10%; text-align: center; border-top: 1px solid var(--border-color); }
         
         @media(max-width: 768px) { 
-            .slide-gradient { width: 100%; background: rgba(13,17,23,0.85); align-items: center; text-align: center; padding: 30px; }
-            .slide-content { margin-left: 0; text-align: center; }
+            .slide-gradient { background: linear-gradient(to top, rgba(13,17,23,0.95) 0%, rgba(13,17,23,0.7) 60%, rgba(13,17,23,0) 100%); justify-content: flex-end; align-items: center; text-align: center; padding: 40px 20px; }
+            .slide-content { text-align: center; }
             .quote-section { flex-direction: column; text-align: center; padding: 30px; }
             .contact-wrapper { padding: 30px; grid-template-columns: 1fr; } 
         }
@@ -143,11 +147,13 @@
     </section>
 
     <section class="tech-intro-section fade-in">
-        <p>Като лаборатория с дългогодишен опит и безкомпромисен стремеж към високо качество, ние предлагаме професионално партньорство в изработката на съвременни зъботехнически конструкции. </p>
+        <p>Като лаборатория с дългогодишен опит и безкомпромисен стремеж към високо качество, ние предлагаме професионално партньорство в изработката на съвременни зъботехнически конструкции. Работим изцяло в дигитална среда, което ни позволява да поемаме сложни процеси, изискващи скъпа апаратура и специфична експертиза. </p>
     </section>
 
     <section class="slideshow-container fade-in">
-        <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?q=80&w=1400&auto=format&fit=crop');">
+        
+        <div class="slide active">
+            <div class="slide-image" style="background-image: url('https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?q=80&w=1400&auto=format&fit=crop');"></div>
             <div class="slide-gradient">
                 <div class="slide-content">
                     <h3>Лазерно Синтероване (SLM)</h3>
@@ -155,7 +161,9 @@
                 </div>
             </div>
         </div>
-        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=1400&auto=format&fit=crop');">
+        
+        <div class="slide">
+            <div class="slide-image" style="background-image: url('https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=1400&auto=format&fit=crop');"></div>
             <div class="slide-gradient">
                 <div class="slide-content">
                     <h3>Фрезоване на Цирконий</h3>
@@ -163,7 +171,9 @@
                 </div>
             </div>
         </div>
-        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=1400&auto=format&fit=crop');">
+        
+        <div class="slide">
+            <div class="slide-image" style="background-image: url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=1400&auto=format&fit=crop');"></div>
             <div class="slide-gradient">
                 <div class="slide-content">
                     <h3>Изрязване на Титан</h3>
@@ -172,10 +182,32 @@
             </div>
         </div>
 
+        <div class="slide">
+            <div class="slide-image" style="background-image: url('https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=1400&auto=format&fit=crop');"></div>
+            <div class="slide-gradient">
+                <div class="slide-content">
+                    <h3>Пластмаса (PMMA)</h3>
+                    <p>Биосъвместими пластмасови конструкции чрез CAD/CAM фрезоване за временно възстановяване. Гарантират отлична устойчивост и перфектен венечен профил. </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="slide-image" style="background-image: url('https://images.unsplash.com/photo-1598256989800-fea5ce5146f2?q=80&w=1400&auto=format&fit=crop');"></div>
+            <div class="slide-gradient">
+                <div class="slide-content">
+                    <h3>Литиево-дисиликатни възстановявания</h3>
+                    <p>Висок клас керамика, съчетаваща изключителна естетика и прецизност. Естествената прозрачност прави възстановяванията неразличими от естествените зъби. </p>
+                </div>
+            </div>
+        </div>
+
         <div class="slider-nav">
             <div class="slider-dot active" onclick="currentSlide(0)"></div>
             <div class="slider-dot" onclick="currentSlide(1)"></div>
             <div class="slider-dot" onclick="currentSlide(2)"></div>
+            <div class="slider-dot" onclick="currentSlide(3)"></div>
+            <div class="slider-dot" onclick="currentSlide(4)"></div>
         </div>
     </section>
 
