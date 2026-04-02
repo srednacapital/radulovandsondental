@@ -91,44 +91,43 @@
 
         footer { background: var(--primary-dark); color: var(--white); padding: 40px 10%; text-align: center; }
 
-        .mobile-menu-btn { display: none; background: transparent; border: none; color: var(--white); font-size: 1.8rem; cursor: pointer; }
- 
+        .mobile-menu-btn, .mobile-only { display: none; }
         @media(max-width: 850px) { 
-            /* 1. Header & Navigation */
+            /* Header & Navigation */
             header { padding: 15px 20px; background: var(--primary-dark); }
-            .mobile-menu-btn { display: block; }
             
-            .nav-links { position: absolute; top: 100%; left: 0; width: 100%; background: var(--primary-dark); flex-direction: column; padding: 20px; gap: 20px; border-top: 1px solid var(--border-color); display: none; box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+            /* Show Mobile Button & Links, Hide Desktop Dropdown */
+            .mobile-menu-btn { display: block; background: transparent; border: none; color: var(--white); font-size: 1.8rem; cursor: pointer; }
+            .mobile-only { display: block; }
+            .desktop-only { display: none !important; }
+            
+            /* Flat Mobile Menu Design */
+            .nav-links { position: absolute; top: 100%; left: 0; width: 100%; background: var(--primary-dark); flex-direction: column; padding: 30px 20px; gap: 25px; border-top: 1px solid var(--border-color); display: none; box-shadow: 0 15px 30px rgba(0,0,0,0.8); text-align: center; }
             .nav-links.active { display: flex; }
-            
-            .dropdown { width: 100%; }
-            .menu-btn { width: 100%; text-align: left; background: transparent; padding: 0; font-size: 0.95rem; text-transform: uppercase; color: var(--accent-teal); }
-            .dropdown-content { position: static; background: transparent; box-shadow: none; border: none; padding-left: 15px; margin-top: 15px; display: none; }
-            .dropdown-content a { border: none; padding: 8px 0; color: var(--text-light); }
-            .dropdown.active .dropdown-content { display: block; }
+            .nav-links a { font-size: 1.1rem; display: block; }
 
-            /* 2. Typography & Spacing */
+            /* Typography & Spacing */
             .section-container { padding: 60px 5%; }
             .page-header { padding: 100px 5% 30px; }
             .section-title { font-size: 2rem; margin-bottom: 30px; }
             h1 { font-size: 2.2rem !important; }
             .hero-intro p, .tech-intro-section p, .banner-content p { font-size: 1rem; }
 
-            /* 3. Hero Sections & Logistics */
+            /* Hero Sections & Logistics */
             .split-container { flex-direction: column; width: 100%; padding: 0 20px; gap: 15px; }
             .portal-btn { width: 100%; min-width: 100%; padding: 15px; }
             .hero-logistics { position: relative; bottom: auto; margin-top: 30px; flex-direction: column; gap: 10px; padding: 15px; border-radius: 15px; }
             .hero-logistics p { font-size: 0.95rem; }
 
-            /* 4. Slideshow & Banners */
+            /* Slideshow & Banners */
             .slideshow-container, .static-banner { height: 450px; border-radius: 0; margin-bottom: 40px; }
-            .slide-gradient, .banner-gradient { width: 100%; background: linear-gradient(to top, rgba(13,17,23,1) 0%, rgba(13,17,23,0.8) 40%, rgba(13,17,23,0) 100%); justify-content: flex-end; align-items: center; padding: 30px 20px; text-align: center; }
+            .slide-gradient, .banner-gradient { width: 100%; background: linear-gradient(to top, rgba(13,17,23,0.95) 0%, rgba(13,17,23,0.7) 60%, rgba(13,17,23,0) 100%); justify-content: flex-end; align-items: center; padding: 40px 20px; text-align: center; }
             .slide-content, .banner-content { margin: 0; text-align: center; }
             .slide-content h3, .banner-content h3 { font-size: 1.6rem; }
             .slider-nav { bottom: 10px; }
             .prev, .next { font-size: 18px; padding: 10px; }
 
-            /* 5. Zig-Zag Services & Quotes */
+            /* Zig-Zag Services & Quotes */
             .service-row, .service-row:nth-child(even) { flex-direction: column; padding: 40px 5%; gap: 30px; text-align: center; }
             .service-text h2 { justify-content: center; font-size: 1.8rem; }
             .service-text p { text-align: center; font-size: 1rem; }
@@ -139,7 +138,7 @@
             .quote-text::before { left: 50%; transform: translateX(-50%); top: -25px; }
             .quote-text { font-size: 1.1rem; }
 
-            /* 6. Contacts & Grids */
+            /* Contacts & Grids */
             .contact-wrapper { grid-template-columns: 1fr; padding: 30px 20px; }
             .info-item { flex-direction: column; align-items: center; text-align: center; }
             .map-container { height: 200px; }
@@ -152,6 +151,7 @@
         <div class="logo">
             <a href="index.html"><img src="logo png.png" alt="Radulov & Son Logo"></a>
         </div>
+        
         <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
         
         <nav class="nav-links">
@@ -159,8 +159,17 @@
             <a href="services.html">Услуги</a>
             <a href="index.html#gallery">Галерия</a>
             <a href="#contacts">Контакти</a>
-            <a href="dentist.html">За Стоматолози</a>
-            <a href="technician.html">За Зъботехници</a>
+            
+            <div class="dropdown desktop-only">
+                <button class="menu-btn"><i class="fas fa-bars"></i></button>
+                <div class="dropdown-content">
+                    <a href="dentist.html">За Стоматолози</a>
+                    <a href="technician.html">За Зъботехници</a>
+                </div>
+            </div>
+
+            <a href="dentist.html" class="mobile-only">За Стоматолози</a>
+            <a href="technician.html" class="mobile-only">За Зъботехници</a>
         </nav>
     </header>
 
@@ -325,23 +334,12 @@
         document.querySelectorAll('.slide-left, .slide-right, .fade-in').forEach(el => {
             observer.observe(el);
         });
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const navLinks = document.querySelector('.nav-links');
-        const portalBtn = document.querySelector('.menu-btn');
-        const dropdown = document.querySelector('.dropdown');
 
         if (mobileMenuBtn) {
             mobileMenuBtn.addEventListener('click', () => {
                 navLinks.classList.toggle('active');
-            });
-        }
-
-        if (portalBtn) {
-            portalBtn.addEventListener('click', (e) => {
-                if(window.innerWidth <= 850) {
-                    e.preventDefault();
-                    dropdown.classList.toggle('active');
-                }
             });
         }
     </script>
