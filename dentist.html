@@ -7,7 +7,6 @@
     <link rel="icon" type="image/png" href="logo_tab.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* MATCHING DARK THEME B2B LAYOUT */
         :root {
             --primary-dark: #0D1117; 
             --secondary-dark: #161B22; 
@@ -37,22 +36,40 @@
         .dropdown:hover .dropdown-content { display: block; }
 
         /* HEADER */
-        .page-header { padding: 120px 10% 60px; text-align: center; }
-        .page-header h1 { font-size: 3.5rem; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 2px; color: #fff; }
+        .page-header { padding: 120px 10% 40px; text-align: center; }
+        .page-header h1 { font-size: 3.5rem; margin: 0; text-transform: uppercase; letter-spacing: 2px; color: #fff; }
         .page-header h1 span { color: var(--accent-teal); }
 
         .tech-intro-section { text-align: center; max-width: 900px; margin: 0 auto 60px auto; padding: 0 20px; }
-        .tech-intro-section p { font-size: 1.25rem; color: var(--text-muted); margin-bottom: 40px; line-height: 1.8; }
-        .tech-quote { font-size: 1.4rem; font-style: italic; color: #fff; border-left: 4px solid var(--accent-teal); padding-left: 20px; text-align: left; background: rgba(255,255,255,0.02); padding: 30px; border-radius: 0 15px 15px 0; box-shadow: inset 5px 0 0 0 var(--accent-teal); }
+        .tech-intro-section p { font-size: 1.25rem; color: var(--text-muted); line-height: 1.8; }
 
-        .tech-horizontal-list { display: flex; flex-direction: column; gap: 20px; max-width: 1000px; margin: 0 auto 80px auto; padding: 0 20px;}
-        .tech-row-card { display: flex; align-items: center; gap: 30px; background: var(--secondary-dark); border: 1px solid var(--border-color); padding: 30px 40px; border-radius: 12px; transition: transform 0.3s, border-color 0.3s; }
-        .tech-row-card:hover { border-color: var(--accent-teal); transform: translateX(10px); }
-        .tech-row-icon { width: 80px; height: 80px; background: rgba(58, 156, 176, 0.1); border-radius: 50%; display: flex; justify-content: center; align-items: center; flex-shrink: 0; }
-        .tech-row-icon i { font-size: 2.2rem; color: var(--accent-teal); }
-        .tech-row-text h4 { font-size: 1.4rem; color: #fff; margin-bottom: 10px; }
-        .tech-row-text p { font-size: 1rem; color: var(--text-muted); margin: 0; line-height: 1.6; }
+        /* STATIC WIDE BANNER FOR SERVICES */
+        .static-banner { position: relative; max-width: 1200px; margin: 0 auto 80px; height: 450px; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.3); border: 1px solid var(--border-color); background: url('https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=1400&auto=format&fit=crop') center/cover; }
+        .banner-gradient { position: absolute; top: 0; right: 0; width: 55%; height: 100%; background: linear-gradient(to left, rgba(13,17,23,1) 30%, rgba(13,17,23,0) 100%); display: flex; flex-direction: column; justify-content: center; padding: 40px 60px; }
+        .banner-content { max-width: 400px; margin-left: auto; text-align: left; }
+        .banner-content h3 { font-size: 2.2rem; color: #fff; margin-bottom: 15px; }
+        .banner-content p { font-size: 1.1rem; color: var(--text-light); line-height: 1.6; margin-bottom: 25px; }
+        .banner-btn { display: inline-block; background: var(--accent-teal); color: #fff; padding: 12px 30px; border-radius: 8px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; transition: background 0.3s; }
+        .banner-btn:hover { background: #fff; color: var(--primary-dark); }
 
+        /* PERKS GRID (3 CARDS) */
+        .perks-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-bottom: 80px; max-width: 1200px; margin-left: auto; margin-right: auto; padding: 0 20px; }
+        .perk-card { flex: 1 1 calc(33.333% - 30px); min-width: 280px; background: var(--secondary-dark); padding: 40px 30px; border-radius: 12px; border: 1px solid var(--border-color); border-top: 4px solid var(--accent-teal); text-align: center; display: flex; flex-direction: column; transition: transform 0.3s; }
+        .perk-card:hover { transform: translateY(-8px); box-shadow: 0 10px 30px rgba(58,156,176,0.1); }
+        .perk-card i { font-size: 2.5rem; color: var(--accent-teal); margin-bottom: 20px; }
+        .perk-card h3 { color: #fff; margin-bottom: 15px; font-size: 1.3rem; }
+        .perk-card p { font-size: 0.95rem; color: var(--text-muted); flex-grow: 1; margin: 0; line-height: 1.6; }
+
+        /* CEO QUOTE SECTION */
+        .quote-section { max-width: 1000px; margin: 80px auto; background: var(--secondary-dark); border: 1px solid var(--border-color); border-radius: 20px; padding: 50px; display: flex; align-items: center; gap: 40px; box-shadow: 0 15px 40px rgba(0,0,0,0.2); }
+        .quote-image { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; border: 4px solid var(--accent-teal); flex-shrink: 0; }
+        .quote-text-container { flex: 1; }
+        .quote-icon { font-size: 2.5rem; color: var(--accent-teal); opacity: 0.3; margin-bottom: 15px; }
+        .quote-text { font-size: 1.35rem; font-style: italic; color: #fff; line-height: 1.6; margin-bottom: 20px; }
+        .quote-author { font-size: 1.15rem; color: var(--accent-teal); font-weight: bold; margin-bottom: 5px; }
+        .quote-role { font-size: 0.95rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+
+        /* PROCESS STEPS */
         .process-section { padding: 80px 10%; background: var(--secondary-dark); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
         .process-title { text-align: center; font-size: 2.2rem; color: #fff; margin-bottom: 60px; }
         .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; max-width: 1400px; margin: 0 auto; }
@@ -60,8 +77,9 @@
         .process-step::before { content: ''; position: absolute; top: 0; left: 0; width: 40px; height: 4px; background: var(--accent-teal); }
         .process-number { font-size: 4rem; font-weight: 800; color: rgba(255,255,255,0.05); position: absolute; top: -20px; right: 0; line-height: 1; }
         .process-step h4 { font-size: 1.3rem; color: #fff; margin-bottom: 15px; position: relative; z-index: 2; }
-        .process-step p { color: var(--text-muted); position: relative; z-index: 2; line-height: 1.6; }
+        .process-step p { color: var(--text-muted); position: relative; z-index: 2; }
 
+        /* CONTACTS CSS */
         .section-container { padding: 100px 10%; max-width: 1400px; margin: 0 auto; }
         .section-title { text-align: center; font-size: 2.5rem; color: #fff; margin-bottom: 50px; font-weight: 700; }
         .section-title span { color: var(--accent-teal); }
@@ -87,7 +105,9 @@
         footer { background: var(--primary-dark); color: var(--text-muted); padding: 50px 10%; text-align: center; border-top: 1px solid var(--border-color); }
         
         @media(max-width: 768px) { 
-            .tech-row-card { flex-direction: column; text-align: center; }
+            .banner-gradient { width: 100%; background: rgba(13,17,23,0.85); align-items: center; text-align: center; padding: 30px; }
+            .banner-content { margin-left: 0; text-align: center; }
+            .quote-section { flex-direction: column; text-align: center; padding: 30px; }
             .contact-wrapper { padding: 30px; grid-template-columns: 1fr; } 
         }
     </style>
@@ -115,55 +135,46 @@
 
     <section class="page-header fade-in">
         <h1>Клинично <span>Партньорство</span></h1>
-        <p>Предвидими резултати и безкомпромисна прецизност за вашата практика</p>
     </section>
 
     <section class="tech-intro-section fade-in">
-        <p>Успехът на вашата практика зависи от удовлетвореността на пациентите ви и ефективното управление на времето. Ние от Радулов и Син Дентал разбираме, че всяка минута на стола е ценна. Затова създаваме конструкции, които изискват нулево или минимално ажустиране в кабинета. </p>
-        <div class="tech-quote">
-            "Нашата мисия е да ви осигурим спокойствието, че всяка конструкция ще пасне перфектно от първия път, гарантирайки отлична функция и естетика."
+        <p>Успехът на вашата практика зависи от удовлетвореността на пациентите ви и ефективното управление на времето. Ние от Радулов и Син Дентал разбираме, че всяка минута на стола е ценна. Затова създаваме конструкции, които изискват нулево или минимално ажустиране в кабинета.</p>
+    </section>
+
+    <section class="static-banner fade-in">
+        <div class="banner-gradient">
+            <div class="banner-content">
+                <h3>Услуги</h3>
+                <p>Открийте пълното портфолио от висококачествени дентални конструкции, които изработваме за вашата практика. </p>
+                <a href="services.html" class="banner-btn">Нашите Услуги</a>
+            </div>
         </div>
     </section>
 
-    <section class="tech-horizontal-list">
-        <div class="tech-row-card fade-in">
-            <div class="tech-row-icon"><i class="fas fa-laptop-medical"></i></div>
-            <div class="tech-row-text">
-                <h4>Изцяло Дигитален Протокол</h4>
-                <p>Работим с всички водещи системи за интраорално сканиране (3Shape, Medit, iTero, Dentsply Sirona). Дигиталният отпечатък елиминира грешките и деформациите, съкращавайки времето за изработка. </p>
-            </div>
+    <section class="perks-grid">
+        <div class="perk-card fade-in">
+            <i class="fas fa-laptop-medical"></i>
+            <h3>Изцяло Дигитален Протокол</h3>
+            <p>Работим с всички водещи системи за интраорално сканиране. Дигиталният отпечатък елиминира грешките и деформациите, съкращавайки времето за изработка.</p>
         </div>
-
-        <div class="tech-row-card fade-in" style="transition-delay: 0.1s;">
-            <div class="tech-row-icon"><i class="fas fa-smile-beam"></i></div>
-            <div class="tech-row-text">
-                <h4>Естетично Планиране и Wax-up</h4>
-                <p>Предлагаме прецизно предварително планиране и диагностичен Wax-up. Това ви дава възможност лесно да визуализирате крайния резултат пред пациента и да повишите успеваемостта на лечението.</p>
-            </div>
+        <div class="perk-card fade-in" style="transition-delay: 0.1s;">
+            <i class="fas fa-bullseye"></i>
+            <h3>Сложни Имплантологични Случаи</h3>
+            <p>Разполагаме с дългогодишна експертиза в планирането на комплексни възстановявания върху импланти. Изработваме конструкции с перфектно пасивно прилягане.</p>
         </div>
-
-        <div class="tech-row-card fade-in" style="transition-delay: 0.2s;">
-            <div class="tech-row-icon"><i class="fas fa-bullseye"></i></div>
-            <div class="tech-row-text">
-                <h4>Сложни Имплантологични Случаи</h4>
-                <p>Разполагаме с дългогодишна експертиза в планирането на комплексни възстановявания върху импланти. Изработваме конструкции с пасивно прилягане, което предпазва имплантите от излишен стрес. </p>
-            </div>
+        <div class="perk-card fade-in" style="transition-delay: 0.2s;">
+            <i class="fas fa-truck-fast"></i>
+            <h3>Експресна Логистика</h3>
+            <p>Осигуряваме надежден личен транспорт за град Пловдив, за да сме сигурни, че вашите конструкции ще пристигнат безопасно и навреме за насрочения час.</p>
         </div>
+    </section>
 
-        <div class="tech-row-card fade-in" style="transition-delay: 0.3s;">
-            <div class="tech-row-icon"><i class="fas fa-comments"></i></div>
-            <div class="tech-row-text">
-                <h4>Персонална Комуникация</h4>
-                <p>Вярваме, че отличните резултати се раждат в диалога. Консултираме се с вас за избора на най-подходящия материал (цирконий, прескерамика, титан) според спецификите на всеки индивидуален случай. </p>
-            </div>
-        </div>
-
-        <div class="tech-row-card fade-in" style="transition-delay: 0.4s;">
-            <div class="tech-row-icon"><i class="fas fa-truck-fast"></i></div>
-            <div class="tech-row-text">
-                <h4>Експресна Логистика</h4>
-                <p>Осигуряваме надежден личен транспорт за град Пловдив, за да сме сигурни, че вашите конструкции ще пристигнат безопасно и навреме за насрочения час на пациента.</p>
-            </div>
+    <section class="quote-section fade-in">
+        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=400&auto=format&fit=crop" alt="CEO Portrait" class="quote-image"> <div class="quote-text-container">
+            <i class="fas fa-quote-left quote-icon"></i>
+            <p class="quote-text">"Нашата мисия е да ви осигурим спокойствието, че всяка конструкция ще пасне перфектно от първия път, гарантирайки отлична функция и естетика за вашия пациент."</p>
+            <div class="quote-author">Име на Управител</div>
+            <div class="quote-role">Управител, Радулов и Син Дентал</div>
         </div>
     </section>
 
@@ -173,7 +184,7 @@
             <div class="process-step fade-in">
                 <div class="process-number">01</div>
                 <h4>Вземане на Отпечатък</h4>
-                <p>Изпратете ни дигитален скан чрез интегрираните платформи или стандартен физически отпечатък. Подхождаме с еднаква прецизност и към двата метода. </p>
+                <p>Изпратете ни дигитален скан чрез интегрираните платформи или стандартен физически отпечатък. Подхождаме с еднаква прецизност и към двата метода.</p>
             </div>
             <div class="process-step fade-in" style="transition-delay: 0.1s;">
                 <div class="process-number">02</div>
@@ -183,7 +194,7 @@
             <div class="process-step fade-in" style="transition-delay: 0.2s;">
                 <div class="process-number">03</div>
                 <h4>CAD/CAM Изработка</h4>
-                <p>Използваме високопрецизно фрезоване и премиум материали за постигане на безупречен маргинален ръб и морфология. </p>
+                <p>Използваме високопрецизно фрезоване и премиум материали за постигане на безупречен маргинален ръб и морфология.</p>
             </div>
             <div class="process-step fade-in" style="transition-delay: 0.3s;">
                 <div class="process-number">04</div>
