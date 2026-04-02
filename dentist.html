@@ -43,12 +43,13 @@
         .tech-intro-section { text-align: center; max-width: 900px; margin: 0 auto 60px auto; padding: 0 20px; }
         .tech-intro-section p { font-size: 1.25rem; color: var(--text-muted); line-height: 1.8; }
 
-        /* STATIC WIDE BANNER FOR SERVICES */
-        .static-banner { position: relative; max-width: 1200px; margin: 0 auto 80px; height: 450px; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.3); border: 1px solid var(--border-color); background: url('https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=1400&auto=format&fit=crop') center/cover; }
-        .banner-gradient { position: absolute; top: 0; right: 0; width: 55%; height: 100%; background: linear-gradient(to left, rgba(13,17,23,1) 30%, rgba(13,17,23,0) 100%); display: flex; flex-direction: column; justify-content: center; padding: 40px 60px; }
-        .banner-content { max-width: 400px; margin-left: auto; text-align: left; }
-        .banner-content h3 { font-size: 2.2rem; color: #fff; margin-bottom: 15px; }
-        .banner-content p { font-size: 1.1rem; color: var(--text-light); line-height: 1.6; margin-bottom: 25px; }
+        /* FULL-WIDTH STATIC BANNER FOR SERVICES */
+        .static-banner { position: relative; width: 100%; max-width: 100%; margin: 0 0 80px 0; height: 550px; overflow: hidden; background: #000; }
+        .banner-image { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=1400&auto=format&fit=crop') center/cover; }
+        .banner-gradient { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to left, rgba(13,17,23,0.95) 0%, rgba(13,17,23,0.7) 40%, rgba(13,17,23,0) 80%); display: flex; flex-direction: column; justify-content: center; align-items: flex-end; padding: 40px 10%; }
+        .banner-content { max-width: 500px; text-align: left; }
+        .banner-content h3 { font-size: 2.5rem; color: #fff; margin-bottom: 15px; }
+        .banner-content p { font-size: 1.15rem; color: var(--text-light); line-height: 1.6; margin-bottom: 25px; }
         .banner-btn { display: inline-block; background: var(--accent-teal); color: #fff; padding: 12px 30px; border-radius: 8px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; transition: background 0.3s; }
         .banner-btn:hover { background: #fff; color: var(--primary-dark); }
 
@@ -105,8 +106,8 @@
         footer { background: var(--primary-dark); color: var(--text-muted); padding: 50px 10%; text-align: center; border-top: 1px solid var(--border-color); }
         
         @media(max-width: 768px) { 
-            .banner-gradient { width: 100%; background: rgba(13,17,23,0.85); align-items: center; text-align: center; padding: 30px; }
-            .banner-content { margin-left: 0; text-align: center; }
+            .banner-gradient { background: linear-gradient(to top, rgba(13,17,23,0.95) 0%, rgba(13,17,23,0.7) 60%, rgba(13,17,23,0) 100%); justify-content: flex-end; align-items: center; text-align: center; padding: 40px 20px; }
+            .banner-content { text-align: center; }
             .quote-section { flex-direction: column; text-align: center; padding: 30px; }
             .contact-wrapper { padding: 30px; grid-template-columns: 1fr; } 
         }
@@ -138,10 +139,11 @@
     </section>
 
     <section class="tech-intro-section fade-in">
-        <p>Успехът на вашата практика зависи от удовлетвореността на пациентите ви и ефективното управление на времето. Ние от Радулов и Син Дентал разбираме, че всяка минута на стола е ценна. Затова създаваме конструкции, които изискват нулево или минимално ажустиране в кабинета.</p>
+        <p>Успехът на вашата практика зависи от удовлетвореността на пациентите ви и ефективното управление на времето. Ние от Радулов и Син Дентал разбираме, че всяка минута на стола е ценна. Затова създаваме конструкции, които изискват нулево или минимално ажустиране в кабинета. </p>
     </section>
 
     <section class="static-banner fade-in">
+        <div class="banner-image"></div>
         <div class="banner-gradient">
             <div class="banner-content">
                 <h3>Услуги</h3>
@@ -155,26 +157,17 @@
         <div class="perk-card fade-in">
             <i class="fas fa-laptop-medical"></i>
             <h3>Изцяло Дигитален Протокол</h3>
-            <p>Работим с всички водещи системи за интраорално сканиране. Дигиталният отпечатък елиминира грешките и деформациите, съкращавайки времето за изработка.</p>
+            <p>Работим с всички водещи системи за интраорално сканиране. Дигиталният отпечатък елиминира грешките и деформациите, съкращавайки времето за изработка. </p>
         </div>
         <div class="perk-card fade-in" style="transition-delay: 0.1s;">
             <i class="fas fa-bullseye"></i>
             <h3>Сложни Имплантологични Случаи</h3>
-            <p>Разполагаме с дългогодишна експертиза в планирането на комплексни възстановявания върху импланти. Изработваме конструкции с перфектно пасивно прилягане.</p>
+            <p>Разполагаме с дългогодишна експертиза в планирането на комплексни възстановявания върху импланти. Изработваме конструкции с перфектно пасивно прилягане. </p>
         </div>
         <div class="perk-card fade-in" style="transition-delay: 0.2s;">
             <i class="fas fa-truck-fast"></i>
             <h3>Експресна Логистика</h3>
             <p>Осигуряваме надежден личен транспорт за град Пловдив, за да сме сигурни, че вашите конструкции ще пристигнат безопасно и навреме за насрочения час.</p>
-        </div>
-    </section>
-
-    <section class="quote-section fade-in">
-        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=400&auto=format&fit=crop" alt="CEO Portrait" class="quote-image"> <div class="quote-text-container">
-            <i class="fas fa-quote-left quote-icon"></i>
-            <p class="quote-text">"Нашата мисия е да ви осигурим спокойствието, че всяка конструкция ще пасне перфектно от първия път, гарантирайки отлична функция и естетика за вашия пациент."</p>
-            <div class="quote-author">Име на Управител</div>
-            <div class="quote-role">Управител, Радулов и Син Дентал</div>
         </div>
     </section>
 
@@ -184,7 +177,7 @@
             <div class="process-step fade-in">
                 <div class="process-number">01</div>
                 <h4>Вземане на Отпечатък</h4>
-                <p>Изпратете ни дигитален скан чрез интегрираните платформи или стандартен физически отпечатък. Подхождаме с еднаква прецизност и към двата метода.</p>
+                <p>Изпратете ни дигитален скан чрез интегрираните платформи или стандартен физически отпечатък. Подхождаме с еднаква прецизност и към двата метода. </p>
             </div>
             <div class="process-step fade-in" style="transition-delay: 0.1s;">
                 <div class="process-number">02</div>
@@ -194,13 +187,23 @@
             <div class="process-step fade-in" style="transition-delay: 0.2s;">
                 <div class="process-number">03</div>
                 <h4>CAD/CAM Изработка</h4>
-                <p>Използваме високопрецизно фрезоване и премиум материали за постигане на безупречен маргинален ръб и морфология.</p>
+                <p>Използваме високопрецизно фрезоване и премиум материали за постигане на безупречен маргинален ръб и морфология. </p>
             </div>
             <div class="process-step fade-in" style="transition-delay: 0.3s;">
                 <div class="process-number">04</div>
                 <h4>Финално Предаване</h4>
                 <p>Получавате напълно завършена, естетически съвършена конструкция, готова за бързо и безпроблемно циментиране в устата на пациента.</p>
             </div>
+        </div>
+    </section>
+
+    <section class="quote-section fade-in">
+        <img src="georgi_radulov.jpg" alt="Георги Радулов" class="quote-image"> 
+        <div class="quote-text-container">
+            <i class="fas fa-quote-left quote-icon"></i>
+            <p class="quote-text">"Нашата мисия е да ви осигурим спокойствието, че всяка конструкция ще пасне перфектно от първия път, гарантирайки отлична функция и естетика за вашия пациент." </p>
+            <div class="quote-author">Георги Радулов</div>
+            <div class="quote-role">Зъботехник</div>
         </div>
     </section>
 
