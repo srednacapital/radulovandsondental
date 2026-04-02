@@ -136,9 +136,51 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        @media(max-width: 768px){ 
-            .contact-wrapper { padding: 30px; grid-template-columns: 1fr; } 
-            .hero-logistics { flex-direction: column; gap: 5px; bottom: 20px; }
+@media(max-width: 850px) { 
+            /* 1. Header & Navigation */
+            header { padding: 15px 20px; }
+            .nav-links { display: none; /* We will hide the links on mobile and keep only the menu button */ }
+            .dropdown { display: block; position: absolute; right: 20px; top: 15px; }
+            .menu-btn { font-size: 1rem; padding: 8px 12px; }
+            .dropdown-content { position: fixed; top: 60px; left: 0; width: 100%; border-radius: 0; text-align: center; }
+
+            /* 2. Typography & Spacing */
+            .section-container { padding: 60px 5%; }
+            .page-header { padding: 100px 5% 30px; }
+            .section-title { font-size: 2rem; margin-bottom: 30px; }
+            h1 { font-size: 2.2rem !important; }
+            .hero-intro p, .tech-intro-section p, .banner-content p { font-size: 1rem; }
+
+            /* 3. Hero Sections & Logistics */
+            .split-container { flex-direction: column; width: 100%; padding: 0 20px; gap: 15px; }
+            .portal-btn { width: 100%; min-width: 100%; padding: 15px; }
+            .hero-logistics { position: relative; bottom: auto; margin-top: 30px; flex-direction: column; gap: 10px; padding: 15px; border-radius: 15px; }
+            .hero-logistics p { font-size: 0.95rem; }
+
+            /* 4. Slideshow & Banners (Text goes to bottom, not right) */
+            .slideshow-container, .static-banner { height: 450px; border-radius: 0; margin-bottom: 40px; }
+            .slide-gradient, .banner-gradient { width: 100%; background: linear-gradient(to top, rgba(13,17,23,1) 0%, rgba(13,17,23,0.8) 40%, rgba(13,17,23,0) 100%); justify-content: flex-end; align-items: center; padding: 30px 20px; text-align: center; }
+            .slide-content, .banner-content { margin: 0; text-align: center; }
+            .slide-content h3, .banner-content h3 { font-size: 1.6rem; }
+            .slider-nav { bottom: 10px; }
+            .prev, .next { font-size: 18px; padding: 10px; }
+
+            /* 5. Zig-Zag Services (Stack vertically) */
+            .service-row, .service-row:nth-child(even) { flex-direction: column; padding: 40px 5%; gap: 30px; text-align: center; }
+            .service-text h2 { justify-content: center; font-size: 1.8rem; }
+            .service-text p { text-align: center; font-size: 1rem; }
+            .service-image img { height: 250px; }
+
+            /* 6. Quote Section */
+            .quote-container { flex-direction: column; text-align: center; padding: 30px 20px; gap: 20px; }
+            .quote-image { width: 120px; height: 120px; }
+            .quote-text::before { left: 50%; transform: translateX(-50%); top: -25px; }
+            .quote-text { font-size: 1.1rem; }
+
+            /* 7. Contacts & Grids */
+            .contact-wrapper { grid-template-columns: 1fr; padding: 30px 20px; }
+            .info-item { flex-direction: column; align-items: center; text-align: center; }
+            .map-container { height: 200px; }
         }
     </style>
 </head>
