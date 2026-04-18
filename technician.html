@@ -45,14 +45,12 @@
         .tech-intro-section { text-align: center; max-width: 900px; margin: 0 auto 60px auto; padding: 0 20px; }
         .tech-intro-section p { font-size: 1.25rem; color: var(--text-muted); line-height: 1.8; }
 
-        /* =========================================
-           NEW EXPANDING HOVER GALLERY (ACCORDION)
-           ========================================= */
+        /* EXPANDING HOVER GALLERY (ACCORDION) */
         .tech-gallery { 
             display: flex; 
             height: 600px; 
             width: 100%; 
-            max-width: 100%; /* Spans edge to edge */
+            max-width: 100%; 
             margin: 0 0 80px 0; 
             overflow: hidden; 
             background: #000;
@@ -65,14 +63,12 @@
             position: relative; 
             background-size: cover; 
             background-position: center; 
-            transition: flex 0.7s cubic-bezier(0.25, 1, 0.5, 1); /* Smooth snap effect */
+            transition: flex 0.7s cubic-bezier(0.25, 1, 0.5, 1); 
             cursor: pointer; 
-            border-right: 1px solid rgba(255,255,255,0.1); /* Subtle separator, optional */
+            border-right: 1px solid rgba(255,255,255,0.1); 
             overflow: hidden; 
         }
         .gallery-panel:last-child { border-right: none; }
-        
-        /* The magic: On hover, the hovered panel grows to 3 times the size of the others */
         .gallery-panel:hover { flex: 3.5; }
         
         .panel-overlay { 
@@ -94,12 +90,12 @@
             font-size: 1.4rem; 
             margin-bottom: 0; 
             transition: all 0.5s ease; 
-            white-space: nowrap; /* Keeps title on one line when collapsed */
+            white-space: nowrap; 
             text-overflow: ellipsis; 
             overflow: hidden; 
         }
         .gallery-panel:hover .panel-content h3 { 
-            white-space: normal; /* Allows title to wrap when expanded */
+            white-space: normal; 
             font-size: 2.2rem; 
             margin-bottom: 10px;
         }
@@ -115,9 +111,9 @@
         }
         .gallery-panel:hover .panel-content p { 
             opacity: 1; 
-            max-height: 200px; /* Allows text to show */
+            max-height: 200px; 
             transform: translateY(0); 
-            transition-delay: 0.1s; /* Slight delay so box expands first */
+            transition-delay: 0.1s; 
         }
 
         /* PERKS GRID */
@@ -139,7 +135,7 @@
         .process-step p { color: var(--text-muted); position: relative; z-index: 2; }
 
         /* QUOTE SECTION */
-        .quote-wrapper { background-color: var(--primary-dark); padding: 100px 10%; border-bottom: 1px solid var(--border-color); }
+        .quote-wrapper { background-color: var(--primary-dark); padding: 100px 10%; }
         .quote-container { max-width: 1000px; margin: 0 auto; display: flex; align-items: center; gap: 60px; background: var(--secondary-dark); padding: 50px; border-radius: 20px; border: 1px solid var(--border-color); box-shadow: 0 15px 40px rgba(0,0,0,0.3); }
         .quote-image { width: 220px; height: 220px; border-radius: 50%; object-fit: cover; border: 4px solid var(--accent-teal); flex-shrink: 0; }
         .quote-content { flex: 1; }
@@ -176,9 +172,6 @@
         /* =========================================
            MOBILE RESPONSIVENESS
            ========================================= */
-        /* =========================================
-           MOBILE RESPONSIVENESS
-           ========================================= */
         @media(max-width: 850px) { 
             header { padding: 15px 20px; background: var(--primary-dark); }
             
@@ -190,12 +183,14 @@
             .nav-links.active { display: flex; }
             .nav-links a { font-size: 1.1rem; display: block; color: var(--white); }
 
-            /* BULLETPROOF MOBILE FIX FOR THE GALLERY */
+            /* FIX FOR MOBILE TITLE OVERFLOW */
+            .page-header h1 { font-size: 1.8rem !important; word-wrap: break-word; line-height: 1.2; }
+
             .tech-gallery { display: block; height: auto; margin-bottom: 40px; }
             .gallery-panel { display: block; width: 100%; height: 220px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
             .gallery-panel:last-child { border-bottom: none; }
+            .gallery-panel:hover { flex: 1; }
             
-            /* Always show title and text on mobile */
             .panel-overlay { padding: 20px; justify-content: flex-end; background: linear-gradient(to top, rgba(13,17,23,0.95) 0%, rgba(13,17,23,0.5) 70%, rgba(13,17,23,0) 100%); }
             .panel-content h3 { white-space: normal; font-size: 1.5rem; margin-bottom: 5px; }
             .gallery-panel:hover .panel-content h3 { font-size: 1.5rem; }
@@ -206,7 +201,6 @@
             .quote-text::before { left: 50%; transform: translateX(-50%); top: -25px; }
             .quote-text { font-size: 1.1rem; }
 
-            .perk-card { min-width: 100%; }
             .contact-wrapper { grid-template-columns: 1fr; padding: 30px 20px; }
             .info-item { flex-direction: column; align-items: center; text-align: center; }
             .map-container { height: 200px; }
@@ -251,47 +245,47 @@
 
     <section class="tech-gallery fade-in">
         
-        <div class="gallery-panel" style="background-image: url('https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?q=80&w=800&auto=format&fit=crop');">
+        <div class="gallery-panel" style="background-image: url('laserno.jpg');">
             <div class="panel-overlay">
                 <div class="panel-content">
                     <h3>Лазерно Синтероване (SLM)</h3>
-                    <p>Изработка на прецизни метални конструкции с отлична здравина, хомогенност и биосъвместимост.</p>
+                    <p>Изработка на прецизни метални конструкции с отлична здравина, хомогенност и биосъвместимост. </p>
                 </div>
             </div>
         </div>
 
-        <div class="gallery-panel" style="background-image: url('https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=800&auto=format&fit=crop');">
+        <div class="gallery-panel" style="background-image: url('frezovane.jpeg');">
             <div class="panel-overlay">
                 <div class="panel-content">
                     <h3>Фрезоване на Цирконий</h3>
-                    <p>Висококачествени естетични възстановявания с отлична точност на маргиналния ръб.</p>
+                    <p>Висококачествени естетични възстановявания с отлична точност на маргиналния ръб от монолитен и мултилайер цирконий. </p>
                 </div>
             </div>
         </div>
 
-        <div class="gallery-panel" style="background-image: url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=800&auto=format&fit=crop');">
+        <div class="gallery-panel" style="background-image: url('izrqzvane.jpeg');">
             <div class="panel-overlay">
                 <div class="panel-content">
                     <h3>Изрязване на Титан</h3>
-                    <p>Прецизна обработка на висококачествен титан за създаване на сигурни и леки греди.</p>
+                    <p>Прецизна обработка на висококачествен титан за създаване на сигурни, леки греди и специализирани конструкции. </p>
                 </div>
             </div>
         </div>
 
-        <div class="gallery-panel" style="background-image: url('https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=800&auto=format&fit=crop');">
+        <div class="gallery-panel" style="background-image: url('izrqzvane2.jpeg');">
             <div class="panel-overlay">
                 <div class="panel-content">
                     <h3>Пластмаса (PMMA)</h3>
-                    <p>Биосъвместими пластмасови конструкции чрез CAD/CAM фрезоване за временно възстановяване.</p>
+                    <p>Биосъвместими пластмасови конструкции чрез CAD/CAM фрезоване за временно възстановяване. Гарантират отлична устойчивост и перфектен венечен профил. </p>
                 </div>
             </div>
         </div>
 
-        <div class="gallery-panel" style="background-image: url('https://images.unsplash.com/photo-1598256989800-fea5ce5146f2?q=80&w=800&auto=format&fit=crop');">
+        <div class="gallery-panel" style="background-image: url('litii2.jpg');">
             <div class="panel-overlay">
                 <div class="panel-content">
                     <h3>Литиево-дисиликатни възстановявания</h3>
-                    <p>Висок клас керамика, съчетаваща изключителна естетика и прецизност за фасети и инлеи.</p>
+                    <p>Висок клас керамика, съчетаваща изключителна естетика и прецизност. Естествената прозрачност прави възстановяванията неразличими от естествените зъби.</p>
                 </div>
             </div>
         </div>
@@ -322,12 +316,12 @@
             <div class="process-step fade-in" style="transition-delay: 0.1s;">
                 <div class="process-number">02</div>
                 <h4>Технически Анализ</h4>
-                <p>Нашият екип проверява файла за маргинална точност, дебелина и структурна цялост преди производство.</p>
+                <p>Нашият екип проверява файла за маргинална точност, дебелина и структурна цялост преди производство. </p>
             </div>
             <div class="process-step fade-in" style="transition-delay: 0.2s;">
                 <div class="process-number">03</div>
                 <h4>CAM Производство</h4>
-                <p>Въвеждане в машинния парк за фрезоване или лазерно синтероване с индустриална прецизност.</p>
+                <p>Въвеждане в машинния парк за фрезоване или лазерно синтероване с индустриална прецизност. </p>
             </div>
             <div class="process-step fade-in" style="transition-delay: 0.3s;">
                 <div class="process-number">04</div>
@@ -349,7 +343,7 @@
     </section>
 
     <section id="contacts" class="section-container">
-        <h2 class="section-title fade-in">Свържете се с <span>Нас</span></h2>
+        <h2 class="section-title fade-in">Станете <span>Партньор</span></h2>
         <div class="contact-wrapper fade-in">
             <div class="contact-info">
                 <h3>Информация за контакт</h3>
