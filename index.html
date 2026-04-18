@@ -45,7 +45,8 @@
         .dropdown:hover .dropdown-content { display: block; }
 
         /* --- HERO SECTION --- */
-        .hero { height: 100vh; display: flex; background: linear-gradient(rgba(26, 32, 38, 0.7), rgba(26, 32, 38, 0.8)), url('https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=2000&auto=format&fit=crop') center/cover; color: var(--white); position: relative; align-items: center; justify-content: center; flex-direction: column; text-align: center; padding: 0 20px; }
+        /* ТУК Е ЗАДАДЕНА ВАШАТА НОВА СНИМКА (front.PNG) */
+        .hero { height: 100vh; display: flex; background: linear-gradient(rgba(26, 32, 38, 0.7), rgba(26, 32, 38, 0.8)), url('front.PNG') center/cover; color: var(--white); position: relative; align-items: center; justify-content: center; flex-direction: column; text-align: center; padding: 0 20px; }
         .hero-intro { max-width: 700px; margin-bottom: 40px; transform: translateY(-20px); } 
         .hero-intro h1 { font-size: 3rem; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 2px; }
         .hero-intro p { font-size: 1.2rem; font-weight: 300; opacity: 0.9; }
@@ -102,7 +103,7 @@
             transform: scale(1.15) translateY(-3px); 
         }
         
-        /* The 9th card is now communication due to the new addition */
+        /* The 9th card is communication due to the new addition */
         .service-card:nth-child(9) .svg-icon { transform: scale(1.6); }
         .service-card:hover:nth-child(9) .svg-icon { transform: scale(1.75) translateY(-3px); }
 
@@ -183,8 +184,8 @@
 
         <nav class="nav-links">
             <a href="index.html">Начало</a>
-            <a href="index.html#gallery">Галерия</a>
             <a href="services.html">Услуги</a>
+            <a href="index.html#gallery">Галерия</a>
             <a href="#contacts">Контакти</a>
             
             <div class="dropdown desktop-only">
@@ -274,7 +275,7 @@
                 </div>
 
                 <div class="service-card fade-in">
-                    <div class="svg-icon" style="-webkit-mask-image: url('keramika_icon.svg'); mask-image: url('keramika_icon.svg');"></div>
+                    <div class="svg-icon" style="-webkit-mask-image: url('litii_icon.svg'); mask-image: url('litii_icon.svg');"></div>
                     <h3>Литиево-дисиликатни възстановявания</h3>
                     <p>Висок клас стъклокерамика, съчетаваща изключителна естетика и здравина. Идеален избор за фасети, инлеи и корони.</p>
                     <a href="services.html#lithium" class="learn-more">Научи повече →</a>
@@ -381,7 +382,7 @@
         <p>© 2026 Radulov & Son Dental. Всички права запазени.</p>
     </footer>
 
-<script>
+    <script>
         // 1. Mobile Menu Toggle
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const navLinks = document.querySelector('.nav-links');
@@ -392,7 +393,7 @@
             });
         }
 
-        // 2. Header Scroll Effect (Restored!)
+        // 2. Header Scroll Effect
         const header = document.getElementById('main-header');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) { 
