@@ -21,12 +21,15 @@
         body { background-color: var(--primary-dark); color: var(--text-light); overflow-x: hidden; line-height: 1.6; }
         a { text-decoration: none; color: inherit; }
 
+        /* HEADER */
         header { width: 100%; padding: 15px 50px; display: flex; justify-content: space-between; align-items: center; background: rgba(13, 17, 23, 0.95); backdrop-filter: blur(10px); color: var(--text-light); border-bottom: 1px solid var(--border-color); position: sticky; top:0; z-index:1000; }
         .logo img { max-height: 40px; width: auto; transition: transform 0.3s; }
         .logo:hover img { transform: scale(1.05); }
         .nav-links { display: flex; gap: 30px; align-items: center; }
         .nav-links a { font-weight: 500; transition: color 0.3s; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px;}
         .nav-links a:hover { color: var(--accent-teal); }
+        
+        .mobile-menu-btn, .mobile-only { display: none; }
         
         .dropdown { position: relative; display: inline-block; }
         .menu-btn { background: var(--accent-teal); padding: 10px 15px; border-radius: 5px; color: #fff; font-size: 1.2rem; border: none; cursor: pointer; }
@@ -35,7 +38,6 @@
         .dropdown-content a:hover { background-color: rgba(58, 156, 176, 0.1); color: var(--accent-teal); }
         .dropdown:hover .dropdown-content { display: block; }
 
-        /* HEADER */
         .page-header { padding: 120px 10% 40px; text-align: center; }
         .page-header h1 { font-size: 3.5rem; margin: 0; text-transform: uppercase; letter-spacing: 2px; color: #fff; }
         .page-header h1 span { color: var(--accent-teal); }
@@ -43,33 +45,85 @@
         .tech-intro-section { text-align: center; max-width: 900px; margin: 0 auto 60px auto; padding: 0 20px; }
         .tech-intro-section p { font-size: 1.25rem; color: var(--text-muted); line-height: 1.8; }
 
-        /* FULL-WIDTH SLIDESHOW WITH GRADIENT OVERLAY & ARROWS */
-        .slideshow-container { position: relative; width: 100%; max-width: 100%; margin: 0 0 80px 0; height: 550px; overflow: hidden; background: #000; }
-        .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 0.8s ease-in-out; }
-        .slide.active { opacity: 1; z-index: 1; }
+        /* =========================================
+           NEW EXPANDING HOVER GALLERY (ACCORDION)
+           ========================================= */
+        .tech-gallery { 
+            display: flex; 
+            height: 600px; 
+            width: 100%; 
+            max-width: 100%; /* Spans edge to edge */
+            margin: 0 0 80px 0; 
+            overflow: hidden; 
+            background: #000;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
         
-        .slide-image { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; }
+        .gallery-panel { 
+            flex: 1; 
+            position: relative; 
+            background-size: cover; 
+            background-position: center; 
+            transition: flex 0.7s cubic-bezier(0.25, 1, 0.5, 1); /* Smooth snap effect */
+            cursor: pointer; 
+            border-right: 1px solid rgba(255,255,255,0.1); /* Subtle separator, optional */
+            overflow: hidden; 
+        }
+        .gallery-panel:last-child { border-right: none; }
         
-        .slide-gradient { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to left, rgba(13,17,23,0.95) 0%, rgba(13,17,23,0.7) 40%, rgba(13,17,23,0) 80%); display: flex; flex-direction: column; justify-content: center; align-items: flex-end; padding: 40px 10%; }
+        /* The magic: On hover, the hovered panel grows to 3 times the size of the others */
+        .gallery-panel:hover { flex: 3.5; }
         
-        .slide-content { max-width: 500px; text-align: left; }
-        .slide-content h3 { font-size: 2.2rem; color: #fff; margin-bottom: 15px; }
-        .slide-content p { font-size: 1.15rem; color: var(--text-light); line-height: 1.6; }
+        .panel-overlay { 
+            position: absolute; 
+            inset: 0; 
+            background: linear-gradient(to top, rgba(13,17,23,1) 0%, rgba(13,17,23,0.3) 60%, rgba(13,17,23,0) 100%); 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: flex-end; 
+            padding: 40px 30px; 
+            transition: background 0.7s; 
+        }
+        .gallery-panel:hover .panel-overlay { 
+            background: linear-gradient(to top, rgba(13,17,23,0.95) 0%, rgba(13,17,23,0.6) 40%, rgba(13,17,23,0) 100%); 
+        }
+        
+        .panel-content h3 { 
+            color: #fff; 
+            font-size: 1.4rem; 
+            margin-bottom: 0; 
+            transition: all 0.5s ease; 
+            white-space: nowrap; /* Keeps title on one line when collapsed */
+            text-overflow: ellipsis; 
+            overflow: hidden; 
+        }
+        .gallery-panel:hover .panel-content h3 { 
+            white-space: normal; /* Allows title to wrap when expanded */
+            font-size: 2.2rem; 
+            margin-bottom: 10px;
+        }
+        
+        .panel-content p { 
+            color: var(--text-light); 
+            font-size: 1.1rem; 
+            line-height: 1.6; 
+            opacity: 0; 
+            max-height: 0; 
+            transform: translateY(20px); 
+            transition: all 0.5s ease; 
+        }
+        .gallery-panel:hover .panel-content p { 
+            opacity: 1; 
+            max-height: 200px; /* Allows text to show */
+            transform: translateY(0); 
+            transition-delay: 0.1s; /* Slight delay so box expands first */
+        }
 
-        /* ARROWS FOR SLIDESHOW */
-        .prev, .next { cursor: pointer; position: absolute; top: 50%; width: auto; padding: 16px; margin-top: -22px; color: white; font-weight: bold; font-size: 24px; transition: 0.6s ease; border-radius: 0 3px 3px 0; user-select: none; z-index: 10; background-color: rgba(13, 17, 23, 0.5); }
-        .next { right: 0; border-radius: 3px 0 0 3px; }
-        .prev { left: 0; }
-        .prev:hover, .next:hover { background-color: var(--accent-teal); }
-
-        .slider-nav { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 10; display: flex; gap: 12px; }
-        .slider-dot { width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,0.3); cursor: pointer; transition: 0.3s; }
-        .slider-dot.active { background: var(--accent-teal); }
-
-        /* PERKS GRID (2 CARDS) */
+        /* PERKS GRID */
         .perks-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-bottom: 80px; max-width: 1000px; margin-left: auto; margin-right: auto; padding: 0 20px; }
-        .perk-card { flex: 1 1 calc(50% - 30px); min-width: 300px; background: var(--secondary-dark); padding: 40px 30px; border-radius: 12px; border: 1px solid var(--border-color); border-top: 4px solid var(--accent-teal); text-align: center; display: flex; flex-direction: column; transition: transform 0.3s; }
-        .perk-card:hover { transform: translateY(-8px); box-shadow: 0 10px 30px rgba(58,156,176,0.1); }
+        .perk-card { flex: 1 1 calc(50% - 30px); min-width: 300px; background: var(--secondary-dark); padding: 40px 30px; border-radius: 12px; border: 1px solid var(--border-color); border-top: 4px solid var(--accent-teal); text-align: center; display: flex; flex-direction: column; transition: transform 0.3s; box-shadow: 0 5px 20px rgba(0,0,0,0.2); }
+        .perk-card:hover { transform: translateY(-8px); border-top: 4px solid var(--accent-teal); box-shadow: 0 15px 30px rgba(0,0,0,0.4); }
         .perk-card i { font-size: 2.5rem; color: var(--accent-teal); margin-bottom: 20px; }
         .perk-card h3 { color: #fff; margin-bottom: 15px; font-size: 1.4rem; }
         .perk-card p { font-size: 1rem; color: var(--text-muted); flex-grow: 1; margin: 0; line-height: 1.6; }
@@ -84,14 +138,15 @@
         .process-step h4 { font-size: 1.3rem; color: #fff; margin-bottom: 15px; position: relative; z-index: 2; }
         .process-step p { color: var(--text-muted); position: relative; z-index: 2; }
 
-        /* CEO QUOTE SECTION */
-        .quote-section { max-width: 1000px; margin: 80px auto; background: var(--secondary-dark); border: 1px solid var(--border-color); border-radius: 20px; padding: 50px; display: flex; align-items: center; gap: 40px; box-shadow: 0 15px 40px rgba(0,0,0,0.2); }
-        .quote-image { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; border: 4px solid var(--accent-teal); flex-shrink: 0; }
-        .quote-text-container { flex: 1; }
-        .quote-icon { font-size: 2.5rem; color: var(--accent-teal); opacity: 0.3; margin-bottom: 15px; }
-        .quote-text { font-size: 1.35rem; font-style: italic; color: #fff; line-height: 1.6; margin-bottom: 20px; }
-        .quote-author { font-size: 1.15rem; color: var(--accent-teal); font-weight: bold; margin-bottom: 5px; }
-        .quote-role { font-size: 0.95rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+        /* QUOTE SECTION */
+        .quote-wrapper { background-color: var(--primary-dark); padding: 100px 10%; border-bottom: 1px solid var(--border-color); }
+        .quote-container { max-width: 1000px; margin: 0 auto; display: flex; align-items: center; gap: 60px; background: var(--secondary-dark); padding: 50px; border-radius: 20px; border: 1px solid var(--border-color); box-shadow: 0 15px 40px rgba(0,0,0,0.3); }
+        .quote-image { width: 220px; height: 220px; border-radius: 50%; object-fit: cover; border: 4px solid var(--accent-teal); flex-shrink: 0; }
+        .quote-content { flex: 1; }
+        .quote-author { font-size: 2.2rem; color: #fff; margin-bottom: 5px; }
+        .quote-role { font-size: 1.1rem; color: var(--accent-teal); text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 25px; font-weight: bold; }
+        .quote-text { font-size: 1.25rem; color: var(--text-light); font-style: italic; line-height: 1.8; position: relative; }
+        .quote-text::before { content: '\f10d'; font-family: 'Font Awesome 5 Free'; font-weight: 900; position: absolute; left: -40px; top: -10px; font-size: 2rem; color: rgba(255,255,255,0.05); z-index: 0; }
 
         /* CONTACTS CSS */
         .section-container { padding: 100px 10%; max-width: 1400px; margin: 0 auto; }
@@ -116,55 +171,41 @@
         .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-        footer { background: var(--primary-dark); color: var(--text-muted); padding: 50px 10%; text-align: center; border-top: 1px solid var(--border-color); }
-        .mobile-menu-btn, .mobile-only { display: none; }
+        footer { background: var(--primary-dark); color: var(--text-muted); padding: 50px 10%; text-align: center; }
+        
+        /* =========================================
+           MOBILE RESPONSIVENESS
+           ========================================= */
         @media(max-width: 850px) { 
-            /* Header & Navigation */
             header { padding: 15px 20px; background: var(--primary-dark); }
             
-            /* Show Mobile Button & Links, Hide Desktop Dropdown */
             .mobile-menu-btn { display: block; background: transparent; border: none; color: var(--white); font-size: 1.8rem; cursor: pointer; }
             .mobile-only { display: block; }
             .desktop-only { display: none !important; }
             
-            /* Flat Mobile Menu Design */
             .nav-links { position: absolute; top: 100%; left: 0; width: 100%; background: var(--primary-dark); flex-direction: column; padding: 30px 20px; gap: 25px; border-top: 1px solid var(--border-color); display: none; box-shadow: 0 15px 30px rgba(0,0,0,0.8); text-align: center; }
             .nav-links.active { display: flex; }
-            .nav-links a { font-size: 1.1rem; display: block; }
+            .nav-links a { font-size: 1.1rem; display: block; color: var(--white); }
 
-            /* Typography & Spacing */
-            .section-container { padding: 60px 5%; }
-            .page-header { padding: 100px 5% 30px; }
-            .section-title { font-size: 2rem; margin-bottom: 30px; }
-            h1 { font-size: 2.2rem !important; }
-            .hero-intro p, .tech-intro-section p, .banner-content p { font-size: 1rem; }
-
-            /* Hero Sections & Logistics */
-            .split-container { flex-direction: column; width: 100%; padding: 0 20px; gap: 15px; }
-            .portal-btn { width: 100%; min-width: 100%; padding: 15px; }
-            .hero-logistics { position: relative; bottom: auto; margin-top: 30px; flex-direction: column; gap: 10px; padding: 15px; border-radius: 15px; }
-            .hero-logistics p { font-size: 0.95rem; }
-
-            /* Slideshow & Banners */
-            .slideshow-container, .static-banner { height: 450px; border-radius: 0; margin-bottom: 40px; }
-            .slide-gradient, .banner-gradient { width: 100%; background: linear-gradient(to top, rgba(13,17,23,0.95) 0%, rgba(13,17,23,0.7) 60%, rgba(13,17,23,0) 100%); justify-content: flex-end; align-items: center; padding: 40px 20px; text-align: center; }
-            .slide-content, .banner-content { margin: 0; text-align: center; }
-            .slide-content h3, .banner-content h3 { font-size: 1.6rem; }
-            .slider-nav { bottom: 10px; }
-            .prev, .next { font-size: 18px; padding: 10px; }
-
-            /* Zig-Zag Services & Quotes */
-            .service-row, .service-row:nth-child(even) { flex-direction: column; padding: 40px 5%; gap: 30px; text-align: center; }
-            .service-text h2 { justify-content: center; font-size: 1.8rem; }
-            .service-text p { text-align: center; font-size: 1rem; }
-            .service-image img { height: 250px; }
+            /* On mobile, stack the expanding gallery vertically */
+            .tech-gallery { flex-direction: column; height: auto; max-height: none; margin-bottom: 40px; }
+            .gallery-panel { height: 200px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+            .gallery-panel:last-child { border-bottom: none; }
             
+            /* Disable flex-grow expansion on mobile to prevent layout jumping */
+            .gallery-panel:hover { flex: 1; }
+            
+            /* Always show title and text on mobile (no hover needed) */
+            .panel-overlay { padding: 20px; justify-content: flex-end; background: linear-gradient(to top, rgba(13,17,23,0.95) 0%, rgba(13,17,23,0.5) 70%, rgba(13,17,23,0) 100%); }
+            .panel-content h3 { white-space: normal; font-size: 1.5rem; margin-bottom: 5px; }
+            .gallery-panel:hover .panel-content h3 { font-size: 1.5rem; }
+            .panel-content p { opacity: 1; max-height: 200px; transform: translateY(0); font-size: 0.95rem; margin-top: 0;}
+
             .quote-container { flex-direction: column; text-align: center; padding: 30px 20px; gap: 20px; }
             .quote-image { width: 120px; height: 120px; }
             .quote-text::before { left: 50%; transform: translateX(-50%); top: -25px; }
             .quote-text { font-size: 1.1rem; }
 
-            /* Contacts & Grids */
             .contact-wrapper { grid-template-columns: 1fr; padding: 30px 20px; }
             .info-item { flex-direction: column; align-items: center; text-align: center; }
             .map-container { height: 200px; }
@@ -173,29 +214,29 @@
 </head>
 <body>
 
-<header id="main-header">
+    <header>
         <div class="logo">
             <a href="index.html"><img src="logo png.png" alt="Radulov & Son Logo"></a>
         </div>
         
         <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
-        
+
         <nav class="nav-links">
             <a href="index.html">Начало</a>
-            <a href="services.html">Услуги</a>
             <a href="index.html#gallery">Галерия</a>
+            <a href="services.html">Услуги</a>
             <a href="#contacts">Контакти</a>
             
             <div class="dropdown desktop-only">
                 <button class="menu-btn"><i class="fas fa-bars"></i></button>
                 <div class="dropdown-content">
                     <a href="dentist.html">За Стоматолози</a>
-                    <a href="technician.html">За Зъботехници</a>
+                    <a href="technician.html" style="color: var(--accent-teal);">За Зъботехници</a>
                 </div>
             </div>
 
             <a href="dentist.html" class="mobile-only">За Стоматолози</a>
-            <a href="technician.html" class="mobile-only">За Зъботехници</a>
+            <a href="technician.html" class="mobile-only" style="color: var(--accent-teal);">За Зъботехници</a>
         </nav>
     </header>
 
@@ -207,68 +248,53 @@
         <p>Като лаборатория с дългогодишен опит и безкомпромисен стремеж към високо качество, ние предлагаме професионално партньорство в изработката на съвременни зъботехнически конструкции. Работим изцяло в дигитална среда, което ни позволява да поемаме сложни процеси, изискващи скъпа апаратура и специфична експертиза. </p>
     </section>
 
-    <section class="slideshow-container fade-in">
+    <section class="tech-gallery fade-in">
         
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-        <div class="slide active">
-            <div class="slide-image" style="background-image: url('https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?q=80&w=1400&auto=format&fit=crop');"></div>
-            <div class="slide-gradient">
-                <div class="slide-content">
+        <div class="gallery-panel" style="background-image: url('https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?q=80&w=800&auto=format&fit=crop');">
+            <div class="panel-overlay">
+                <div class="panel-content">
                     <h3>Лазерно Синтероване (SLM)</h3>
-                    <p>Изработка на прецизни метални конструкции с отлична здравина, хомогенност и биосъвместимост. </p>
+                    <p>Изработка на прецизни метални конструкции с отлична здравина, хомогенност и биосъвместимост.</p>
                 </div>
             </div>
         </div>
-        
-        <div class="slide">
-            <div class="slide-image" style="background-image: url('https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=1400&auto=format&fit=crop');"></div>
-            <div class="slide-gradient">
-                <div class="slide-content">
+
+        <div class="gallery-panel" style="background-image: url('https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=800&auto=format&fit=crop');">
+            <div class="panel-overlay">
+                <div class="panel-content">
                     <h3>Фрезоване на Цирконий</h3>
-                    <p>Висококачествени естетични възстановявания с отлична точност на маргиналния ръб от монолитен и мултилайер цирконий. </p>
+                    <p>Висококачествени естетични възстановявания с отлична точност на маргиналния ръб.</p>
                 </div>
             </div>
         </div>
-        
-        <div class="slide">
-            <div class="slide-image" style="background-image: url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=1400&auto=format&fit=crop');"></div>
-            <div class="slide-gradient">
-                <div class="slide-content">
+
+        <div class="gallery-panel" style="background-image: url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=800&auto=format&fit=crop');">
+            <div class="panel-overlay">
+                <div class="panel-content">
                     <h3>Изрязване на Титан</h3>
-                    <p>Прецизна обработка на висококачествен титан за създаване на сигурни, леки греди и специализирани конструкции. </p>
+                    <p>Прецизна обработка на висококачествен титан за създаване на сигурни и леки греди.</p>
                 </div>
             </div>
         </div>
 
-        <div class="slide">
-            <div class="slide-image" style="background-image: url('https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=1400&auto=format&fit=crop');"></div>
-            <div class="slide-gradient">
-                <div class="slide-content">
+        <div class="gallery-panel" style="background-image: url('https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=800&auto=format&fit=crop');">
+            <div class="panel-overlay">
+                <div class="panel-content">
                     <h3>Пластмаса (PMMA)</h3>
-                    <p>Биосъвместими пластмасови конструкции чрез CAD/CAM фрезоване за временно възстановяване. Гарантират отлична устойчивост и перфектен венечен профил. </p>
+                    <p>Биосъвместими пластмасови конструкции чрез CAD/CAM фрезоване за временно възстановяване.</p>
                 </div>
             </div>
         </div>
 
-        <div class="slide">
-            <div class="slide-image" style="background-image: url('https://images.unsplash.com/photo-1598256989800-fea5ce5146f2?q=80&w=1400&auto=format&fit=crop');"></div>
-            <div class="slide-gradient">
-                <div class="slide-content">
+        <div class="gallery-panel" style="background-image: url('https://images.unsplash.com/photo-1598256989800-fea5ce5146f2?q=80&w=800&auto=format&fit=crop');">
+            <div class="panel-overlay">
+                <div class="panel-content">
                     <h3>Литиево-дисиликатни възстановявания</h3>
-                    <p>Висок клас керамика, съчетаваща изключителна естетика и прецизност. Естествената прозрачност прави възстановяванията неразличими от естествените зъби.</p>
+                    <p>Висок клас керамика, съчетаваща изключителна естетика и прецизност за фасети и инлеи.</p>
                 </div>
             </div>
         </div>
 
-        <div class="slider-nav">
-            <div class="slider-dot active" onclick="currentSlide(0)"></div>
-            <div class="slider-dot" onclick="currentSlide(1)"></div>
-            <div class="slider-dot" onclick="currentSlide(2)"></div>
-            <div class="slider-dot" onclick="currentSlide(3)"></div>
-            <div class="slider-dot" onclick="currentSlide(4)"></div>
-        </div>
     </section>
 
     <section class="perks-grid">
@@ -295,12 +321,12 @@
             <div class="process-step fade-in" style="transition-delay: 0.1s;">
                 <div class="process-number">02</div>
                 <h4>Технически Анализ</h4>
-                <p>Нашият екип проверява файла за маргинална точност, дебелина и структурна цялост преди производство. </p>
+                <p>Нашият екип проверява файла за маргинална точност, дебелина и структурна цялост преди производство.</p>
             </div>
             <div class="process-step fade-in" style="transition-delay: 0.2s;">
                 <div class="process-number">03</div>
                 <h4>CAM Производство</h4>
-                <p>Въвеждане в машинния парк за фрезоване или лазерно синтероване с индустриална прецизност. </p>
+                <p>Въвеждане в машинния парк за фрезоване или лазерно синтероване с индустриална прецизност.</p>
             </div>
             <div class="process-step fade-in" style="transition-delay: 0.3s;">
                 <div class="process-number">04</div>
@@ -310,18 +336,19 @@
         </div>
     </section>
 
-    <section class="quote-section fade-in">
-        <img src="georgi_radulov.jpg" alt="Георги Радулов" class="quote-image"> 
-        <div class="quote-text-container">
-            <i class="fas fa-quote-left quote-icon"></i>
-            <p class="quote-text">"Нашата цел е да бъдем надеждното индустриално звено на вашата лаборатория, на което можете да разчитате за кратки срокове, коректност и микро-прецизност." </p>
-            <div class="quote-author">Георги Радулов</div>
-            <div class="quote-role">Зъботехник</div>
+    <section class="quote-wrapper fade-in">
+        <div class="quote-container">
+            <img src="georgi_radulov.jpg" alt="Георги Радулов" class="quote-image"> 
+            <div class="quote-content">
+                <h3 class="quote-author">Георги Радулов</h3>
+                <span class="quote-role">Зъботехник </span>
+                <p class="quote-text">"Нашата цел е да бъдем надежден партньор, на когото можете да разчитате за качествена и прецизна работа." </p>
+            </div>
         </div>
     </section>
 
     <section id="contacts" class="section-container">
-        <h2 class="section-title fade-in">Станете <span>Партньор</span></h2>
+        <h2 class="section-title fade-in">Свържете се с <span>Нас</span></h2>
         <div class="contact-wrapper fade-in">
             <div class="contact-info">
                 <h3>Информация за контакт</h3>
@@ -342,6 +369,15 @@
     <footer><p>© 2026 Radulov & Son Dental. Всички права запазени.</p></footer>
 
     <script>
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+
         const observerOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
         const observer = new IntersectionObserver(function(entries, observer) {
             entries.forEach(entry => {
@@ -350,50 +386,8 @@
                 observer.unobserve(entry.target);
             });
         }, observerOptions);
+
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-        let slideIndex = 0;
-        let timer;
-        const slides = document.querySelectorAll('.slide');
-        const dots = document.querySelectorAll('.slider-dot');
-
-        function showSlides(n) {
-            slides.forEach(s => s.classList.remove('active'));
-            dots.forEach(d => d.classList.remove('active'));
-            
-            if (n >= slides.length) { slideIndex = 0; }
-            else if (n < 0) { slideIndex = slides.length - 1; }
-            else { slideIndex = n; }
-            
-            slides[slideIndex].classList.add('active');
-            dots[slideIndex].classList.add('active');
-        }
-        
-        function plusSlides(n) {
-            clearInterval(timer);
-            showSlides(slideIndex + n);
-            startTimer();
-        }
-
-        function currentSlide(n) {
-            clearInterval(timer);
-            showSlides(n);
-            startTimer();
-        }
-
-        function startTimer() {
-            timer = setInterval(() => { showSlides(slideIndex + 1); }, 5000); 
-        }
-        
-        startTimer();
-const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const navLinks = document.querySelector('.nav-links');
-
-        if (mobileMenuBtn) {
-            mobileMenuBtn.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-            });
-        }
     </script>
 </body>
 </html>
