@@ -62,25 +62,25 @@
             display: inline-block; flex-shrink: 0;
         }
 
-        /* IMAGE STYLES WITH SOFT EDGE FADE EFFECT */
-        .service-image { flex: 1; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.1); position: relative; }
-        .service-image img { width: 100%; height: 400px; object-fit: cover; display: block; transition: transform 0.5s ease; }
-        .service-image:hover img { transform: scale(1.05); }
-        
-        /* This pseudo-element creates the soft vignette/fade around the inside edges */
-        .service-image::after {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            box-shadow: inset 0 0 35px rgba(255, 255, 255, 0.85); /* Fades into white for odd rows */
-            border-radius: 20px;
-            pointer-events: none;
-            z-index: 2;
+        /* IMAGE STYLES WITH BLURRED EDGES */
+        .service-image { 
+            flex: 1; 
+            border-radius: 12px; /* Slightly reduced border radius for a softer look */
+            position: relative; 
         }
-        /* Adjust the fade color to match the light-grey background on even rows */
-        .service-row:nth-child(even) .service-image::after {
-            box-shadow: inset 0 0 35px rgba(244, 247, 246, 0.95);
+        .service-image img { 
+            width: 100%; 
+            height: 400px; 
+            object-fit: cover; 
+            display: block; 
+            border-radius: 12px; /* Matches container */
+            box-shadow: 0 0 25px 15px var(--white); /* This creates the outer blur effect blending into the background */
+            transition: transform 0.5s ease; 
         }
+        .service-row:nth-child(even) .service-image img {
+             box-shadow: 0 0 25px 15px var(--bg-light); /* Match the background of even rows */
+        }
+        .service-image:hover img { transform: scale(1.03); }
 
         /* CONTACTS CSS */
         .section-container { padding: 100px 10%; max-width: 1400px; margin: 0 auto; }
@@ -217,7 +217,7 @@
             <p>Този материал е категоричният избор при изработката на високо-естетични фасети, инлеи, онлеи и единични корони. Ние гарантираме микро-прецизност и минимално инвазивен подход, без никакъв компромис в дълготрайността и качеството на конструкцията.</p>
         </div>
         <div class="service-image slide-left">
-            <img src="litii1.png" alt="Литиево-дисиликатни възстановявания">
+            <img src="litii1.jpg" alt="Литиево-дисиликатни възстановявания">
         </div>
     </section>
 
