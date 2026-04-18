@@ -176,6 +176,9 @@
         /* =========================================
            MOBILE RESPONSIVENESS
            ========================================= */
+        /* =========================================
+           MOBILE RESPONSIVENESS
+           ========================================= */
         @media(max-width: 850px) { 
             header { padding: 15px 20px; background: var(--primary-dark); }
             
@@ -187,15 +190,12 @@
             .nav-links.active { display: flex; }
             .nav-links a { font-size: 1.1rem; display: block; color: var(--white); }
 
-            /* On mobile, stack the expanding gallery vertically */
-            .tech-gallery { flex-direction: column; height: auto; max-height: none; margin-bottom: 40px; }
-            .gallery-panel { height: 200px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+            /* BULLETPROOF MOBILE FIX FOR THE GALLERY */
+            .tech-gallery { display: block; height: auto; margin-bottom: 40px; }
+            .gallery-panel { display: block; width: 100%; height: 220px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
             .gallery-panel:last-child { border-bottom: none; }
             
-            /* Disable flex-grow expansion on mobile to prevent layout jumping */
-            .gallery-panel:hover { flex: 1; }
-            
-            /* Always show title and text on mobile (no hover needed) */
+            /* Always show title and text on mobile */
             .panel-overlay { padding: 20px; justify-content: flex-end; background: linear-gradient(to top, rgba(13,17,23,0.95) 0%, rgba(13,17,23,0.5) 70%, rgba(13,17,23,0) 100%); }
             .panel-content h3 { white-space: normal; font-size: 1.5rem; margin-bottom: 5px; }
             .gallery-panel:hover .panel-content h3 { font-size: 1.5rem; }
@@ -206,6 +206,7 @@
             .quote-text::before { left: 50%; transform: translateX(-50%); top: -25px; }
             .quote-text { font-size: 1.1rem; }
 
+            .perk-card { min-width: 100%; }
             .contact-wrapper { grid-template-columns: 1fr; padding: 30px 20px; }
             .info-item { flex-direction: column; align-items: center; text-align: center; }
             .map-container { height: 200px; }
