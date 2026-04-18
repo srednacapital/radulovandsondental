@@ -45,16 +45,17 @@
         .dropdown:hover .dropdown-content { display: block; }
 
         /* --- HERO SECTION --- */
-        /* ТУК Е ЗАДАДЕНА ВАШАТА НОВА СНИМКА (front.PNG) */
-        .hero { height: 100vh; display: flex; background: linear-gradient(rgba(26, 32, 38, 0.7), rgba(26, 32, 38, 0.8)), url('front.png') center/cover; color: var(--white); position: relative; align-items: center; justify-content: center; flex-direction: column; text-align: center; padding: 0 60px; }
-        .hero-intro { max-width: 700px; margin-bottom: 40px; transform: translateY(-20px); } 
-        .hero-intro h1 { font-size: 3rem; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 2px; }
-        .hero-intro p { font-size: 1.2rem; font-weight: 300; opacity: 0.9; }
+        .hero { height: 100vh; display: flex; background: linear-gradient(rgba(26, 32, 38, 0.7), rgba(26, 32, 38, 0.8)), url('front.PNG') center/cover; color: var(--white); position: relative; align-items: center; justify-content: center; flex-direction: column; text-align: center; padding: 0 20px; }
+        
+        /* INCREASED SPACING APPLIED HERE */
+        .hero-intro { max-width: 800px; margin-bottom: 70px; transform: translateY(-20px); } 
+        .hero-intro h1 { font-size: 3.5rem; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 2px; }
+        .hero-intro p { font-size: 1.25rem; font-weight: 300; opacity: 0.9; line-height: 1.7; }
 
-        .split-container { display: flex; gap: 30px; z-index: 10; flex-wrap: wrap; justify-content: center; transform: translateY(-20px); }
-        .portal-btn { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.4); padding: 20px 50px; border-radius: 50px; text-align: center; cursor: pointer; transition: all 0.3s ease; min-width: 260px; box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2); display: flex; align-items: center; justify-content: center; gap: 10px; }
-        .portal-btn h2 { font-size: 1.3rem; letter-spacing: 1px; text-transform: uppercase; margin: 0; }
-        .portal-btn i { font-size: 1.5rem; }
+        .split-container { display: flex; gap: 60px; z-index: 10; flex-wrap: wrap; justify-content: center; transform: translateY(-20px); }
+        .portal-btn { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.4); padding: 22px 60px; border-radius: 50px; text-align: center; cursor: pointer; transition: all 0.3s ease; min-width: 280px; box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2); display: flex; align-items: center; justify-content: center; gap: 12px; }
+        .portal-btn h2 { font-size: 1.35rem; letter-spacing: 1px; text-transform: uppercase; margin: 0; }
+        .portal-btn i { font-size: 1.6rem; }
         .portal-btn:hover { transform: translateY(-5px); background: var(--accent-teal); border-color: var(--accent-teal); box-shadow: 0 10px 40px rgba(58, 156, 176, 0.4); }
 
         /* LOGISTICS BANNER */
@@ -103,7 +104,6 @@
             transform: scale(1.15) translateY(-3px); 
         }
         
-        /* The 9th card is communication due to the new addition */
         .service-card:nth-child(9) .svg-icon { transform: scale(1.6); }
         .service-card:hover:nth-child(9) .svg-icon { transform: scale(1.75) translateY(-3px); }
 
@@ -159,11 +159,15 @@
             .section-container { padding: 60px 5%; }
             .page-header { padding: 100px 5% 30px; }
             .section-title { font-size: 2rem; margin-bottom: 30px; }
-            h1 { font-size: 2.2rem !important; }
-            .hero-intro p, .tech-intro-section p, .banner-content p { font-size: 1rem; }
+            
+            /* Mobile adjustments for the Hero spacing */
+            .hero-intro h1 { font-size: 2.2rem !important; margin-bottom: 15px; }
+            .hero-intro p { font-size: 1rem; line-height: 1.5; }
+            .hero-intro { margin-bottom: 30px; }
 
-            .split-container { flex-direction: column; width: 100%; padding: 0 20px; gap: 15px; }
+            .split-container { flex-direction: column; width: 100%; padding: 0 20px; gap: 20px; }
             .portal-btn { width: 100%; min-width: 100%; padding: 15px; }
+            
             .hero-logistics { position: relative; bottom: auto; margin-top: 30px; flex-direction: column; gap: 10px; padding: 15px; border-radius: 15px; }
             .hero-logistics p { font-size: 0.95rem; }
 
@@ -275,7 +279,7 @@
                 </div>
 
                 <div class="service-card fade-in">
-                    <div class="svg-icon" style="-webkit-mask-image: url('keramika_icon.svg'); mask-image: url('keramika_icon.svg');"></div>
+                    <div class="svg-icon" style="-webkit-mask-image: url('litii_icon.svg'); mask-image: url('litii_icon.svg');"></div>
                     <h3>Литиево-дисиликатни възстановявания</h3>
                     <p>Висок клас стъклокерамика, съчетаваща изключителна естетика и здравина. Идеален избор за фасети, инлеи и корони.</p>
                     <a href="services.html#lithium" class="learn-more">Научи повече →</a>
@@ -324,63 +328,26 @@
 
     <section id="contacts" class="section-container">
         <h2 class="section-title fade-in">Свържете се с <span>Нас</span></h2>
-        
         <div class="contact-wrapper fade-in">
             <div class="contact-info">
                 <h3>Информация за контакт</h3>
-                
-                <div class="info-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div>
-                        <h5>Адрес</h5>
-                        <p>ул. Беласица 59, Пловдив, България</p>
-                    </div>
-                </div>
-                
-                <div class="info-item">
-                    <i class="fas fa-phone-alt"></i>
-                    <div>
-                        <h5>Телефон</h5>
-                        <p>+359 88 4180064</p>
-                    </div>
-                </div>
-                
-                <div class="info-item">
-                    <i class="fas fa-envelope"></i>
-                    <div>
-                        <h5>Имейли</h5>
-                        <p><strong>За Стоматолози:</strong><br> modelradulov@gmail.com</p>
-                        <p style="margin-top: 5px;"><strong>За Зъботехници:</strong><br> laser.print12@gmail.com</p>
-                    </div>
-                </div>
-
-                <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2958.423982855219!2d24.743282276532454!3d42.14099514900762!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14acd1a1e3c88691%3A0xc5cd8247f07e594b!2z0YPQuy4g4oCe0JHQtdC70LDRgdC40YbQsOKAneKAnCA1OSwgNDAwMiBQbG92ZGl2!5e0!3m2!1sen!2sbg!4v1700000000000!5m2!1sen!2sbg" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
+                <div class="info-item"><i class="fas fa-map-marker-alt"></i><div><h5>Адрес</h5><p>ул. Беласица 59, Пловдив, България</p></div></div>
+                <div class="info-item"><i class="fas fa-phone-alt"></i><div><h5>Телефон</h5><p>+359 88 4180064</p></div></div>
+                <div class="info-item"><i class="fas fa-envelope"></i><div><h5>Имейли</h5><p><strong>За Стоматолози:</strong><br> modelradulov@gmail.com</p><p style="margin-top: 5px;"><strong>За Зъботехници:</strong><br> laser.print12@gmail.com</p></div></div>
+                <div class="map-container"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2958.423982855219!2d24.743282276532454!3d42.14099514900762!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14acd1a1e3c88691%3A0xc5cd8247f07e594b!2z0YPQuy4g4oCe0JHQtdC70LDRgdC40YbQsOKAneKAnCA1OSwgNDAwMiBQbG92ZGl2!5e0!3m2!1sen!2sbg!4v1700000000000!5m2!1sen!2sbg" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
             </div>
-
             <div class="contact-form">
                 <h3>Изпратете запитване</h3>
-                <div class="form-group">
-                    <input type="text" placeholder="Вашето Име" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" placeholder="Вашият Имейл" required>
-                </div>
-                <div class="form-group">
-                    <input type="text" placeholder="Относно (Стоматология или Зъботехника)">
-                </div>
-                <div class="form-group">
-                    <textarea placeholder="Вашето Съобщение" required></textarea>
-                </div>
+                <div class="form-group"><input type="text" placeholder="Вашето Име" required></div>
+                <div class="form-group"><input type="email" placeholder="Вашият Имейл" required></div>
+                <div class="form-group"><input type="text" placeholder="Относно (Стоматология или Зъботехника)"></div>
+                <div class="form-group"><textarea placeholder="Вашето Съобщение" required></textarea></div>
                 <button type="submit" class="submit-btn">Изпрати</button>
             </div>
         </div>
     </section>
 
-    <footer>
-        <p>© 2026 Radulov & Son Dental. Всички права запазени.</p>
-    </footer>
+    <footer><p>© 2026 Radulov & Son Dental. Всички права запазени.</p></footer>
 
     <script>
         // 1. Mobile Menu Toggle
