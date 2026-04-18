@@ -33,6 +33,9 @@
         .nav-links a { font-weight: 500; transition: color 0.3s; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px;}
         .nav-links a:hover { color: var(--accent-teal); }
 
+        /* Mobile Elements Hidden on Desktop */
+        .mobile-menu-btn, .mobile-only { display: none; }
+
         .dropdown { position: relative; display: inline-block; }
         .menu-btn { background: var(--accent-teal); padding: 10px 15px; border-radius: 5px; color: var(--white); font-size: 1.2rem; border: none; cursor: pointer; transition: background 0.3s; }
         .menu-btn:hover { background: var(--accent-teal-hover); }
@@ -98,8 +101,10 @@
             background-color: var(--accent-teal); 
             transform: scale(1.15) translateY(-3px); 
         }
-        .service-card:nth-child(8) .svg-icon { transform: scale(1.6); }
-        .service-card:hover:nth-child(8) .svg-icon { transform: scale(1.75) translateY(-3px); }
+        
+        /* The 9th card is now communication due to the new addition */
+        .service-card:nth-child(9) .svg-icon { transform: scale(1.6); }
+        .service-card:hover:nth-child(9) .svg-icon { transform: scale(1.75) translateY(-3px); }
 
         /* --- CONTACTS --- */
         .contact-wrapper { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 50px; background: var(--white); padding: 50px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); }
@@ -135,54 +140,32 @@
         @keyframes fadeInUp {
             to { opacity: 1; transform: translateY(0); }
         }
-.mobile-menu-btn, .mobile-only { display: none; }
-@media(max-width: 850px) { 
-            /* Header & Navigation */
+
+        /* =========================================
+           MOBILE RESPONSIVENESS
+           ========================================= */
+        @media(max-width: 850px) { 
             header { padding: 15px 20px; background: var(--primary-dark); }
             
-            /* Show Mobile Button & Links, Hide Desktop Dropdown */
             .mobile-menu-btn { display: block; background: transparent; border: none; color: var(--white); font-size: 1.8rem; cursor: pointer; }
             .mobile-only { display: block; }
             .desktop-only { display: none !important; }
             
-            /* Flat Mobile Menu Design */
             .nav-links { position: absolute; top: 100%; left: 0; width: 100%; background: var(--primary-dark); flex-direction: column; padding: 30px 20px; gap: 25px; border-top: 1px solid var(--border-color); display: none; box-shadow: 0 15px 30px rgba(0,0,0,0.8); text-align: center; }
             .nav-links.active { display: flex; }
-            .nav-links a { font-size: 1.1rem; display: block; }
+            .nav-links a { font-size: 1.1rem; display: block; color: var(--white); }
 
-            /* Typography & Spacing */
             .section-container { padding: 60px 5%; }
             .page-header { padding: 100px 5% 30px; }
             .section-title { font-size: 2rem; margin-bottom: 30px; }
             h1 { font-size: 2.2rem !important; }
             .hero-intro p, .tech-intro-section p, .banner-content p { font-size: 1rem; }
 
-            /* Hero Sections & Logistics */
             .split-container { flex-direction: column; width: 100%; padding: 0 20px; gap: 15px; }
             .portal-btn { width: 100%; min-width: 100%; padding: 15px; }
             .hero-logistics { position: relative; bottom: auto; margin-top: 30px; flex-direction: column; gap: 10px; padding: 15px; border-radius: 15px; }
             .hero-logistics p { font-size: 0.95rem; }
 
-            /* Slideshow & Banners */
-            .slideshow-container, .static-banner { height: 450px; border-radius: 0; margin-bottom: 40px; }
-            .slide-gradient, .banner-gradient { width: 100%; background: linear-gradient(to top, rgba(13,17,23,0.95) 0%, rgba(13,17,23,0.7) 60%, rgba(13,17,23,0) 100%); justify-content: flex-end; align-items: center; padding: 40px 20px; text-align: center; }
-            .slide-content, .banner-content { margin: 0; text-align: center; }
-            .slide-content h3, .banner-content h3 { font-size: 1.6rem; }
-            .slider-nav { bottom: 10px; }
-            .prev, .next { font-size: 18px; padding: 10px; }
-
-            /* Zig-Zag Services & Quotes */
-            .service-row, .service-row:nth-child(even) { flex-direction: column; padding: 40px 5%; gap: 30px; text-align: center; }
-            .service-text h2 { justify-content: center; font-size: 1.8rem; }
-            .service-text p { text-align: center; font-size: 1rem; }
-            .service-image img { height: 250px; }
-            
-            .quote-container { flex-direction: column; text-align: center; padding: 30px 20px; gap: 20px; }
-            .quote-image { width: 120px; height: 120px; }
-            .quote-text::before { left: 50%; transform: translateX(-50%); top: -25px; }
-            .quote-text { font-size: 1.1rem; }
-
-            /* Contacts & Grids */
             .contact-wrapper { grid-template-columns: 1fr; padding: 30px 20px; }
             .info-item { flex-direction: column; align-items: center; text-align: center; }
             .map-container { height: 200px; }
@@ -197,11 +180,11 @@
         </div>
         
         <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
-        
+
         <nav class="nav-links">
             <a href="index.html">Начало</a>
-            <a href="services.html">Услуги</a>
             <a href="index.html#gallery">Галерия</a>
+            <a href="services.html">Услуги</a>
             <a href="#contacts">Контакти</a>
             
             <div class="dropdown desktop-only">
@@ -271,8 +254,8 @@
                 
                 <div class="service-card fade-in">
                     <div class="svg-icon" style="-webkit-mask-image: url('implant_icon.svg'); mask-image: url('implant_icon.svg');"></div>
-                    <h3>Зъбни импланти</h3>
-                    <p>Конструкции върху импланти с изключителна прецизност, осигуряващи стабилност, дълготрайност и отлична естетика чрез дигитално планиране.</p>
+                    <h3>Конструкции върху импланти</h3>
+                    <p>Прецизни решения върху импланти, осигуряващи стабилност, дълготрайност и отлична естетика чрез дигитално планиране.</p>
                     <a href="services.html#implants" class="learn-more">Научи повече →</a>
                 </div>
                 
@@ -288,6 +271,13 @@
                     <h3>Цирконий</h3>
                     <p>Здрави и съвършено естетични циркониеви конструкции с изключителна устойчивост и автентичен естествен вид.</p>
                     <a href="services.html#zirconia" class="learn-more">Научи повече →</a>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="svg-icon" style="-webkit-mask-image: url('litii_icon.svg'); mask-image: url('litii_icon.svg');"></div>
+                    <h3>Литиево-дисиликатни възстановявания</h3>
+                    <p>Висок клас стъклокерамика, съчетаваща изключителна естетика и здравина. Идеален избор за фасети, инлеи и корони.</p>
+                    <a href="services.html#lithium" class="learn-more">Научи повече →</a>
                 </div>
                 
                 <div class="service-card fade-in">
@@ -333,35 +323,76 @@
 
     <section id="contacts" class="section-container">
         <h2 class="section-title fade-in">Свържете се с <span>Нас</span></h2>
+        
         <div class="contact-wrapper fade-in">
             <div class="contact-info">
                 <h3>Информация за контакт</h3>
-                <div class="info-item"><i class="fas fa-map-marker-alt"></i><div><h5>Адрес</h5><p>ул. Беласица 59, Пловдив, България</p></div></div>
-                <div class="info-item"><i class="fas fa-phone-alt"></i><div><h5>Телефон</h5><p>+359 88 4180064</p></div></div>
-                <div class="info-item"><i class="fas fa-envelope"></i><div><h5>Имейли</h5><p><strong>За Стоматолози:</strong><br> modelradulov@gmail.com</p><p style="margin-top: 5px;"><strong>За Зъботехници:</strong><br> laser.print12@gmail.com</p></div></div>
-                <div class="map-container"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2958.423982855219!2d24.743282276532454!3d42.14099514900762!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14acd1a1e3c88691%3A0xc5cd8247f07e594b!2z0YPQuy4g4oCe0JHQtdC70LDRgdC40YbQsOKAneKAnCA1OSwgNDAwMiBQbG92ZGl2!5e0!3m2!1sen!2sbg!4v1700000000000!5m2!1sen!2sbg" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+                
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h5>Адрес</h5>
+                        <p>ул. Беласица 59, Пловдив, България</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <h5>Телефон</h5>
+                        <p>+359 88 4180064</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h5>Имейли</h5>
+                        <p><strong>За Стоматолози:</strong><br> modelradulov@gmail.com</p>
+                        <p style="margin-top: 5px;"><strong>За Зъботехници:</strong><br> laser.print12@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2958.423982855219!2d24.743282276532454!3d42.14099514900762!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14acd1a1e3c88691%3A0xc5cd8247f07e594b!2z0YPQuy4g4oCe0JHQtdC70LDRgdC40YbQsOKAneKAnCA1OSwgNDAwMiBQbG92ZGl2!5e0!3m2!1sen!2sbg!4v1700000000000!5m2!1sen!2sbg" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
             </div>
+
             <div class="contact-form">
                 <h3>Изпратете запитване</h3>
-                <div class="form-group"><input type="text" placeholder="Вашето Име" required></div>
-                <div class="form-group"><input type="email" placeholder="Вашият Имейл" required></div>
-                <div class="form-group"><input type="text" placeholder="Относно (Стоматология или Зъботехника)"></div>
-                <div class="form-group"><textarea placeholder="Вашето Съобщение" required></textarea></div>
+                <div class="form-group">
+                    <input type="text" placeholder="Вашето Име" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Вашият Имейл" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="Относно (Стоматология или Зъботехника)">
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Вашето Съобщение" required></textarea>
+                </div>
                 <button type="submit" class="submit-btn">Изпрати</button>
             </div>
         </div>
     </section>
 
-    <footer><p>© 2026 Radulov & Son Dental. Всички права запазени.</p></footer>
+    <footer>
+        <p>© 2026 Radulov & Son Dental. Всички права запазени.</p>
+    </footer>
 
     <script>
-        const header = document.getElementById('main-header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) { header.classList.add('scrolled'); } 
-            else { header.classList.remove('scrolled'); }
-        });
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
 
-        // Intersection Observer only applies to elements with .fade-in (not hero-animate)
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+
+        // Scroll animations
         const fadeElements = document.querySelectorAll('.fade-in');
         const appearOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
         const appearOnScroll = new IntersectionObserver(function(entries, observer) {
@@ -373,14 +404,6 @@
         }, appearOptions);
 
         fadeElements.forEach(element => appearOnScroll.observe(element));
-const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const navLinks = document.querySelector('.nav-links');
-
-        if (mobileMenuBtn) {
-            mobileMenuBtn.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-            });
-        }
     </script>
 </body>
 </html>
