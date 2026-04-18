@@ -381,8 +381,8 @@
         <p>© 2026 Radulov & Son Dental. Всички права запазени.</p>
     </footer>
 
-    <script>
-        // Mobile Menu Toggle
+<script>
+        // 1. Mobile Menu Toggle
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const navLinks = document.querySelector('.nav-links');
 
@@ -392,7 +392,17 @@
             });
         }
 
-        // Scroll animations
+        // 2. Header Scroll Effect (Restored!)
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) { 
+                header.classList.add('scrolled'); 
+            } else { 
+                header.classList.remove('scrolled'); 
+            }
+        });
+
+        // 3. Scroll Animations (Fade-in)
         const fadeElements = document.querySelectorAll('.fade-in');
         const appearOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
         const appearOnScroll = new IntersectionObserver(function(entries, observer) {
