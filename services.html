@@ -29,6 +29,10 @@
         .nav-links { display: flex; gap: 30px; align-items: center; }
         .nav-links a { font-weight: 500; transition: color 0.3s; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px;}
         .nav-links a:hover { color: var(--accent-teal); }
+        
+        /* Mobile Elements Hidden on Desktop */
+        .mobile-menu-btn, .mobile-only { display: none; }
+        
         .dropdown { position: relative; display: inline-block; }
         .menu-btn { background: var(--accent-teal); padding: 10px 15px; border-radius: 5px; color: var(--white); font-size: 1.2rem; border: none; cursor: pointer; }
         .dropdown-content { display: none; position: absolute; right: 0; top: 100%; background-color: var(--white); min-width: 200px; box-shadow: 0px 8px 16px rgba(0,0,0,0.15); border-radius: 5px; overflow: hidden; }
@@ -58,10 +62,25 @@
             display: inline-block; flex-shrink: 0;
         }
 
-        /* IMAGE STYLES */
+        /* IMAGE STYLES WITH SOFT EDGE FADE EFFECT */
         .service-image { flex: 1; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.1); position: relative; }
         .service-image img { width: 100%; height: 400px; object-fit: cover; display: block; transition: transform 0.5s ease; }
         .service-image:hover img { transform: scale(1.05); }
+        
+        /* This pseudo-element creates the soft vignette/fade around the inside edges */
+        .service-image::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            box-shadow: inset 0 0 35px rgba(255, 255, 255, 0.85); /* Fades into white for odd rows */
+            border-radius: 20px;
+            pointer-events: none;
+            z-index: 2;
+        }
+        /* Adjust the fade color to match the light-grey background on even rows */
+        .service-row:nth-child(even) .service-image::after {
+            box-shadow: inset 0 0 35px rgba(244, 247, 246, 0.95);
+        }
 
         /* CONTACTS CSS */
         .section-container { padding: 100px 10%; max-width: 1400px; margin: 0 auto; }
@@ -91,54 +110,25 @@
 
         footer { background: var(--primary-dark); color: var(--white); padding: 40px 10%; text-align: center; }
 
-        .mobile-menu-btn, .mobile-only { display: none; }
+        /* =========================================
+           MOBILE RESPONSIVENESS
+           ========================================= */
         @media(max-width: 850px) { 
-            /* Header & Navigation */
             header { padding: 15px 20px; background: var(--primary-dark); }
             
-            /* Show Mobile Button & Links, Hide Desktop Dropdown */
             .mobile-menu-btn { display: block; background: transparent; border: none; color: var(--white); font-size: 1.8rem; cursor: pointer; }
             .mobile-only { display: block; }
             .desktop-only { display: none !important; }
             
-            /* Flat Mobile Menu Design */
             .nav-links { position: absolute; top: 100%; left: 0; width: 100%; background: var(--primary-dark); flex-direction: column; padding: 30px 20px; gap: 25px; border-top: 1px solid var(--border-color); display: none; box-shadow: 0 15px 30px rgba(0,0,0,0.8); text-align: center; }
             .nav-links.active { display: flex; }
-            .nav-links a { font-size: 1.1rem; display: block; }
+            .nav-links a { font-size: 1.1rem; display: block; color: var(--white); }
 
-            /* Typography & Spacing */
-            .section-container { padding: 60px 5%; }
-            .page-header { padding: 100px 5% 30px; }
-            .section-title { font-size: 2rem; margin-bottom: 30px; }
-            h1 { font-size: 2.2rem !important; }
-            .hero-intro p, .tech-intro-section p, .banner-content p { font-size: 1rem; }
-
-            /* Hero Sections & Logistics */
-            .split-container { flex-direction: column; width: 100%; padding: 0 20px; gap: 15px; }
-            .portal-btn { width: 100%; min-width: 100%; padding: 15px; }
-            .hero-logistics { position: relative; bottom: auto; margin-top: 30px; flex-direction: column; gap: 10px; padding: 15px; border-radius: 15px; }
-            .hero-logistics p { font-size: 0.95rem; }
-
-            /* Slideshow & Banners */
-            .slideshow-container, .static-banner { height: 450px; border-radius: 0; margin-bottom: 40px; }
-            .slide-gradient, .banner-gradient { width: 100%; background: linear-gradient(to top, rgba(13,17,23,0.95) 0%, rgba(13,17,23,0.7) 60%, rgba(13,17,23,0) 100%); justify-content: flex-end; align-items: center; padding: 40px 20px; text-align: center; }
-            .slide-content, .banner-content { margin: 0; text-align: center; }
-            .slide-content h3, .banner-content h3 { font-size: 1.6rem; }
-            .slider-nav { bottom: 10px; }
-            .prev, .next { font-size: 18px; padding: 10px; }
-
-            /* Zig-Zag Services & Quotes */
             .service-row, .service-row:nth-child(even) { flex-direction: column; padding: 40px 5%; gap: 30px; text-align: center; }
-            .service-text h2 { justify-content: center; font-size: 1.8rem; }
+            .service-text h2 { justify-content: center; font-size: 1.8rem; flex-direction: column; gap: 10px; }
             .service-text p { text-align: center; font-size: 1rem; }
             .service-image img { height: 250px; }
             
-            .quote-container { flex-direction: column; text-align: center; padding: 30px 20px; gap: 20px; }
-            .quote-image { width: 120px; height: 120px; }
-            .quote-text::before { left: 50%; transform: translateX(-50%); top: -25px; }
-            .quote-text { font-size: 1.1rem; }
-
-            /* Contacts & Grids */
             .contact-wrapper { grid-template-columns: 1fr; padding: 30px 20px; }
             .info-item { flex-direction: column; align-items: center; text-align: center; }
             .map-container { height: 200px; }
@@ -147,17 +137,17 @@
 </head>
 <body>
 
-<header id="main-header">
+    <header>
         <div class="logo">
             <a href="index.html"><img src="logo png.png" alt="Radulov & Son Logo"></a>
         </div>
         
         <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
-        
+
         <nav class="nav-links">
             <a href="index.html">Начало</a>
-            <a href="services.html">Услуги</a>
             <a href="index.html#gallery">Галерия</a>
+            <a href="services.html" style="color: var(--accent-teal);">Услуги</a>
             <a href="#contacts">Контакти</a>
             
             <div class="dropdown desktop-only">
@@ -182,12 +172,12 @@
         <div class="service-text slide-left">
             <h2>
                 <div class="heading-icon" style="-webkit-mask-image: url('implant_icon.svg'); mask-image: url('implant_icon.svg');"></div>
-                Зъбни импланти
+                Конструкции върху импланти
             </h2>
             <p>В денталната имплантология безкомпромисната прецизност е ключът към дълготрайния успех. Нашата лаборатория е специализирана в изработването на конструкции върху импланти, които осигуряват перфектна стабилност и функционалност. Благодарение на строгите дигитални протоколи за пасивно прилягане, ние минимизираме стреса върху импланта и гарантираме безпроблемна остеоинтеграция, съчетана с безупречна естетика за пациента. </p>
         </div>
         <div class="service-image slide-right">
-            <img src="implanti.png" alt="Зъбни импланти" style="object-position: center 75%; transform: scale(1.15);">
+            <img src="implanti.png" alt="Конструкции върху импланти" style="object-position: center 75%; transform: scale(1.15);">
         </div>
     </section>
 
@@ -200,7 +190,7 @@
             <p>Възстановителната стоматология е нашата истинска страст, чрез която възвръщаме естествената красота на усмивката. Създаваме металокерамични конструкции, които съчетават надеждната здравина на металната основа с финото изкуство на керамичното покритие. Чрез високотехнологично индивидуално наслояване постигаме перфектна транслуценция и опалесценция, правейки всяка корона напълно неразличима от естествените зъби.</p>
         </div>
         <div class="service-image slide-left">
-            <img src="keramika.png" alt="Зъбна Керамика">
+            <img src="keramika2.png" alt="Зъбна Керамика">
         </div>
     </section>
 
@@ -213,7 +203,7 @@
             <p>Циркониевите възстановявания са еталон за съвременна естетика и забележителна механична устойчивост. Ние работим ексклузивно с мултилайер бланки от най-висок клас, които позволяват фрезоването на изцяло монолитни конструкции без риск от отчупване. Резултатът е дълготрайно решение с автентична прозрачност и фина глазура, което удовлетворява и най-високите клинични изисквания. </p>
         </div>
         <div class="service-image slide-right">
-            <img src="cirkonii.png" alt="Цирконий">
+            <img src="cirkonii2.png" alt="Цирконий">
         </div>
     </section>
 
@@ -227,7 +217,7 @@
             <p>Този материал е категоричният избор при изработката на високо-естетични фасети, инлеи, онлеи и единични корони. Ние гарантираме микро-прецизност и минимално инвазивен подход, без никакъв компромис в дълготрайността и качеството на конструкцията.</p>
         </div>
         <div class="service-image slide-left">
-            <img src="https://images.unsplash.com/photo-1606265752439-1ebeb127b633?q=80&w=1000&auto=format&fit=crop" alt="Литиево-дисиликатни възстановявания">
+            <img src="litii1.png" alt="Литиево-дисиликатни възстановявания">
         </div>
     </section>
 
@@ -240,7 +230,7 @@
             <p>Временните възстановявания играят критична роля за оформянето на меките тъкани и комфорта на пациента по време на лечебния процес. Изработваме биосъвместими пластмасови (PMMA) конструкции чрез CAD/CAM фрезоване, които прецизно предпазват препарираните зъби. Те гарантират отлична устойчивост на натоварване и създават идеалния профил за бъдещата постоянна конструкция.</p>
         </div>
         <div class="service-image slide-right">
-            <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=1000&auto=format&fit=crop" alt="Пластмаса">
+            <img src="plastmasa2.png" alt="Пластмаса">
         </div>
     </section>
 
@@ -266,7 +256,7 @@
             <p>Създаваме класически и термопластични протези, съобразявайки се с най-фините анатомични детайли на пациента. Съвременните гъвкави решения са изключително леки и практически невидими, елиминирайки нуждата от метални куки. Всяка конструкция е проектирана така, че да осигури максимална стабилност, лесна адаптация и естествена визия. </p>
         </div>
         <div class="service-image slide-right">
-            <img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?q=80&w=1000&auto=format&fit=crop" alt="Зъбни протези">
+            <img src="protezi2.png" alt="Зъбни протези">
         </div>
     </section>
 
@@ -292,7 +282,7 @@
             <p>Дигиталният работен процес трансформира начина, по който си партнираме с денталните клиники. Ако разполагате с интраорален скенер, можете директно да ни изпращате вашите случаи. Ние сме интегрирани с водещите платформи, което ни позволява да елиминираме деформациите от традиционните отпечатъци и да завършваме възстановяванията значително по-бързо и точно.</p>
         </div>
         <div class="service-image slide-right">
-            <img src="komunikaciq.png" alt="Дигитална Комуникация">
+            <img src="komunikaciq2.png" alt="Дигитална Комуникация">
         </div>
     </section>
 
@@ -322,6 +312,17 @@
     <footer><p>© 2026 Radulov & Son Dental. Всички права запазени.</p></footer>
 
     <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+
+        // Scroll animations
         const observerOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" };
         const observer = new IntersectionObserver(function(entries, observer) {
             entries.forEach(entry => {
@@ -334,14 +335,6 @@
         document.querySelectorAll('.slide-left, .slide-right, .fade-in').forEach(el => {
             observer.observe(el);
         });
-const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const navLinks = document.querySelector('.nav-links');
-
-        if (mobileMenuBtn) {
-            mobileMenuBtn.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-            });
-        }
     </script>
 </body>
 </html>
