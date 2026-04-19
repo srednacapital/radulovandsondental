@@ -228,13 +228,23 @@
                 <div class="info-item"><i class="fas fa-phone-alt"></i><div><h5>Телефон</h5><p>+359 88 4180064</p></div></div>
                 <div class="info-item"><i class="fas fa-envelope"></i><div><h5>Имейли</h5><p><strong>За Стоматолози:</strong><br> modelradulov@gmail.com</p><p style="margin-top: 5px;"><strong>За Зъботехници:</strong><br> laser.print12@gmail.com</p></div></div>
             </div>
-            <div class="contact-form">
+            <form class="contact-form" action="https://formspree.io/f/xgoryjnb" method="POST">
                 <h3>Изпратете запитване</h3>
-                <div class="form-group"><input type="text" placeholder="Вашето Име / Клиника" required></div>
-                <div class="form-group"><input type="email" placeholder="Вашият Имейл" required></div>
-                <div class="form-group"><textarea placeholder="Вашето Съобщение" required></textarea></div>
+                
+                <div class="form-group">
+                    <input type="text" name="Име" placeholder="Вашето Име / Клиника" required>
+                </div>
+                
+                <div class="form-group">
+                    <input type="email" name="Имейл" placeholder="Вашият Имейл" required>
+                </div>
+                
+                <div class="form-group">
+                    <textarea name="Съобщение" placeholder="Вашето Съобщение" required></textarea>
+                </div>
+                
                 <button type="submit" class="submit-btn">Изпрати</button>
-            </div>
+            </form>
         </div>
     </section>
 
