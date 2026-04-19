@@ -296,14 +296,23 @@
                     <div class="info-item"><i class="fas fa-envelope"></i><div><h5>Имейли</h5><p><strong>За Стоматолози:</strong><br> modelradulov@gmail.com</p><p style="margin-top: 5px;"><strong>За Зъботехници:</strong><br> laser.print12@gmail.com</p></div></div>
                     <div class="map-container"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2958.423982855219!2d24.743282276532454!3d42.14099514900762!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14acd1a1e3c88691%3A0xc5cd8247f07e594b!2z0YPQuy4g4oCe0JHQtdC70LDRgdC40YbQsOKAneKAnCA1OSwgNDAwMiBQbG92ZGl2!5e0!3m2!1sen!2sbg!4v1700000000000!5m2!1sen!2sbg" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
                 </div>
-                <div class="contact-form">
-                    <h3>Изпратете запитване</h3>
-                    <div class="form-group"><input type="text" placeholder="Вашето Име" required></div>
-                    <div class="form-group"><input type="email" placeholder="Вашият Имейл" required></div>
-                    <div class="form-group"><input type="text" placeholder="Относно (Стоматология или Зъботехника)"></div>
-                    <div class="form-group"><textarea placeholder="Вашето Съобщение" required></textarea></div>
-                    <button type="submit" class="submit-btn">Изпрати</button>
+               <form class="contact-form" action="https://formspree.io/f/xgoryjnb" method="POST">
+                <h3>Изпратете запитване</h3>
+                
+                <div class="form-group">
+                    <input type="text" name="Име" placeholder="Вашето Име / Клиника" required>
                 </div>
+                
+                <div class="form-group">
+                    <input type="email" name="Имейл" placeholder="Вашият Имейл" required>
+                </div>
+                
+                <div class="form-group">
+                    <textarea name="Съобщение" placeholder="Вашето Съобщение" required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Изпрати</button>
+            </form>
             </div>
         </div>
     </section>
